@@ -12,3 +12,4 @@ Team Members:
 [TODO] ADD YOUR NAME
 * Michael Hayashi
 * Asha Johnson
+* Jack Michaels
