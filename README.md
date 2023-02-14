@@ -9,7 +9,8 @@ Below are links to various deliverables which we created throughout the course o
 - [Rapid Prototyping Synopsis](https://github.com/StanfordCS194/win2023-team25/wiki/Rapid-Prototyping-Synopsis)
 
 Team Members:
-[TODO] ADD YOUR NAME
+[TODO] ADD YOUR NAME BELOW
 * Michael Hayashi
 * Asha Johnson
 * Jack Michaels
+* Daphne Skiff
