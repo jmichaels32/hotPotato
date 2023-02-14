@@ -12,4 +12,5 @@ Team Members:
 [TODO] ADD YOUR NAME BELOW
 * Michael Hayashi
 * Asha Johnson
+* Jack Michaels
 * Daphne Skiff
