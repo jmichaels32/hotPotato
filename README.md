@@ -8,7 +8,7 @@ Below are links to various deliverables which we created throughout the course o
 - [Measuring for Success (OKRs & KPIs)](https://github.com/StanfordCS194/win2023-team25/wiki/Objectives)
 - [Rapid Prototyping Synopsis](https://github.com/StanfordCS194/win2023-team25/wiki/Rapid-Prototyping-Synopsis)
  - [Figma Prototype](https://github.com/StanfordCS194/win2023-team25/wiki/Figma-Prototype)
-- [Test Plan / User Flow](https://github.com/StanfordCS194/win2023-team25/wiki/Test-Plan---User-Flow)
+- [Test Plan / User Flow](https://github.com/StanfordCS194/win2023-team25/wiki/Test-Plan)
 
 Team Members:
 * Michael Hayashi
