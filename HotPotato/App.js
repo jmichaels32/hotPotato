@@ -16,10 +16,10 @@ class App extends Component {
       <View style={styles.container}>
         <Pages currentPage={this.state.currentPage}/>
         <View style={styles.navbar}>
-          <Button onPress={() => this.setState({currentPage : Const.WORKOUTPAGE})} title="Workout"/>
-          <Button onPress={() => this.setState({currentPage : Const.FORTRESSPAGE})} title="Fortress"/>
-          <Button onPress={() => this.setState({currentPage : Const.BATTLEPAGE})} title="Battle"/>
-          <Button onPress={() => this.setState({currentPage : Const.PROFILEPAGE})} title="Profile"/>
+          <Button onPress={() => this.setState({currentPage : Const.WORKOUTPAGE})} title="Workout" color="#D6AE60"/>
+          <Button onPress={() => this.setState({currentPage : Const.FORTRESSPAGE})} title="Fortress" color="#D6AE60"/>
+          <Button onPress={() => this.setState({currentPage : Const.BATTLEPAGE})} title="Battle" color="#D6AE60"/>
+          <Button onPress={() => this.setState({currentPage : Const.PROFILEPAGE})} title="Profile" color="#D6AE60"/>
         </View>
         <StatusBar style="auto" />
       </View>
@@ -35,16 +35,18 @@ const styles = StyleSheet.create({
   }, 
   navbar: {
     display: 'flex',
-    backgroundColor: 'blue',
+    backgroundColor: '#FDDC9B',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
     position: 'absolute',
-    left: 0,
-    bottom: 0,
-    height: 80,
-    width: '100%',
+    left: '2%',
+    bottom: -20,
+    height: 100,
+    width: '96%',
     marginBottom: 20,
+    paddingBottom: 25,
+    borderRadius: 5,
   }
 });
 
