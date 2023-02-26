@@ -5,23 +5,18 @@ import { Text, View } from 'react-native';
 import * as Const from './constants.js';
 import * as Styles from './styles.js';
 import RecommenderPage from './pageFiles/recommenderPage.js';
+import FortressPage from './pageFiles/fortressPage.js';
+import BattlePage from './pageFiles/battlePage.js';
+import ProfilePage from './pageFiles/profilePage.js';
 import WorkoutPage from './pageFiles/workoutPage.js';
-
-const Page = (props) => {
-    return (
-        <View style={Styles.pageStyles.container}>
-            <Text> This is a {props.name} page. </Text>
-        </View>
-    );
-};
 
 const Pages = (props) => {
     return (
         <View>
             {props.currentPage == Const.WORKOUTPAGE && <WorkoutPage />}
-            {props.currentPage == Const.FORTRESSPAGE && <Page name="fortress" />}
-            {props.currentPage == Const.BATTLEPAGE && <Page name="battle" />}
-            {props.currentPage == Const.PROFILEPAGE && <Page name="profile" />}
+            {props.currentPage == Const.FORTRESSPAGE && <FortressPage />}
+            {props.currentPage == Const.BATTLEPAGE && <BattlePage />}
+            {props.currentPage == Const.PROFILEPAGE && <ProfilePage />}
             {props.currentPage == Const.RECOMMENDERPAGE && <RecommenderPage />}
         </View>
     );
