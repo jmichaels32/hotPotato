@@ -14,7 +14,7 @@ const TopBar = (props) => {
         <Image style={{width: 30, height: 30, marginBottom: 5, marginLeft: 13}} source={Const.backButtonPath}/>
       </TouchableOpacity>
       <Image style={{width: '29%', height: '35.1%'}} source={Const.logoPath} />
-      <TouchableOpacity onPress={() => props.workoutForm(Const.RECOMMENDERPAGE)}>
+      <TouchableOpacity onPress={() => props.onPress(Const.RECOMMENDERPAGE)}>
         <Image style={{width: 40, height: 40}} source={Const.activityPlusPath}/>
       </TouchableOpacity>
     </View>
@@ -38,7 +38,7 @@ class App extends Component {
   render() {
     return (
       <View style={Styles.appStyles.container}>
-        <TopBar workoutForm={this.updatePage}/>
+        <TopBar onPress={this.updatePage}/>
         <Pages currentPage={this.state.currentPage}/>
         <View style={Styles.appStyles.navbar}>
           <TouchableOpacity onPress={() => this.updatePage(Const.WORKOUTPAGE)}>
