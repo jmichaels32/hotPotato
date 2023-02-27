@@ -1,6 +1,10 @@
-import { Component } from 'react';
+import React, { useState, useEffect, useReducer } from "react";
 import { StatusBar } from 'expo-status-bar';
 import { TouchableOpacity, Image, Text, View } from 'react-native';
+import {
+  useFonts,
+  Nunito_800ExtraBold,
+} from "@expo-google-fonts/nunito";
 
 // Local file import
 import Pages from './pages.js';
@@ -21,43 +25,41 @@ const TopBar = (props) => {
   )
 };
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.updatePage = this.updatePage.bind(this);
+export default function App() {
+
+  let [fontsLoaded] = useFonts({
+    Nunito_800ExtraBold,
+  });
+
+  const [currentPage, setPage] = useState(Const.WORKOUTPAGE);
+
+  const updatePage = (page) => {
+    setPage(page);
   }
 
-  state = {
-    currentPage : Const.WORKOUTPAGE,
+  if (!fontsLoaded) {
+    return <View />;
   }
 
-  updatePage(page) {
-    this.setState({currentPage : page})
-  }
-
-  render() {
-    return (
-      <View style={Styles.appStyles.container}>
-        <TopBar workoutForm={this.updatePage}/>
-        <Pages currentPage={this.state.currentPage}/>
-        <View style={Styles.appStyles.navbar}>
-          <TouchableOpacity onPress={() => this.updatePage(Const.WORKOUTPAGE)}>
-            <Image style={Styles.appStyles.icons} source={this.state.currentPage == Const.WORKOUTPAGE ? Const.selectedWorkoutIconPath : Const.workoutIconPath}/>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.updatePage(Const.FORTRESSPAGE)}>
-            <Image style={Styles.appStyles.icons} source={this.state.currentPage == Const.FORTRESSPAGE ? Const.selectedFortressIconPath : Const.fortressIconPath}/>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.updatePage(Const.BATTLEPAGE)}>
-            <Image style={Styles.appStyles.icons} source={this.state.currentPage == Const.BATTLEPAGE ? Const.selectedBattleIconPath : Const.battleIconPath}/>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.updatePage(Const.PROFILEPAGE)}>
-            <Image style={Styles.appStyles.icons} source={this.state.currentPage == Const.PROFILEPAGE ? Const.selectedProfileIconPath : Const.profileIconPath}/>
-          </TouchableOpacity>
-        </View> 
-        <StatusBar style="auto" />
-      </View>
-    );
-  }
+  return (
+    <View style={Styles.appStyles.container}>
+      <TopBar workoutForm={updatePage}/>
+      <Pages currentPage={currentPage}/>
+      <View style={Styles.appStyles.navbar}>
+        <TouchableOpacity onPress={() => updatePage(Const.WORKOUTPAGE)}>
+          <Image style={Styles.appStyles.icons} source={currentPage == Const.WORKOUTPAGE ? Const.selectedWorkoutIconPath : Const.workoutIconPath}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => updatePage(Const.FORTRESSPAGE)}>
+          <Image style={Styles.appStyles.icons} source={currentPage == Const.FORTRESSPAGE ? Const.selectedFortressIconPath : Const.fortressIconPath}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => updatePage(Const.BATTLEPAGE)}>
+          <Image style={Styles.appStyles.icons} source={currentPage == Const.BATTLEPAGE ? Const.selectedBattleIconPath : Const.battleIconPath}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => updatePage(Const.PROFILEPAGE)}>
+          <Image style={Styles.appStyles.icons} source={currentPage == Const.PROFILEPAGE ? Const.selectedProfileIconPath : Const.profileIconPath}/>
+        </TouchableOpacity>
+      </View> 
+      <StatusBar style="auto" />
+    </View>
+  );
 }
-
-export default App;
