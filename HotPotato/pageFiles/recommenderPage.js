@@ -35,6 +35,7 @@ const RecommenderPage = () => {
 					dropdownTextStyles={[Styles.font.titleFont, {fontSize: 35}]}
 					data={data}
 					searchPlaceholder={'Search'}
+					placeholder={'Select Activity'}
 					setSelected={() => {}}
 					onSelect={() => {}}
 				/>
