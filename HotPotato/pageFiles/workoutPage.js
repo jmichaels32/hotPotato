@@ -7,13 +7,13 @@ const WorkoutPage = () => {
     return (
         <View style={Styles.pageStyles.container}>
             <View style={Styles.pageStyles.contentBox}>
-                <Text> Example content box 1 </Text>
+                <Text style={Styles.textStyles.header}>Header </Text>
             </View>
             <View style={Styles.pageStyles.contentBox}>
-                <Text> Example content box 2 </Text>
+                <Text style={Styles.textStyles.subHeader}>Sub Header</Text>
             </View>
             <View style={Styles.pageStyles.contentBox}>
-                <Text> Example content box 3 </Text>
+                <Text>Normal Text</Text>
             </View>
         </View>
     )
