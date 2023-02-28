@@ -29,7 +29,7 @@ const TopBar = (props) => {
         <BackButton width={40} height={40} />
       </TouchableOpacity>
       <LogoDark height={40} />
-      <TouchableOpacity onPress={() => props.workoutForm(Const.RECOMMENDERPAGE)}>
+      <TouchableOpacity onPress={() => props.onPress(Const.RECOMMENDERPAGE)}>
         {props.currentPage == Const.WORKOUTPAGE ? <ActivityPlus width={50} height={50}/> : <View style="width: 50, height: 50" />}
       </TouchableOpacity>
     </View>
@@ -80,7 +80,7 @@ class App extends Component {
     }
     return (
       <View style={Styles.appStyles.container}>
-        <TopBar currentPage={this.state.currentPage} workoutForm={this.updatePage}/>
+        <TopBar currentPage={this.state.currentPage} onPress={this.updatePage}/>
         <Pages currentPage={this.state.currentPage}/>
         <View style={Styles.appStyles.navbar}>
           <TouchableOpacity onPress={() => this.updatePage(Const.WORKOUTPAGE)}>
