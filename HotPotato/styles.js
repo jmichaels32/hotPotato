@@ -27,7 +27,18 @@ export const pageStyles = StyleSheet.create({
 
     // To make the content boxes more like the figma
     borderColor: '#D6AE60',
-  }
+  },
+  linearGradient: {
+    borderWidth: 3,
+    borderRadius: 10,
+    marginBottom: 7,
+    height: '20%',
+    width: '95%',
+    padding: 10,
+
+    // To make the content boxes more like the figma
+    borderColor: '#D6AE60',
+  },
 });
 
 export const appStyles = StyleSheet.create({

@@ -26,12 +26,14 @@ const TopBar = (props) => {
   return (
     <View style={Styles.appStyles.topbar}>
       <TouchableOpacity>
-        <BackButton width={40} height={40} />
+        <BackButton width={50} height={30} />
       </TouchableOpacity>
-      <LogoDark height={40} />
-      <TouchableOpacity onPress={() => props.workoutForm(Const.RECOMMENDERPAGE)}>
-        {props.currentPage == Const.WORKOUTPAGE ? <ActivityPlus width={50} height={50}/> : <View style="width: 50, height: 50" />}
-      </TouchableOpacity>
+      <LogoLight height={40} />
+      <View>
+        <TouchableOpacity onPress={() => props.updatePage(Const.RECOMMENDERPAGE)}>
+          {props.currentPage == Const.WORKOUTPAGE && <ActivityPlus width={50} height={50}/>}
+        </TouchableOpacity>
+      </View>
     </View>
   )
 };
@@ -39,7 +41,6 @@ const TopBar = (props) => {
 const customTextProps = {
   style: {
     fontFamily: 'Nunito-Reg'
-    
   }
 };
 
@@ -80,7 +81,7 @@ class App extends Component {
     }
     return (
       <View style={Styles.appStyles.container}>
-        <TopBar currentPage={this.state.currentPage} workoutForm={this.updatePage}/>
+        <TopBar currentPage={this.state.currentPage} updatePage={this.updatePage}/>
         <Pages currentPage={this.state.currentPage}/>
         <View style={Styles.appStyles.navbar}>
           <TouchableOpacity onPress={() => this.updatePage(Const.WORKOUTPAGE)}>

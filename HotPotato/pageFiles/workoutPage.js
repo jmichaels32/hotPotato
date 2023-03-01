@@ -1,4 +1,5 @@
 import { Text, View } from 'react-native';
+import { LinearGradient }  from 'expo-linear-gradient';
 
 // Local file import
 import * as Styles from '../styles.js';
@@ -6,9 +7,15 @@ import * as Styles from '../styles.js';
 const WorkoutPage = () => {
     return (
         <View style={Styles.pageStyles.container}>
-            <View style={Styles.pageStyles.contentBox}>
+            
+            <LinearGradient colors={['#FFD77D', '#FFF2D9']} style={Styles.pageStyles.linearGradient} 
+            start={{ x: 0.7, y: 0 }} end={{x: 0.65, y: 0.3}}>
                 <Text style={Styles.textStyles.header}>Header </Text>
-            </View>
+            </LinearGradient>
+            
+                
+            
+            
             <View style={Styles.pageStyles.contentBox}>
                 <Text style={Styles.textStyles.subHeader}>Sub Header</Text>
             </View>
