@@ -6,6 +6,7 @@ import { SelectList } from 'react-native-dropdown-select-list';
 // Local file import
 import * as Const from '../constants.js';
 import * as Styles from '../styles.js';
+import ActivityPlus from '.././images/topbar/activityPlus.svg';
 
 const RecommenderPage = () => {
 	const data = [
@@ -22,8 +23,8 @@ const RecommenderPage = () => {
 	return (
 		<View style={Styles.pageStyles.container}>
 			<View style={Styles.recommenderStyles.title}>
-				<Image style={{width: 40, height: 40}} source={Const.activityPlusPath}/>
-				<Text style={[Styles.font.titleFont, {fontSize: 25}]}> Generate new workout </Text>
+				<ActivityPlus width={50} height={50}/>
+				<Text style={[Styles.fonts.header, {fontSize:25}]}> Generate new workout </Text>
 			</View>
 			<View style={Styles.recommenderStyles.formSection}>
 				<SelectList 
@@ -31,8 +32,8 @@ const RecommenderPage = () => {
 					dropdownStyles={Styles.recommenderStyles.dropdown}
 					dropdownItemStyles={Styles.recommenderStyles.dropdownItems}
 					
-					inputStyles={[Styles.font.titleFont, Styles.recommenderStyles.dropdownBoxText]}
-					dropdownTextStyles={[Styles.font.titleFont, {fontSize: 35}]}
+					inputStyles={[Styles.fonts.subHeader, Styles.recommenderStyles.dropdownBoxText]}
+					dropdownTextStyles={[Styles.fonts.subHeader, {fontSize: 35}]}
 					data={data}
 					searchPlaceholder={'Search'}
 					placeholder={'Select Activity'}

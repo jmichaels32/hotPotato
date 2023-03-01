@@ -1,12 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-export const font = StyleSheet.create({
-  titleFont: {
-    fontFamily: 'Avenir-Heavy',
-    color: '#5e4d2b',
-  }
-})
-
 export const pageStyles = StyleSheet.create({
 	container: {
     display: 'flex',
@@ -88,6 +81,15 @@ export const appStyles = StyleSheet.create({
     //borderTopWidth: 0.6,
   }
 });
+
+export const fonts = StyleSheet.create({
+  header: {
+    fontFamily: "Nunito-ExtraBold",
+  },
+  subHeader: {
+    fontFamily: "Nunito-Bold",
+  }
+})
 
 export const textStyles = StyleSheet.create({
   header: {
