@@ -8,10 +8,13 @@ export const BATTLEPAGE = 2;
 export const PROFILEPAGE = 3;
 export const RECOMMENDERPAGE = 4;
 
-// Database for exercises
+// ----------------------------------
+// Database for exercises 
+// ----------------------------------
+
+// JSON formatted with keys: "exercise", "equipment", "parent", "classification", "muscle1", and "muscle2".
 export const EXERCISES_DATABASE = require('./exercises.json');
 
-//export const EXERCISE_DATABASE = JSON.parse(EXERCISE_JSON);
 // ----------------------------------
 // Paths for images
 // ----------------------------------
