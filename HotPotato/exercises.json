@@ -1,0 +1,754 @@
+[
+  {
+    "exercise": "Feet-Elevated Push Ups",
+    "equipment": "Bodyweight",
+    "parent": "Push-Up",
+    "classification": "Upper Body",
+    "muscle1": "Chest",
+    "muscle2": "Back"
+  },
+  {
+    "exercise": "Barbell Bench Press",
+    "equipment": "Rack",
+    "parent": "Push-Up",
+    "classification": "Upper Body",
+    "muscle1": "Chest",
+    "muscle2": "Back"
+  },
+  {
+    "exercise": "Dumbell Bench Press",
+    "equipment": "Dumbell",
+    "parent": "Push-Up",
+    "classification": "Upper Body",
+    "muscle1": "Chest",
+    "muscle2": "Back"
+  },
+  {
+    "exercise": "Push-Up",
+    "equipment": "Bodyweight",
+    "parent": "Push-Up",
+    "classification": "Upper Body",
+    "muscle1": "Chest",
+    "muscle2": "Back"
+  },
+  {
+    "exercise": "Barbell Tricep Rows",
+    "equipment": "Barbell",
+    "parent": "Row",
+    "classification": "Upper Body",
+    "muscle1": "Tricep",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Tricep Dips",
+    "equipment": "Bodyweight",
+    "parent": "",
+    "classification": "Upper Body",
+    "muscle1": "Tricep",
+    "muscle2": ""
+  },
+  {
+    "exercise": "TRX Row",
+    "equipment": "Bodyweight",
+    "parent": "",
+    "classification": "Upper Body",
+    "muscle1": "Tricep",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Tricep Push-Up",
+    "equipment": "Bodyweight",
+    "parent": "Push-Up",
+    "classification": "Upper Body",
+    "muscle1": "Tricep",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Dumbell Row",
+    "equipment": "Dumbell",
+    "parent": "Row",
+    "classification": "",
+    "muscle1": "Tricep",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Plank",
+    "equipment": "Bodyweight",
+    "parent": "Plank",
+    "classification": "Core",
+    "muscle1": "Transversus Abdominis",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Prone Plank",
+    "equipment": "Bodyweight",
+    "parent": "Plank",
+    "classification": "Core",
+    "muscle1": "Transversus Abdominis",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Side Plank",
+    "equipment": "Bodyweight",
+    "parent": "Plank",
+    "classification": "Core",
+    "muscle1": "Transversus Abdominis",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Weighted Plank",
+    "equipment": "Dumbell",
+    "parent": "Plank",
+    "classification": "Core",
+    "muscle1": "Transversus Abdominis",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Weighted Prone Plank",
+    "equipment": "Dumbell",
+    "parent": "Plank",
+    "classification": "Core",
+    "muscle1": "Transversus Abdominis",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Weighted Side Plank",
+    "equipment": "Dumbell",
+    "parent": "Plank",
+    "classification": "Core",
+    "muscle1": "Transversus Abdominis",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Hollow Hold",
+    "equipment": "Bodyweight",
+    "parent": "Hollow Hold",
+    "classification": "Core",
+    "muscle1": "Transversus Abdominis",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Russian Twists",
+    "equipment": "Bodyweight",
+    "parent": "Russian Twists",
+    "classification": "Core",
+    "muscle1": "Obliques",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Weighted Russian Twists",
+    "equipment": "Dumbell",
+    "parent": "Russian Twists",
+    "classification": "Core",
+    "muscle1": "Obliques",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Arm Circles",
+    "equipment": "Bodyweights",
+    "parent": "Arm Circles",
+    "classification": "Upper Body",
+    "muscle1": "Shoulders",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Weighted Arm Circles",
+    "equipment": "Dumbell",
+    "parent": "Arm Circles",
+    "classification": "Upper Body",
+    "muscle1": "Shoulders",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Isolateral Deadbugs",
+    "equipment": "Bodyweight",
+    "parent": "Deadbugs",
+    "classification": "Core",
+    "muscle1": "Core",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Unilateral Deadbugs",
+    "equipment": "Bodyweight",
+    "parent": "Deadbugs",
+    "classification": "Core",
+    "muscle1": "Core",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Weighted Isolateral Deadbugs",
+    "equipment": "Bodyweight",
+    "parent": "Deadbugs",
+    "classification": "Core",
+    "muscle1": "Core",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Weighted Unilateral Deadbugs",
+    "equipment": "Bodyweight",
+    "parent": "Deadbugs",
+    "classification": "Core",
+    "muscle1": "Core",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Calf Stretch",
+    "equipment": "Bodyweight",
+    "parent": "Calf Stretch",
+    "classification": "Stretch",
+    "muscle1": "Calf",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Quad Stretch",
+    "equipment": "Bodyweight",
+    "parent": "Quad Stretch",
+    "classification": "Stretch",
+    "muscle1": "Quad",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Spiderman & Twist",
+    "equipment": "Bodyweight",
+    "parent": "Spiderman & Twist",
+    "classification": "Stretch",
+    "muscle1": "Back",
+    "muscle2": "Core"
+  },
+  {
+    "exercise": "Chest Stretch",
+    "equipment": "Bodyweight",
+    "parent": "Chest Stretch",
+    "classification": "Stretch",
+    "muscle1": "Chest",
+    "muscle2": "Shoulder"
+  },
+  {
+    "exercise": "Lat Stretch",
+    "equipment": "Bodyweight",
+    "parent": "Lat Stretch",
+    "classification": "Stretch",
+    "muscle1": "Chest",
+    "muscle2": "Shoulder"
+  },
+  {
+    "exercise": "Inchworms",
+    "equipment": "Bodyweight",
+    "parent": "Inchworms",
+    "classification": "Mobility",
+    "muscle1": "",
+    "muscle2": ""
+  },
+  {
+    "exercise": "T-Spine Rotations",
+    "equipment": "Bodyweight",
+    "parent": "T-Spine Rotations",
+    "classification": "Stretch",
+    "muscle1": "Back",
+    "muscle2": "Core"
+  },
+  {
+    "exercise": "Pigeon Pose",
+    "equipment": "Bodyweight",
+    "parent": "Pigeon Pose",
+    "classification": "Stretch",
+    "muscle1": "Hips",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Elevated Pigeon Pose",
+    "equipment": "Bodyweight",
+    "parent": "Elevated Pigeon Pose",
+    "classification": "Stretch",
+    "muscle1": "Hips",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Child's Pose",
+    "equipment": "Bodyweight",
+    "parent": "Child's Pose",
+    "classification": "Stretch",
+    "muscle1": "Back",
+    "muscle2": "Shoulder"
+  },
+  {
+    "exercise": "Cat Cow",
+    "equipment": "Bodyweight",
+    "parent": "Cat Cow",
+    "classification": "Stretch",
+    "muscle1": "Back",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Ankle Pops",
+    "equipment": "Bodyweight",
+    "parent": "Ankle Pops",
+    "classification": "Mobility",
+    "muscle1": "",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Heel's Elevated Toe-Touch",
+    "equipment": "Bodyweight",
+    "parent": "Heel's Elevated Toe-Touch",
+    "classification": "Mobility",
+    "muscle1": "Hamstrings",
+    "muscle2": "Quads"
+  },
+  {
+    "exercise": "Bretzel",
+    "equipment": "Bodyweight",
+    "parent": "Bretzel",
+    "classification": "Stretch",
+    "muscle1": "Back",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Clamshells",
+    "equipment": "Band",
+    "parent": "Clamshells",
+    "classification": "Lower Body",
+    "muscle1": "Hips",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Banded Lateral Walk",
+    "equipment": "Band",
+    "parent": "Banded Lateral Walk",
+    "classification": "Lower Body",
+    "muscle1": "Hips",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Banded Front / Back Walk",
+    "equipment": "Band",
+    "parent": "Banded Front / Back Walk",
+    "classification": "Lower Body",
+    "muscle1": "Hips",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Banded Hip Abductions",
+    "equipment": "Band",
+    "parent": "Banded Hip Abductions",
+    "classification": "Lower Body",
+    "muscle1": "Hips",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Banded Kickbacks",
+    "equipment": "Band",
+    "parent": "Pull Ups",
+    "classification": "Upper Body",
+    "muscle1": "Hamstrings",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Pull Ups",
+    "equipment": "Pull-Up Bar",
+    "parent": "Pull Ups",
+    "classification": "Upper Body",
+    "muscle1": "Back",
+    "muscle2": "Arms"
+  },
+  {
+    "exercise": "Chin-ups",
+    "equipment": "Pull-Up Bar",
+    "parent": "Pull Ups",
+    "classification": "Upper Body",
+    "muscle1": "Back",
+    "muscle2": "Arms"
+  },
+  {
+    "exercise": "Deadhangs",
+    "equipment": "Pull-Up Bar",
+    "parent": "Pull Ups",
+    "classification": "Upper Body",
+    "muscle1": "Back",
+    "muscle2": "Arms"
+  },
+  {
+    "exercise": "Neutral Grip Pull Ups",
+    "equipment": "Pull-Up Bar",
+    "parent": "Pull Ups",
+    "classification": "Upper Body",
+    "muscle1": "Scaps",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Barbell Scap Raise",
+    "equipment": "Barbell",
+    "parent": "Scap Raise",
+    "classification": "Upper Body",
+    "muscle1": "Scaps",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Scap Pull Up",
+    "equipment": "Pull-Up Bar",
+    "parent": "Scap Raise",
+    "classification": "Upper Body",
+    "muscle1": "Scaps",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Scap Pushup",
+    "equipment": "Bodyweight",
+    "parent": "Scap Raise",
+    "classification": "Upper Body",
+    "muscle1": "Scaps",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Dumbell / Plate Overhead Scap Shrug",
+    "equipment": "Dumbell",
+    "parent": "Scap Raise",
+    "classification": "Upper Body",
+    "muscle1": "Scaps",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Weighted Calf Raise",
+    "equipment": "Dumbell",
+    "parent": "Calf Raise",
+    "classification": "Lower Body",
+    "muscle1": "Calves",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Calf Raise",
+    "equipment": "Bodyweight",
+    "parent": "Calf Raise",
+    "classification": "Lower Body",
+    "muscle1": "Calves",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Single Leg Calf Raise",
+    "equipment": "Bodyweight",
+    "parent": "Calf Raise",
+    "classification": "Lower Body",
+    "muscle1": "Calves",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Barbell RDL",
+    "equipment": "Barbell",
+    "parent": "RDL",
+    "classification": "Lower Body",
+    "muscle1": "Hamstrings",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Single-Leg Barbell RDL",
+    "equipment": "Barbell",
+    "parent": "RDL",
+    "classification": "Lower Body",
+    "muscle1": "Hamstrings",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Dumbell RDL",
+    "equipment": "Dumbell",
+    "parent": "RDL",
+    "classification": "Lower Body",
+    "muscle1": "Hamstrings",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Single-Leg Dumbell RDL",
+    "equipment": "Dumbell",
+    "parent": "RDL",
+    "classification": "Lower Body",
+    "muscle1": "Hamstrings",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Glute Bridge",
+    "equipment": "Bodyweight",
+    "parent": "Glute Bridge",
+    "classification": "Lower Body",
+    "muscle1": "Hamstrings",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Feet-Elevated Glute Bridge",
+    "equipment": "Bodyweight",
+    "parent": "Glute Bridge",
+    "classification": "Lower Body",
+    "muscle1": "Hamstrings",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Single-Leg Glute Bridge",
+    "equipment": "Bodyweight",
+    "parent": "Glute Bridge",
+    "classification": "Lower Body",
+    "muscle1": "Hamstrings",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Signle-Leg Foot Elevated Glute Bridge",
+    "equipment": "Bodyweight",
+    "parent": "Glute Bridge",
+    "classification": "Lower Body",
+    "muscle1": "Hamstrings",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Banded Glute Bridge",
+    "equipment": "Band",
+    "parent": "Glute Bridge",
+    "classification": "Lower Body",
+    "muscle1": "Hamstrings",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Banded Feet Elevated Glute Bridge",
+    "equipment": "Band",
+    "parent": "Glute Bridge",
+    "classification": "Lower Body",
+    "muscle1": "Hamstrings",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Weighted Glute Bridge",
+    "equipment": "Dumbell",
+    "parent": "Glute Bridge",
+    "classification": "Lower Body",
+    "muscle1": "Hamstrings",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Box Jump / Squat Jump",
+    "equipment": "Bodyweight",
+    "parent": "Box Jump",
+    "classification": "Lower Body",
+    "muscle1": "Plyo",
+    "muscle2": ""
+  },
+  {
+    "exercise": "One-Step Box Jump / Squat Jump",
+    "equipment": "Bodyweight",
+    "parent": "Box Jump",
+    "classification": "Lower Body",
+    "muscle1": "Plyo",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Repeated Broad Jump",
+    "equipment": "Bodyweight",
+    "parent": "Broad Jump",
+    "classification": "Lower Body",
+    "muscle1": "Plyo",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Closed-Eyes Single Leg Balance",
+    "equipment": "Bodyweight",
+    "parent": "Balance",
+    "classification": "Full Body",
+    "muscle1": "Mobility",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Split Squat Jump",
+    "equipment": "Bodyweight",
+    "parent": "Split Jump",
+    "classification": "Lower Body",
+    "muscle1": "Plyo",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Hurdle Hops",
+    "equipment": "Bodyweight",
+    "parent": "Hurdle",
+    "classification": "Lower Body",
+    "muscle1": "Plyo",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Hang Clean",
+    "equipment": "Barbell",
+    "parent": "Clean",
+    "classification": "Full Body",
+    "muscle1": "",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Full Clean",
+    "equipment": "Barbell",
+    "parent": "Clean",
+    "classification": "Full Body",
+    "muscle1": "",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Barbell Front Squat",
+    "equipment": "Barbell",
+    "parent": "Squat",
+    "classification": "Lower Body",
+    "muscle1": "Quads",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Barbell Back Squat",
+    "equipment": "Barbell",
+    "parent": "Squat",
+    "classification": "Lower Body",
+    "muscle1": "Quads",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Deadlift",
+    "equipment": "Barbell",
+    "parent": "Deadlift",
+    "classification": "Lower Body",
+    "muscle1": "Quads",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Dumbell Deadlift",
+    "equipment": "Dumbell",
+    "parent": "Deadlift",
+    "classification": "Lower Body",
+    "muscle1": "Quads",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Dumbell Squat",
+    "equipment": "Dumbell",
+    "parent": "Squat",
+    "classification": "Lower Body",
+    "muscle1": "Quads",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Squat",
+    "equipment": "Bodyweight",
+    "parent": "Squat",
+    "classification": "Lower Body",
+    "muscle1": "Quads",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Barbell Split Squat",
+    "equipment": "Barbell",
+    "parent": "Split Squat",
+    "classification": "Lower Body",
+    "muscle1": "Glutes",
+    "muscle2": "Quads"
+  },
+  {
+    "exercise": "Dumbell Split Squat",
+    "equipment": "Dumbell",
+    "parent": "Split Squat",
+    "classification": "Lower Body",
+    "muscle1": "Glutes",
+    "muscle2": "Quads"
+  },
+  {
+    "exercise": "Split Squat",
+    "equipment": "Bodyweight",
+    "parent": "Split Squat",
+    "classification": "Lower Body",
+    "muscle1": "Glutes",
+    "muscle2": "Quads"
+  },
+  {
+    "exercise": "Goblet Squat",
+    "equipment": "Dumbell",
+    "parent": "Squat",
+    "classification": "Lower Body",
+    "muscle1": "Glutes",
+    "muscle2": "Quads"
+  },
+  {
+    "exercise": "Dumbell Goblet Squat",
+    "equipment": "Dumbell",
+    "parent": "Squat",
+    "classification": "Lower Body",
+    "muscle1": "Glutes",
+    "muscle2": "Quads"
+  },
+  {
+    "exercise": "Wall Sit",
+    "equipment": "Bodyweight",
+    "parent": "Wall Sit",
+    "classification": "Lower Body",
+    "muscle1": "Quads",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Single-Leg Wall Sit",
+    "equipment": "Bodyweight",
+    "parent": "Wall Sit",
+    "classification": "Lower Body",
+    "muscle1": "Quads",
+    "muscle2": "Glutes"
+  },
+  {
+    "exercise": "Rear-Foot Elevated Split Squat",
+    "equipment": "Bodyweight",
+    "parent": "Split Squat",
+    "classification": "Lower Body",
+    "muscle1": "Glutes",
+    "muscle2": "Quads"
+  },
+  {
+    "exercise": "Rear-Foot Elevated Barbell Split Squat",
+    "equipment": "Barbell",
+    "parent": "Split Squat",
+    "classification": "Lower Body",
+    "muscle1": "Glutes",
+    "muscle2": "Quads"
+  },
+  {
+    "exercise": "Rear-Foot Elevated Dumbell Split Squat",
+    "equipment": "Dumbell",
+    "parent": "Split Squat",
+    "classification": "Lower Body",
+    "muscle1": "Glutes",
+    "muscle2": "Quads"
+  },
+  {
+    "exercise": "Banded Squat",
+    "equipment": "Band",
+    "parent": "Squat",
+    "classification": "Lower Body",
+    "muscle1": "Glutes",
+    "muscle2": "Quads"
+  },
+  {
+    "exercise": "Lunges",
+    "equipment": "Bodyweight",
+    "parent": "Split Squat",
+    "classification": "Lower Body",
+    "muscle1": "Glutes",
+    "muscle2": "Quads"
+  },
+  {
+    "exercise": "Plate X-Outs",
+    "equipment": "Dumbell",
+    "parent": "Plate X-Outs",
+    "classification": "Upper Body",
+    "muscle1": "",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Empty Can Raise",
+    "equipment": "Dumbell",
+    "parent": "Empty Can Raise",
+    "classification": "Upper Body",
+    "muscle1": "",
+    "muscle2": ""
+  },
+  {
+    "exercise": "Push Jerk",
+    "equipment": "Dumbell",
+    "parent": "Clean",
+    "classification": "Upper Body",
+    "muscle1": "",
+    "muscle2": ""
+  }
+]

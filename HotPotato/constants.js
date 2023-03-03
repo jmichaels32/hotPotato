@@ -8,6 +8,10 @@ export const BATTLEPAGE = 2;
 export const PROFILEPAGE = 3;
 export const RECOMMENDERPAGE = 4;
 
+// Database for exercises
+export const EXERCISES_DATABASE = require('./exercises.json');
+
+//export const EXERCISE_DATABASE = JSON.parse(EXERCISE_JSON);
 // ----------------------------------
 // Paths for images
 // ----------------------------------
@@ -28,3 +32,4 @@ export const selectedWorkoutIconPath = require('./images/selectedIcons/selectedW
 export const selectedFortressIconPath = require('./images/selectedIcons/selectedFortressIcon.png');
 export const selectedBattleIconPath = require('./images/selectedIcons/selectedBattleIcon.png');
 export const selectedProfileIconPath = require('./images/selectedIcons/selectedProfileIcon.png');
+*/
