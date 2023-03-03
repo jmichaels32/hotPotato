@@ -13,7 +13,7 @@ export const RECOMMENDERPAGE = 4;
 // ----------------------------------
 
 // JSON formatted with keys: "exercise", "equipment", "parent", "classification", "muscle1", and "muscle2".
-export const EXERCISES_DATABASE = require('./exercises.json');
+export const EXERCISE_DATABASE = require('./exercises.json');
 
 // ----------------------------------
 // Paths for images
