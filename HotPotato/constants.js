@@ -35,4 +35,3 @@ export const selectedWorkoutIconPath = require('./images/selectedIcons/selectedW
 export const selectedFortressIconPath = require('./images/selectedIcons/selectedFortressIcon.png');
 export const selectedBattleIconPath = require('./images/selectedIcons/selectedBattleIcon.png');
 export const selectedProfileIconPath = require('./images/selectedIcons/selectedProfileIcon.png');
-*/

@@ -56,10 +56,28 @@ function getExercisesByTargetMuscle(muscle_group, current_options = EXERCISE_DAT
 
 // Preserves only exercises which are not derivatives of the provided exercise
 // Provided exercise is retained, if present, in current exercise database
-function removeDuplicates(provided_exercise, current_options = EXERCISE_DATABASE) {
+function removeDerivatives(provided_exercise, current_options = EXERCISE_DATABASE) {
     provided_name = provided_exercise.exerciseName;
     provided_parent = provided_exercise.parent;
     UniqueExercise = current_options.filter(!isDerivative(provided_parent));
     UniqueExercise.push(provided_exercise); // Avoid removing exercise itself
     return UniqueExercise;
+}
+
+// Removes any instances of specified exercise from the provided collection
+function removeExercise(provided_exercise, current_options = EXERCISE_DATABASE) {
+    arrayWithoutExercise = current_options.filter(IsIdentical(provided_exercise.exerciseName));
+    return arrayWithoutExercise;
+}
+
+// ---------------------------------------------------------------------------------------------
+// Randomize methods for JSON exercise collections
+//   - Returns database of exercises filtered according to input parameters.
+//   - Defaults to using entire database if a pre-filtered selection of options is not provided.
+// ---------------------------------------------------------------------------------------------
+
+// Returns an exercise randomly selected from the provided collection 
+function getRandomExercise(current_options = EXERCISE_DATABASE) {
+    const randomIndex = Math.floor(Math.random() * current_options.length);
+    return current_options[randomIndex];
 }
