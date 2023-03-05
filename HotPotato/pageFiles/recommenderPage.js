@@ -6,6 +6,7 @@ import { SelectList } from 'react-native-dropdown-select-list';
 // Local file import
 import * as Const from '../constants.js';
 import * as Styles from '../styles.js';
+import * as Exercise from '../exercises.js';
 
 const RecommenderPage = () => {
 	const data = [

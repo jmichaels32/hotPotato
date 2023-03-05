@@ -1,29 +1,34 @@
-const {EXERCISE_DATABASE} = require('./constants.js');
+import {Math} from 'mathjs'; // Used in randomization
+
+// Database for exercises; JSON formatted
+// Keys: "exerciseName", "equipment", "parent", "classification", "muscle1", and "muscle2".
+export const EXERCISE_DATABASE = require('./exercises.json');
 
 // ----------------------------------------------
-// Helper methods for exercise recommendation
+// Boolean helper methods for exercise object keys 
 // ----------------------------------------------
 
-
-// ----------------------------------------------
-// Boolean  methods for exercise object keys 
-// ----------------------------------------------
+// Returns whether an exercise is accessible with provided equipment accessible
 function isAccessible(available_equipment) {
     return (available_equipment.includes(equipment));
 }
 
+// Returns whether an exercise has the provided classification
 function hasClassification(class_type) {
     return (class_type.includes(classification));
 }
 
+// Returns whether an exercise targets the provided muscle primarily or secondarily
 function hasTargetMuscle(muscle) {
     return (muscle.includes(muscle1) || muscle_group.includes(muscle2));
 }
 
+// Returns whether or not an exercise is identical; determined solely by the exercise name
 function IsIdentical(uniqueName) {
     return (uniqueName.includes(exerciseName));
 }
 
+// Returns whether an exercise is a derivative; ie has the same parent exercise provided
 function isDerivative(parent_exercise) {
     return (parent_exercise.includes(parent));
 }
@@ -70,9 +75,9 @@ function removeExercise(provided_exercise, current_options = EXERCISE_DATABASE) 
     return arrayWithoutExercise;
 }
 
-// ---------------------------------------------------------------------------------------------
+// -------------------------------------------------
 // Randomize methods for JSON exercise collections
-// ---------------------------------------------------------------------------------------------
+// -------------------------------------------------
 
 // Returns an exercise randomly selected from the provided collection 
 function getRandomExercise(current_options = EXERCISE_DATABASE) {
