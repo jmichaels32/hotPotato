@@ -72,8 +72,6 @@ function removeExercise(provided_exercise, current_options = EXERCISE_DATABASE) 
 
 // ---------------------------------------------------------------------------------------------
 // Randomize methods for JSON exercise collections
-//   - Returns database of exercises filtered according to input parameters.
-//   - Defaults to using entire database if a pre-filtered selection of options is not provided.
 // ---------------------------------------------------------------------------------------------
 
 // Returns an exercise randomly selected from the provided collection 
