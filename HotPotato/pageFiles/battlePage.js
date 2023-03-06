@@ -32,7 +32,9 @@ const BattlePage = () => {
   return (
     <View style={Styles.pageStyles.container}>
       <View style={styles.background}>
-        <Text style={Styles.textStyles.header}> Friend's List </Text>
+        <View style={Styles.pageStyles.title}>
+          <Text style={Styles.textStyles.header}> Friend's List </Text>
+        </View>
         <Friend name={"Jack M."} path={Const.jackImagePath}></Friend>
         <Friend name={"Daphne "} path={Const.daphneImagePath}></Friend>
         <Friend name={"Asha "} path={Const.ashaImagePath}></Friend>
@@ -63,8 +65,8 @@ const styles = StyleSheet.create({
 	  marginBottom: 10,
   },
   friendPic: {
-    width: "30%",
-    height: "80%",
+    width: 100,
+    height: 100,
     borderRadius: "100%",
     marginLeft: 10,
     marginTop: "auto",

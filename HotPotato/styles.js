@@ -22,24 +22,20 @@ export const pageStyles = StyleSheet.create({
     backgroundColor: '#FDDC9B',
     borderRadius: 15,
   },
+  title: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '90%',
+    marginBottom: 10,
+  },
   contentBox: {
     backgroundColor: '#FDDC9B',
     borderColor: '#91743f',
     borderWidth: 3,
     borderRadius: 10,
     marginBottom: 7,
-    height: '20%',
-    width: '95%',
-    padding: 10,
-
-    // To make the content boxes more like the figma
-    borderColor: '#D6AE60',
-  },
-  linearGradient: {
-    borderWidth: 3,
-    borderRadius: 10,
-    marginBottom: 7,
-    height: '20%',
+    // height: '20%',
     width: '95%',
     padding: 10,
 
@@ -53,6 +49,14 @@ export const pageStyles = StyleSheet.create({
     height: 55,
     width: 280,
     marginTop: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  acceptButton: {
+    borderColor: '#443105',
+    borderWidth: 3,
+    borderRadius: 5,
+    height: 45,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -145,6 +149,7 @@ export const textStyles = StyleSheet.create({
     lineHeight: 25,
   },
   regular: {
+    color: '#443105',
     fontFamily: "Nunito-Bold",
     fontSize: 15
   },
@@ -157,12 +162,6 @@ export const textStyles = StyleSheet.create({
 });
 
 export const recommenderStyles = StyleSheet.create({
-  title: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'left',
-    width: '90%',
-  },
   formSection: {
     alignItems: 'center',
     marginTop: 10,
@@ -172,6 +171,7 @@ export const recommenderStyles = StyleSheet.create({
     borderRadius: 5,
     borderWidth: 3,
     borderColor: '#443105',
+    height: 200,
   },
   // The items in the actual dropdown
   dropdownItems: {
@@ -184,8 +184,59 @@ export const recommenderStyles = StyleSheet.create({
     borderColor: '#443105',
     width: 320,
   },
+  badge: {
+    borderColor: '#443105',
+    borderWidth: 3,
+    borderRadius: 5,
+    height: 40,
+    marginTop: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#FDDC9B',
+  },
+  readyButton: {
+    flex: 1, 
+    justifyContent: 'flex-end', 
+    marginBottom: 10,
+  }
   // The text in the dropdown display box
   // dropdownBoxText: {
   //   fontSize: 15,
   // },
+});
+
+export const regimenStyles = StyleSheet.create({
+  container: {
+    flexDirection: 'column',
+    // justifyContent: 'space-between',
+    borderWidth: 3,
+    borderRadius: 10,
+    height: '91%',
+    width: '95%',
+    padding: 10,
+    borderColor: '#D6AE60',
+  },
+  workoutTitle: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    marginBottom: 10,
+  },
+  checklist: {
+    flexDirection: 'column',
+  },
+  item: {
+    flexDirection: 'row',
+    justifyContent: 'left',
+    alignItems: 'center',
+    width: '90%',
+    marginBottom: 10,
+  },
+  sumbar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
 });

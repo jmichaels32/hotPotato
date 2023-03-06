@@ -7,6 +7,7 @@ export const FORTRESSPAGE = 1;
 export const BATTLEPAGE = 2;
 export const PROFILEPAGE = 3;
 export const RECOMMENDERPAGE = 4;
+export const REGIMENPAGE = 5;
 
 // Display constants
 export const DISPLAY = true;
@@ -34,10 +35,11 @@ import BackButton from './images/topbar/backButton.svg'
 import AttackAmmoIcon from './images/icons/attackAmmoIcon.svg'
 import UncheckedBox from './images/icons/uncheckedBox.svg'
 import CheckedBox from './images/icons/checkedBox.svg'
+import CameraIcon from './images/icons/cameraIcon.svg'
 
 export { WorkoutIcon, FortressIcon, BattleIcon, ProfileIcon, WorkoutIconSelected, FortressIconSelected,
 				 BattleIconSelected, ProfileIconSelected, ActivityPlus, LogoLight, LogoDark, BackButton, 
-				 AmmoIcon, AttackAmmoIcon, UncheckedBox, CheckedBox }
+				 AmmoIcon, AttackAmmoIcon, UncheckedBox, CheckedBox, CameraIcon }
 
 // ----------------------------------
 // Image Imports
