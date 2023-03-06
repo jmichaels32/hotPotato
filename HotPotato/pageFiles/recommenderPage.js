@@ -4,11 +4,12 @@ import { SelectList } from 'react-native-dropdown-select-list';
 // Documentation for Select List can be found at:
 // https://www.npmjs.com/package/react-native-dropdown-select-list
 import { LinearGradient }  from 'expo-linear-gradient';
-import ActivityPlus from '../images/topbar/activityPlus.svg';
 
 // Local file import
 import * as Const from '../constants.js';
 import * as Styles from '../styles.js';
+import * as Exercise from '../exercises.js';
+import ActivityPlus from '.././images/topbar/activityPlus.svg';
 
 const RecommenderPage = () => {
 
@@ -30,17 +31,17 @@ const RecommenderPage = () => {
 	return (
 		<View style={Styles.pageStyles.container}>
 			<View style={Styles.recommenderStyles.title}>
-				<ActivityPlus width={40} height={40}/>
-				<Text style={Styles.textStyles.subHeader}>  Generate new workout </Text>
+				<ActivityPlus width={50} height={50}/>
+				<Text style={[Styles.textStyles.subHeader, {fontSize: 25}]}> Generate new workout </Text>
 			</View>
 			<View style={Styles.recommenderStyles.formSection}>
-				<SelectList 
+				<SelectList
 					boxStyles={Styles.recommenderStyles.dropdownBox}
 					dropdownStyles={Styles.recommenderStyles.dropdown}
 					dropdownItemStyles={Styles.recommenderStyles.dropdownItems}
 					
-					inputStyles={Styles.textStyles.medium}
-					dropdownTextStyles={Styles.textStyles.medium}
+					inputStyles={[Styles.textStyles.medium, Styles.recommenderStyles.dropdownBoxText]}
+					dropdownTextStyles={[Styles.textStyles.medium]}
 					data={data}
 					searchPlaceholder={'Search'}
 					placeholder={'Select Activity'}
