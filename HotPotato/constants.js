@@ -30,3 +30,16 @@ import BackButton from './images/topbar/backButton.svg'
 
 export { WorkoutIcon, FortressIcon, BattleIcon, ProfileIcon, WorkoutIconSelected, FortressIconSelected,
 				 BattleIconSelected, ProfileIconSelected, ActivityPlus, LogoLight, LogoDark, BackButton }
+
+// ----------------------------------
+// Image Imports
+// ----------------------------------
+
+export const unionIconPath = require('./images/icons/unionIcon.png');
+export const ammoIconPath = require('./images/icons/ammoIcon.png');
+
+// Profile images
+export const jackImagePath = require('./images/profilePics/jack.jpeg');
+export const daphneImagePath = require('./images/profilePics/daphne.jpeg');
+export const ashaImagePath = require('./images/profilePics/asha.jpeg');
+export const michaelImagePath = require('./images/profilePics/michael.jpeg');
