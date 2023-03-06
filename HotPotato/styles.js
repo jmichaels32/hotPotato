@@ -91,6 +91,15 @@ export const fonts = StyleSheet.create({
   }
 })
 
+export const displayStyles = StyleSheet.create({
+  hide: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 100,
+  }
+})
+
 export const textStyles = StyleSheet.create({
   header: {
     fontFamily: "Nunito-ExtraBold",
