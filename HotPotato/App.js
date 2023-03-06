@@ -1,6 +1,6 @@
 import * as Font from 'expo-font';
-import { Component } from "react";
 import { StatusBar } from 'expo-status-bar';
+import React, { useState, Component } from "react";
 import { setCustomText } from 'react-native-global-props';
 import { TouchableOpacity, Image, Text, View } from 'react-native';
 
@@ -13,14 +13,25 @@ import { WorkoutIcon, FortressIcon, BattleIcon, ProfileIcon,
          ActivityPlus, LogoLight, LogoDark, BackButton } from './constants.js'
 
 const TopBar = (props) => {
+  const buttonStyle = props.state.displayBackButton ? Styles.displayStyles.show : Styles.displayStyles.hide;
+
+  const goBack = () => {
+    const pageChange = props.state.previousPage.pop();
+    if (props.state.previousPage.length == 1) {
+      props.onPress(null, pageChange)
+    } else {
+      props.onPress(props.state.previousPage, pageChange)
+    }
+  };
+
   return (
     <View style={Styles.appStyles.topbar}>
-      <TouchableOpacity>
+      <TouchableOpacity style={buttonStyle} onPress={goBack}>
         <BackButton width={40} height={40} />
       </TouchableOpacity>
       <LogoDark height={40} />
-      <TouchableOpacity onPress={() => props.onPress(Const.RECOMMENDERPAGE)}>
-        {props.currentPage == Const.WORKOUTPAGE ? <ActivityPlus width={50} height={50}/> : <View style="width: 50, height: 50" />}
+      <TouchableOpacity onPress={() => props.onPress(Const.WORKOUTPAGE, Const.RECOMMENDERPAGE)}>
+        {props.state.currentPage == Const.WORKOUTPAGE ? <ActivityPlus width={50} height={50}/> : <View style="width: 50, height: 50" />}
       </TouchableOpacity>
     </View>
   )
@@ -43,11 +54,23 @@ class App extends Component {
 
   state = {
     currentPage : Const.WORKOUTPAGE,
+    // By storing as an array we're able to remember all previous pages allowing for nested pages (and working back button)
+    previousPage : [Const.NOPAGE],
+    displayBackButton : !Const.DISPLAY, 
     fontsLoaded : false,
   }
 
-  setPage(page) {
-    this.setState({currentPage : page})
+  setPage(prevPage, page) {
+    // If we're not dealing with a home/the origin page
+    if (prevPage != null) {
+      this.setState({currentPage : page,
+                     previousPage : [...this.state.previousPage, prevPage],
+                     displayBackButton : Const.DISPLAY})
+    } else {
+      this.setState({currentPage : page,
+                     previousPage : this.state.previousPage,
+                     displayBackButton : !Const.DISPLAY})
+    }
   }
 
   async _loadFontsAsync() {
@@ -70,19 +93,19 @@ class App extends Component {
     }
     return (
       <View style={Styles.appStyles.container}>
-        <TopBar currentPage={this.state.currentPage} onPress={this.setPage}/>
+        <TopBar state={this.state} onPress={this.setPage}/>
         <Pages currentPage={this.state.currentPage}/>
         <View style={Styles.appStyles.navbar}>
-          <TouchableOpacity onPress={() => this.setPage(Const.WORKOUTPAGE)}>
+          <TouchableOpacity onPress={() => this.setPage(null, Const.WORKOUTPAGE)}>
             {this.state.currentPage == Const.WORKOUTPAGE ? <WorkoutIconSelected /> : <WorkoutIcon />}
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.setPage(Const.FORTRESSPAGE)}>
+          <TouchableOpacity onPress={() => this.setPage(null, Const.FORTRESSPAGE)}>
             {this.state.currentPage == Const.FORTRESSPAGE ? <FortressIconSelected /> : <FortressIcon />}
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.setPage(Const.BATTLEPAGE)}>
+          <TouchableOpacity onPress={() => this.setPage(null, Const.BATTLEPAGE)}>
             {this.state.currentPage == Const.BATTLEPAGE ? <BattleIconSelected /> : <BattleIcon />}
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.setPage(Const.PROFILEPAGE)}>
+          <TouchableOpacity onPress={() => this.setPage(null, Const.PROFILEPAGE)}>
             {this.state.currentPage == Const.PROFILEPAGE ? <ProfileIconSelected /> : <ProfileIcon />}
           </TouchableOpacity>
         </View> 
