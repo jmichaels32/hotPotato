@@ -9,28 +9,34 @@ export const PROFILEPAGE = 3;
 export const RECOMMENDERPAGE = 4;
 
 // ----------------------------------
-// Paths for images
+// Import SVGs
 // ----------------------------------
 
-// Top Bar Images
-export const logoPath = require('./images/topbar/logo.png');
-export const backButtonPath = require('./images/topbar/backButton.png');
-export const activityPlusPath = require('./images/topbar/activityPlus.png');
+// NavBar SVGs
+import WorkoutIcon from './images/icons/workoutIcon.svg'
+import FortressIcon from './images/icons/fortressIcon.svg'
+import BattleIcon from './images/icons/battleIcon.svg'
+import ProfileIcon from './images/icons/profileIcon.svg'
+import WorkoutIconSelected from './images/selectedIcons/workoutIconSelected.svg'
+import FortressIconSelected from './images/selectedIcons/fortressIconSelected.svg'
+import BattleIconSelected from './images/selectedIcons/battleIconSelected.svg'
+import ProfileIconSelected from './images/selectedIcons/profileIconSelected.svg'
 
-// Unselected Navigation Bar Images
-export const workoutIconPath = require('./images/icons/workoutIcon.png');
-export const fortressIconPath = require('./images/icons/fortressIcon.png');
-export const battleIconPath = require('./images/icons/battleIcon.png');
-export const profileIconPath = require('./images/icons/profileIcon.png');
+// Miscellaneous SVGs
+import ActivityPlus from './images/topbar/activityPlus.svg'
+import LogoLight from './images/topbar/logoLight.svg'
+import LogoDark from './images/topbar/logoDark.svg'
+import BackButton from './images/topbar/backButton.svg'
+
+export { WorkoutIcon, FortressIcon, BattleIcon, ProfileIcon, WorkoutIconSelected, FortressIconSelected,
+				 BattleIconSelected, ProfileIconSelected, ActivityPlus, LogoLight, LogoDark, BackButton }
+
+// ----------------------------------
+// Image Imports
+// ----------------------------------
+
 export const unionIconPath = require('./images/icons/unionIcon.png');
 export const ammoIconPath = require('./images/icons/ammoIcon.png');
-
-
-// Selected Navigation Bar Images
-export const selectedWorkoutIconPath = require('./images/selectedIcons/selectedWorkoutIcon.png');
-export const selectedFortressIconPath = require('./images/selectedIcons/selectedFortressIcon.png');
-export const selectedBattleIconPath = require('./images/selectedIcons/selectedBattleIcon.png');
-export const selectedProfileIconPath = require('./images/selectedIcons/selectedProfileIcon.png');
 
 // Profile images
 export const jackImagePath = require('./images/profilePics/jack.jpeg');

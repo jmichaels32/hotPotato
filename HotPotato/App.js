@@ -4,23 +4,13 @@ import { StatusBar } from 'expo-status-bar';
 import { setCustomText } from 'react-native-global-props';
 import { TouchableOpacity, Image, Text, View } from 'react-native';
 
-import WorkoutIcon from './images/icons/workoutIcon.svg'
-import FortressIcon from './images/icons/fortressIcon.svg'
-import BattleIcon from './images/icons/battleIcon.svg'
-import ProfileIcon from './images/icons/profileIcon.svg'
-import WorkoutIconSelected from './images/selectedIcons/workoutIconSelected.svg'
-import FortressIconSelected from './images/selectedIcons/fortressIconSelected.svg'
-import BattleIconSelected from './images/selectedIcons/battleIconSelected.svg'
-import ProfileIconSelected from './images/selectedIcons/profileIconSelected.svg'
-import ActivityPlus from './images/topbar/activityPlus.svg'
-import LogoLight from './images/topbar/logoLight.svg'
-import LogoDark from './images/topbar/logoDark.svg'
-import BackButton from './images/topbar/backButton.svg'
-
 // Local file import
 import Pages from './pages.js';
-import * as Const from './constants.js';
 import * as Styles from './styles.js';
+import * as Const from './constants.js';
+import { WorkoutIcon, FortressIcon, BattleIcon, ProfileIcon, 
+         WorkoutIconSelected, FortressIconSelected, BattleIconSelected, ProfileIconSelected, 
+         ActivityPlus, LogoLight, LogoDark, BackButton } from './constants.js'
 
 const TopBar = (props) => {
   return (
