@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
   friendsList: {
-    fontFamily: "Nunito_800ExtraBold",
+    //fontFamily: "Nunito_800ExtraBold",
     fontSize: 32,
     color: "saddlebrown",
   },
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
 	marginBottom: "auto",
   },
   friendName: {
-	fontFamily: "Nunito_800ExtraBold",
+	//fontFamily: "Nunito_800ExtraBold",
 	fontSize: 24,
 	color: "saddlebrown",
 	marginTop: 10,
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
 	flexDirection: "column",
   }, 
   subText: {
-	fontFamily: "Nunito_800ExtraBold",
+	//fontFamily: "Nunito_800ExtraBold",
 	fontSize: 14,
 	color: "black",
 	marginLeft: 10
