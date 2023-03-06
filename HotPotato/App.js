@@ -17,7 +17,7 @@ const TopBar = (props) => {
 
   const goBack = () => {
     const pageChange = props.state.previousPage.pop();
-    if (props.state.previousPage.length == 1) {
+    if (props.state.previousPage.length == 0) {
       props.onPress(null, pageChange)
     } else {
       props.onPress(props.state.previousPage, pageChange)
@@ -55,7 +55,7 @@ class App extends Component {
   state = {
     currentPage : Const.WORKOUTPAGE,
     // By storing as an array we're able to remember all previous pages allowing for nested pages (and working back button)
-    previousPage : [Const.NOPAGE],
+    previousPage : [],
     displayBackButton : !Const.DISPLAY, 
     fontsLoaded : false,
   }
