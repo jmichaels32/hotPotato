@@ -22,9 +22,18 @@ export const workoutIconPath = require('./images/icons/workoutIcon.png');
 export const fortressIconPath = require('./images/icons/fortressIcon.png');
 export const battleIconPath = require('./images/icons/battleIcon.png');
 export const profileIconPath = require('./images/icons/profileIcon.png');
+export const unionIconPath = require('./images/icons/unionIcon.png');
+export const ammoIconPath = require('./images/icons/ammoIcon.png');
+
 
 // Selected Navigation Bar Images
 export const selectedWorkoutIconPath = require('./images/selectedIcons/selectedWorkoutIcon.png');
 export const selectedFortressIconPath = require('./images/selectedIcons/selectedFortressIcon.png');
 export const selectedBattleIconPath = require('./images/selectedIcons/selectedBattleIcon.png');
 export const selectedProfileIconPath = require('./images/selectedIcons/selectedProfileIcon.png');
+
+// Profile images
+export const jackImagePath = require('./images/profilePics/jack.jpeg');
+export const daphneImagePath = require('./images/profilePics/daphne.jpeg');
+export const ashaImagePath = require('./images/profilePics/asha.jpeg');
+export const michaelImagePath = require('./images/profilePics/michael.jpeg');

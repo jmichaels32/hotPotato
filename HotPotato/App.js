@@ -1,8 +1,8 @@
-import { Component } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { TouchableOpacity, Image, Text, View } from 'react-native';
 import * as Font from 'expo-font';
+import { Component } from "react";
+import { StatusBar } from 'expo-status-bar';
 import { setCustomText } from 'react-native-global-props';
+import { TouchableOpacity, Image, Text, View } from 'react-native';
 
 import WorkoutIcon from './images/icons/workoutIcon.svg'
 import FortressIcon from './images/icons/fortressIcon.svg'
@@ -39,7 +39,7 @@ const TopBar = (props) => {
 const customTextProps = {
   style: {
     fontFamily: 'Nunito-Reg'
-    
+
   }
 };
 
@@ -48,15 +48,15 @@ setCustomText(customTextProps);
 class App extends Component {
   constructor(props) {
     super(props);
-    this.updatePage = this.updatePage.bind(this);
+    this.setPage = this.setPage.bind(this);
   }
 
   state = {
     currentPage : Const.WORKOUTPAGE,
-    fontsLoaded: false,
+    fontsLoaded : false,
   }
 
-  updatePage(page) {
+  setPage(page) {
     this.setState({currentPage : page})
   }
 
@@ -67,7 +67,7 @@ class App extends Component {
       'Nunito-Bold': require('./assets/fonts/Nunito/static/Nunito-Bold.ttf'),
       'Nunito-ExtraBold': require('./assets/fonts/Nunito/static/Nunito-ExtraBold.ttf'),
     });
-    this.setState({ fontsLoaded: true });
+    this.setState({fontsLoaded : true})
   }
 
   componentDidMount() {
@@ -80,27 +80,25 @@ class App extends Component {
     }
     return (
       <View style={Styles.appStyles.container}>
-        <TopBar currentPage={this.state.currentPage} onPress={this.updatePage}/>
+        <TopBar currentPage={this.state.currentPage} onPress={this.setPage}/>
         <Pages currentPage={this.state.currentPage}/>
         <View style={Styles.appStyles.navbar}>
-          <TouchableOpacity onPress={() => this.updatePage(Const.WORKOUTPAGE)}>
+          <TouchableOpacity onPress={() => this.setPage(Const.WORKOUTPAGE)}>
             {this.state.currentPage == Const.WORKOUTPAGE ? <WorkoutIconSelected /> : <WorkoutIcon />}
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.updatePage(Const.FORTRESSPAGE)}>
+          <TouchableOpacity onPress={() => this.setPage(Const.FORTRESSPAGE)}>
             {this.state.currentPage == Const.FORTRESSPAGE ? <FortressIconSelected /> : <FortressIcon />}
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.updatePage(Const.BATTLEPAGE)}>
+          <TouchableOpacity onPress={() => this.setPage(Const.BATTLEPAGE)}>
             {this.state.currentPage == Const.BATTLEPAGE ? <BattleIconSelected /> : <BattleIcon />}
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.updatePage(Const.PROFILEPAGE)}>
+          <TouchableOpacity onPress={() => this.setPage(Const.PROFILEPAGE)}>
             {this.state.currentPage == Const.PROFILEPAGE ? <ProfileIconSelected /> : <ProfileIcon />}
           </TouchableOpacity>
         </View> 
         <StatusBar style="auto" />
       </View>
-    );
-
-    
+    ); 
   }
 }
 
