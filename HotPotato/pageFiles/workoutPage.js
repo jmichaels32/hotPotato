@@ -17,7 +17,7 @@ const WorkoutPage = () => {
             
             
             <View style={Styles.pageStyles.contentBox}>
-                <Text style={Styles.textStyles.subHeader}>Sub Header</Text>
+                <Text style={Styles.textStyles.medium}>Sub Header</Text>
             </View>
             <View style={Styles.pageStyles.contentBox}>
                 <Text>Normal Text</Text>

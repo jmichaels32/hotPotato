@@ -29,18 +29,17 @@ const TopBar = (props) => {
         <BackButton width={50} height={30} />
       </TouchableOpacity>
       <LogoLight height={40} />
-      <View>
-        <TouchableOpacity onPress={() => props.updatePage(Const.RECOMMENDERPAGE)}>
-          {props.currentPage == Const.WORKOUTPAGE && <ActivityPlus width={50} height={50}/>}
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity onPress={() => props.onPress(Const.RECOMMENDERPAGE)}>
+        {props.currentPage == Const.WORKOUTPAGE ? <ActivityPlus width={50} height={50}/> : <View style="width: 50, height: 50" />}
+      </TouchableOpacity>
     </View>
   )
 };
 
 const customTextProps = {
   style: {
-    fontFamily: 'Nunito-Reg'
+    fontFamily: 'Nunito-Reg',
+    color: '#443105'
   }
 };
 
@@ -81,7 +80,7 @@ class App extends Component {
     }
     return (
       <View style={Styles.appStyles.container}>
-        <TopBar currentPage={this.state.currentPage} updatePage={this.updatePage}/>
+        <TopBar currentPage={this.state.currentPage} onPress={this.updatePage}/>
         <Pages currentPage={this.state.currentPage}/>
         <View style={Styles.appStyles.navbar}>
           <TouchableOpacity onPress={() => this.updatePage(Const.WORKOUTPAGE)}>

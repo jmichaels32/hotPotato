@@ -1,5 +1,12 @@
 import { StyleSheet } from 'react-native';
 
+export const font = StyleSheet.create({
+  titleFont: {
+    fontFamily: 'Nunito-Reg',
+    color: '#443105'
+  }
+})
+
 export const pageStyles = StyleSheet.create({
 	container: {
     display: 'flex',
@@ -39,12 +46,27 @@ export const pageStyles = StyleSheet.create({
     // To make the content boxes more like the figma
     borderColor: '#D6AE60',
   },
+  button: {
+    borderColor: '#443105',
+    borderWidth: 3,
+    borderRadius: 5,
+    height: 55,
+    width: 280,
+    marginTop: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
 export const appStyles = StyleSheet.create({
   container: {
-    flex: 1,
+    // Original Color Scheme
     backgroundColor: '#D6AE60',
+
+    // Alternate Color Scheme
+    //backgroundColor: '#fcfeff',
+
+    flex: 1,
     justifyContent: 'center',
   }, 
   topbar: {
@@ -62,7 +84,6 @@ export const appStyles = StyleSheet.create({
   },
   navbar: {
     display: 'flex',
-    backgroundColor: '#FDDC9B',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
@@ -79,7 +100,14 @@ export const appStyles = StyleSheet.create({
 
     // An alternate design
     width: '100%',
-  }
+
+    // Original Color Scheme
+    backgroundColor: '#FDDC9B',
+
+    // Alternate Color Scheme
+    //backgroundColor: '#fcfeff',
+    //borderTopWidth: 0.6,
+  },
 });
 
 export const textStyles = StyleSheet.create({
@@ -89,8 +117,57 @@ export const textStyles = StyleSheet.create({
     lineHeight: 35,
   },
   subHeader: {
+    fontFamily: "Nunito-ExtraBold",
+    fontSize: 25,
+    lineHeight: 35,
+  },
+  medium: {
     fontFamily: "Nunito-Bold",
     fontSize: 20,
     lineHeight: 25,
+  },
+  regular: {
+    fontFamily: "Nunito-Bold",
+    fontSize: 15
+  },
+  whiteSubHeader: {
+    color: '#FFF2D9',
+    fontFamily: "Nunito-ExtraBold",
+    fontSize: 25,
+    lineHeight: 35,
   }
+});
+
+export const recommenderStyles = StyleSheet.create({
+  title: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'left',
+    width: '90%',
+  },
+  formSection: {
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  // The actual dropdown
+  dropdown: {
+    borderRadius: 5,
+    borderWidth: 3,
+    borderColor: '#443105',
+  },
+  // The items in the actual dropdown
+  dropdownItems: {
+    alignItems: 'center',
+  },
+  // The box displaying the selected choice
+  dropdownBox: {
+    borderRadius: 5,
+    borderWidth: 3,
+    borderColor: '#443105',
+    width: 320,
+  },
+  // The text in the dropdown display box
+  // dropdownBoxText: {
+  //   fontSize: 15,
+  // },
 });
