@@ -46,3 +46,26 @@ export const jackImagePath = require('./images/profilePics/jack.jpeg');
 export const daphneImagePath = require('./images/profilePics/daphne.jpeg');
 export const ashaImagePath = require('./images/profilePics/asha.jpeg');
 export const michaelImagePath = require('./images/profilePics/michael.jpeg');
+
+// ----------------------------------
+// Component Exports
+// ----------------------------------
+import { LinearGradient } from 'expo-linear-gradient';
+
+import * as Styles from './styles.js'
+
+const ContentBox = ({ children }) => {
+	return (
+		<LinearGradient 
+			colors={['#FFD77D', '#FFF2D9']} 
+			style={Styles.pageStyles.contentBox}
+			start={{x : 0.8, y : 1}} 
+			end={{x : 1, y : 0}}
+		>
+			{children}
+		</LinearGradient>
+	)
+}
+
+export default ContentBox
+
