@@ -21,7 +21,7 @@ export const pageStyles = StyleSheet.create({
     borderWidth: 3,
     borderRadius: 10,
     marginBottom: 7,
-    height: '20%',
+    //height: '20%',
     width: '95%',
     padding: 10,
 

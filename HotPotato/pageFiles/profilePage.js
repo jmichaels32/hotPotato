@@ -3,14 +3,14 @@ import { Text, View } from 'react-native';
 
 // Local file import
 import * as Styles from '../styles.js';
-import ContentBox from '../constants.js'
+import ProfileContentBox from '../constants.js'
 
 const ProfilePage = () => {
 	return (
 		<View style={Styles.pageStyles.container}>
-			<ContentBox>
+			<ProfileContentBox>
 				<Text> This is some other text </Text>
-			</ContentBox>
+			</ProfileContentBox>
 		</View>
 	)
 };

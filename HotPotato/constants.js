@@ -54,18 +54,18 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 import * as Styles from './styles.js'
 
-const ContentBox = ({ children }) => {
+const ProfileContentBox = ({ children }) => {
 	return (
 		<LinearGradient 
-			colors={['#FFD77D', '#FFF2D9']} 
+			colors={['#FFF2D9', '#FFEBC4']} 
 			style={Styles.pageStyles.contentBox}
-			start={{x : 0.8, y : 1}} 
-			end={{x : 1, y : 0}}
+			start={{x : 0.5, y : 0.5}} 
+			end={{x : 1, y : 1}}
 		>
 			{children}
 		</LinearGradient>
 	)
 }
 
-export default ContentBox
+export default ProfileContentBox
 
