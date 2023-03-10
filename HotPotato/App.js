@@ -10,7 +10,7 @@ import * as Styles from './styles.js';
 import * as Const from './constants.js';
 import { WorkoutIcon, FortressIcon, BattleIcon, ProfileIcon, 
          WorkoutIconSelected, FortressIconSelected, BattleIconSelected, ProfileIconSelected, 
-         ActivityPlus, LogoLight, LogoDark, BackButton } from './constants.js'
+         ActivityPlus, LogoLight, LogoDark, BackButton, AmmoIcon } from './constants.js'
 
 const TopBar = (props) => {
   const buttonStyle = props.state.displayBackButton ? Styles.displayStyles.show : Styles.displayStyles.hide;
@@ -29,18 +29,27 @@ const TopBar = (props) => {
       <TouchableOpacity style={buttonStyle} onPress={goBack}>
         <BackButton width={40} height={40} />
       </TouchableOpacity>
-      <LogoDark height={40} />
-      <TouchableOpacity onPress={() => props.onPress(Const.WORKOUTPAGE, Const.RECOMMENDERPAGE)}>
-        {props.state.currentPage == Const.WORKOUTPAGE ? <ActivityPlus width={50} height={50}/> : <View style="width: 50, height: 50" />}
-      </TouchableOpacity>
+      <LogoLight height={40} />
+      {props.state.currentPage == Const.WORKOUTPAGE 
+      ? <TouchableOpacity onPress={() => props.onPress(Const.WORKOUTPAGE, Const.RECOMMENDERPAGE)}>
+          <ActivityPlus width={50} height={50} style={Styles.displayStyles.show}/> 
+        </TouchableOpacity>
+      : 
+      props.state.currentPage == Const.BATTLEPAGE
+      ? <TouchableOpacity>
+          <AmmoIcon width={60} height={60} style={Styles.displayStyles.show}/> 
+        </TouchableOpacity>
+      : <ActivityPlus width={50} height={50} style={Styles.displayStyles.hide}/>
+      }
+      
     </View>
   )
 };
 
 const customTextProps = {
   style: {
-    fontFamily: 'Nunito-Reg'
-
+    fontFamily: 'Nunito-Reg',
+    color: '#443105'
   }
 };
 
