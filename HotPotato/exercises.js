@@ -1,4 +1,4 @@
-//import {Math} from 'mathjs'; // Used in randomization
+import {Math} from 'mathjs'; // Used in randomization
 
 // Database for exercises; JSON formatted
 // Keys: "exerciseName", "equipment", "parent", "classification", "muscle1", and "muscle2".
