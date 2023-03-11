@@ -3,7 +3,7 @@
     "exerciseName": "Feet-Elevated Push Ups",
     "equipment": "Bodyweight",
     "parent": "Push-Up",
-    "classification": "Upper Body",
+    "classification": "Main Upper Body",
     "muscle1": "Chest",
     "muscle2": "Back"
   },
@@ -11,7 +11,7 @@
     "exerciseName": "Barbell Bench Press",
     "equipment": "Rack",
     "parent": "Push-Up",
-    "classification": "Upper Body",
+    "classification": "Main Upper Body",
     "muscle1": "Chest",
     "muscle2": "Back"
   },
@@ -19,7 +19,7 @@
     "exerciseName": "Dumbell Bench Press",
     "equipment": "Dumbell",
     "parent": "Push-Up",
-    "classification": "Upper Body",
+    "classification": "Main Upper Body",
     "muscle1": "Chest",
     "muscle2": "Back"
   },
@@ -27,7 +27,7 @@
     "exerciseName": "Push-Up",
     "equipment": "Bodyweight",
     "parent": "Push-Up",
-    "classification": "Upper Body",
+    "classification": "Main Upper Body",
     "muscle1": "Chest",
     "muscle2": "Back"
   },
@@ -35,7 +35,7 @@
     "exerciseName": "Barbell Tricep Rows",
     "equipment": "Barbell",
     "parent": "Row",
-    "classification": "Upper Body",
+    "classification": "Main Upper Body",
     "muscle1": "Tricep",
     "muscle2": ""
   },
@@ -43,7 +43,7 @@
     "exerciseName": "Tricep Dips",
     "equipment": "Bodyweight",
     "parent": "",
-    "classification": "Upper Body",
+    "classification": "Main Upper Body",
     "muscle1": "Tricep",
     "muscle2": ""
   },
@@ -51,7 +51,7 @@
     "exerciseName": "TRX Row",
     "equipment": "Bodyweight",
     "parent": "",
-    "classification": "Upper Body",
+    "classification": "Main Upper Body",
     "muscle1": "Tricep",
     "muscle2": ""
   },
@@ -59,7 +59,7 @@
     "exerciseName": "Tricep Push-Up",
     "equipment": "Bodyweight",
     "parent": "Push-Up",
-    "classification": "Upper Body",
+    "classification": "Main Upper Body",
     "muscle1": "Tricep",
     "muscle2": ""
   },
@@ -67,7 +67,7 @@
     "exerciseName": "Dumbell Row",
     "equipment": "Dumbell",
     "parent": "Row",
-    "classification": "",
+    "classification": "Main Upper Body",
     "muscle1": "Tricep",
     "muscle2": ""
   },
@@ -147,7 +147,7 @@
     "exerciseName": "Arm Circles",
     "equipment": "Bodyweights",
     "parent": "Arm Circles",
-    "classification": "Upper Body",
+    "classification": "Filler Upper Body",
     "muscle1": "Shoulders",
     "muscle2": ""
   },
@@ -155,7 +155,7 @@
     "exerciseName": "Weighted Arm Circles",
     "equipment": "Dumbell",
     "parent": "Arm Circles",
-    "classification": "Upper Body",
+    "classification": "Filler Upper Body",
     "muscle1": "Shoulders",
     "muscle2": ""
   },
@@ -307,7 +307,7 @@
     "exerciseName": "Clamshells",
     "equipment": "Band",
     "parent": "Clamshells",
-    "classification": "Lower Body",
+    "classification": "Lower Body Filler",
     "muscle1": "Hips",
     "muscle2": "Glutes"
   },
@@ -315,7 +315,7 @@
     "exerciseName": "Banded Lateral Walk",
     "equipment": "Band",
     "parent": "Banded Lateral Walk",
-    "classification": "Lower Body",
+    "classification": "Filler Lower Body",
     "muscle1": "Hips",
     "muscle2": "Glutes"
   },
@@ -323,7 +323,7 @@
     "exerciseName": "Banded Front / Back Walk",
     "equipment": "Band",
     "parent": "Banded Front / Back Walk",
-    "classification": "Lower Body",
+    "classification": "Filler Lower Body",
     "muscle1": "Hips",
     "muscle2": "Glutes"
   },
@@ -331,7 +331,7 @@
     "exerciseName": "Banded Hip Abductions",
     "equipment": "Band",
     "parent": "Banded Hip Abductions",
-    "classification": "Lower Body",
+    "classification": "Filler Lower Body",
     "muscle1": "Hips",
     "muscle2": "Glutes"
   },
@@ -339,7 +339,7 @@
     "exerciseName": "Banded Kickbacks",
     "equipment": "Band",
     "parent": "Pull Ups",
-    "classification": "Upper Body",
+    "classification": "Filler Upper Body",
     "muscle1": "Hamstrings",
     "muscle2": "Glutes"
   },
@@ -363,7 +363,7 @@
     "exerciseName": "Deadhangs",
     "equipment": "Pull-Up Bar",
     "parent": "Pull Ups",
-    "classification": "Upper Body",
+    "classification": "Filler Upper Body",
     "muscle1": "Back",
     "muscle2": "Arms"
   },
@@ -379,7 +379,7 @@
     "exerciseName": "Barbell Scap Raise",
     "equipment": "Barbell",
     "parent": "Scap Raise",
-    "classification": "Upper Body",
+    "classification": "Filler Upper Body",
     "muscle1": "Scaps",
     "muscle2": ""
   },
@@ -387,7 +387,7 @@
     "exerciseName": "Scap Pull Up",
     "equipment": "Pull-Up Bar",
     "parent": "Scap Raise",
-    "classification": "Upper Body",
+    "classification": "Filler Upper Body",
     "muscle1": "Scaps",
     "muscle2": ""
   },
@@ -395,7 +395,7 @@
     "exerciseName": "Scap Pushup",
     "equipment": "Bodyweight",
     "parent": "Scap Raise",
-    "classification": "Upper Body",
+    "classification": "Filler Upper Body",
     "muscle1": "Scaps",
     "muscle2": ""
   },
@@ -403,7 +403,7 @@
     "exerciseName": "Dumbell / Plate Overhead Scap Shrug",
     "equipment": "Dumbell",
     "parent": "Scap Raise",
-    "classification": "Upper Body",
+    "classification": "Filler Upper Body",
     "muscle1": "Scaps",
     "muscle2": ""
   },
@@ -411,7 +411,7 @@
     "exerciseName": "Weighted Calf Raise",
     "equipment": "Dumbell",
     "parent": "Calf Raise",
-    "classification": "Lower Body",
+    "classification": "Filler Lower Body",
     "muscle1": "Calves",
     "muscle2": ""
   },
@@ -419,7 +419,7 @@
     "exerciseName": "Calf Raise",
     "equipment": "Bodyweight",
     "parent": "Calf Raise",
-    "classification": "Lower Body",
+    "classification": "Filler Lower Body",
     "muscle1": "Calves",
     "muscle2": ""
   },
@@ -427,7 +427,7 @@
     "exerciseName": "Single Leg Calf Raise",
     "equipment": "Bodyweight",
     "parent": "Calf Raise",
-    "classification": "Lower Body",
+    "classification": "Filler Lower Body",
     "muscle1": "Calves",
     "muscle2": ""
   },
@@ -467,7 +467,7 @@
     "exerciseName": "Glute Bridge",
     "equipment": "Bodyweight",
     "parent": "Glute Bridge",
-    "classification": "Lower Body",
+    "classification": "Filler Lower Body",
     "muscle1": "Hamstrings",
     "muscle2": "Glutes"
   },
@@ -475,7 +475,7 @@
     "exerciseName": "Feet-Elevated Glute Bridge",
     "equipment": "Bodyweight",
     "parent": "Glute Bridge",
-    "classification": "Lower Body",
+    "classification": "Filler Lower Body",
     "muscle1": "Hamstrings",
     "muscle2": "Glutes"
   },
@@ -483,15 +483,15 @@
     "exerciseName": "Single-Leg Glute Bridge",
     "equipment": "Bodyweight",
     "parent": "Glute Bridge",
-    "classification": "Lower Body",
+    "classification": "Filler Lower Body",
     "muscle1": "Hamstrings",
     "muscle2": "Glutes"
   },
   {
-    "exerciseName": "Signle-Leg Foot Elevated Glute Bridge",
+    "exerciseName": "Single-Leg Foot Elevated Glute Bridge",
     "equipment": "Bodyweight",
     "parent": "Glute Bridge",
-    "classification": "Lower Body",
+    "classification": "Filler Lower Body",
     "muscle1": "Hamstrings",
     "muscle2": "Glutes"
   },
@@ -499,7 +499,7 @@
     "exerciseName": "Banded Glute Bridge",
     "equipment": "Band",
     "parent": "Glute Bridge",
-    "classification": "Lower Body",
+    "classification": "Filler Lower Body",
     "muscle1": "Hamstrings",
     "muscle2": "Glutes"
   },
@@ -507,7 +507,7 @@
     "exerciseName": "Banded Feet Elevated Glute Bridge",
     "equipment": "Band",
     "parent": "Glute Bridge",
-    "classification": "Lower Body",
+    "classification": "Filler Lower Body",
     "muscle1": "Hamstrings",
     "muscle2": "Glutes"
   },
@@ -515,7 +515,7 @@
     "exerciseName": "Weighted Glute Bridge",
     "equipment": "Dumbell",
     "parent": "Glute Bridge",
-    "classification": "Lower Body",
+    "classification": "Filler Lower Body",
     "muscle1": "Hamstrings",
     "muscle2": "Glutes"
   },
@@ -547,7 +547,7 @@
     "exerciseName": "Closed-Eyes Single Leg Balance",
     "equipment": "Bodyweight",
     "parent": "Balance",
-    "classification": "Full Body",
+    "classification": "Filler Lower Body",
     "muscle1": "Mobility",
     "muscle2": ""
   },
@@ -563,7 +563,7 @@
     "exerciseName": "Hurdle Hops",
     "equipment": "Bodyweight",
     "parent": "Hurdle",
-    "classification": "Lower Body",
+    "classification": "Filler Lower Body",
     "muscle1": "Plyo",
     "muscle2": ""
   },
@@ -715,7 +715,7 @@
     "exerciseName": "Banded Squat",
     "equipment": "Band",
     "parent": "Squat",
-    "classification": "Lower Body",
+    "classification": "Filler Lower Body",
     "muscle1": "Glutes",
     "muscle2": "Quads"
   },
@@ -731,7 +731,7 @@
     "exerciseName": "Plate X-Outs",
     "equipment": "Dumbell",
     "parent": "Plate X-Outs",
-    "classification": "Upper Body",
+    "classification": "Filler Upper Body",
     "muscle1": "",
     "muscle2": ""
   },
@@ -739,7 +739,7 @@
     "exerciseName": "Empty Can Raise",
     "equipment": "Dumbell",
     "parent": "Empty Can Raise",
-    "classification": "Upper Body",
+    "classification": "Filler Upper Body",
     "muscle1": "",
     "muscle2": ""
   },
