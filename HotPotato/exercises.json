@@ -17,7 +17,7 @@
   },
   {
     "exerciseName": "Dumbell Bench Press",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Push-Up",
     "classification": "Main Upper Body",
     "muscle1": "Chest",
@@ -65,7 +65,7 @@
   },
   {
     "exerciseName": "Dumbell Row",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Row",
     "classification": "Main Upper Body",
     "muscle1": "Tricep",
@@ -97,7 +97,7 @@
   },
   {
     "exerciseName": "Weighted Plank",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Plank",
     "classification": "Core",
     "muscle1": "Transversus Abdominis",
@@ -105,7 +105,7 @@
   },
   {
     "exerciseName": "Weighted Prone Plank",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Plank",
     "classification": "Core",
     "muscle1": "Transversus Abdominis",
@@ -113,7 +113,7 @@
   },
   {
     "exerciseName": "Weighted Side Plank",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Plank",
     "classification": "Core",
     "muscle1": "Transversus Abdominis",
@@ -137,7 +137,7 @@
   },
   {
     "exerciseName": "Weighted Russian Twists",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Russian Twists",
     "classification": "Core",
     "muscle1": "Obliques",
@@ -153,7 +153,7 @@
   },
   {
     "exerciseName": "Weighted Arm Circles",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Arm Circles",
     "classification": "Filler Upper Body",
     "muscle1": "Shoulders",
@@ -401,7 +401,7 @@
   },
   {
     "exerciseName": "Dumbell / Plate Overhead Scap Shrug",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Scap Raise",
     "classification": "Filler Upper Body",
     "muscle1": "Scaps",
@@ -409,7 +409,7 @@
   },
   {
     "exerciseName": "Weighted Calf Raise",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Calf Raise",
     "classification": "Filler Lower Body",
     "muscle1": "Calves",
@@ -449,7 +449,7 @@
   },
   {
     "exerciseName": "Dumbell RDL",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "RDL",
     "classification": "Lower Body",
     "muscle1": "Hamstrings",
@@ -457,7 +457,7 @@
   },
   {
     "exerciseName": "Single-Leg Dumbell RDL",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "RDL",
     "classification": "Lower Body",
     "muscle1": "Hamstrings",
@@ -513,7 +513,7 @@
   },
   {
     "exerciseName": "Weighted Glute Bridge",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Glute Bridge",
     "classification": "Filler Lower Body",
     "muscle1": "Hamstrings",
@@ -609,7 +609,7 @@
   },
   {
     "exerciseName": "Dumbell Deadlift",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Deadlift",
     "classification": "Lower Body",
     "muscle1": "Quads",
@@ -617,7 +617,7 @@
   },
   {
     "exerciseName": "Dumbell Squat",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Squat",
     "classification": "Lower Body",
     "muscle1": "Quads",
@@ -641,7 +641,7 @@
   },
   {
     "exerciseName": "Dumbell Split Squat",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Split Squat",
     "classification": "Lower Body",
     "muscle1": "Glutes",
@@ -657,7 +657,7 @@
   },
   {
     "exerciseName": "Goblet Squat",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Squat",
     "classification": "Lower Body",
     "muscle1": "Glutes",
@@ -665,7 +665,7 @@
   },
   {
     "exerciseName": "Dumbell Goblet Squat",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Squat",
     "classification": "Lower Body",
     "muscle1": "Glutes",
@@ -705,7 +705,7 @@
   },
   {
     "exerciseName": "Rear-Foot Elevated Dumbell Split Squat",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Split Squat",
     "classification": "Lower Body",
     "muscle1": "Glutes",
@@ -729,7 +729,7 @@
   },
   {
     "exerciseName": "Plate X-Outs",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Plate X-Outs",
     "classification": "Filler Upper Body",
     "muscle1": "",
@@ -737,7 +737,7 @@
   },
   {
     "exerciseName": "Empty Can Raise",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Empty Can Raise",
     "classification": "Filler Upper Body",
     "muscle1": "",
@@ -745,7 +745,7 @@
   },
   {
     "exerciseName": "Push Jerk",
-    "equipment": "Dumbell",
+    "equipment": "Weights",
     "parent": "Clean",
     "classification": "Upper Body",
     "muscle1": "",
