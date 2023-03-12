@@ -43,7 +43,7 @@ const RecommenderPage = () => {
 
 	const [selected, setSelected] = React.useState("");
 	const [activity, setActivity] = React.useState("");
-	const [muscleGroups, setMuscleGroups] = React.useState([]);
+	const [targetmuscles, setTargetMuscles] = React.useState([]);
 	const [equipment, setEquipment] = React.useState([]);
 	const [duration, setDuration] = React.useState([]);
 
@@ -169,8 +169,8 @@ const RecommenderPage = () => {
 						dropdownTextStyles={[Styles.textStyles.medium]}
 						data={musclegroupsList}
 						searchPlaceholder={'Search'}
-						placeholder={'Muscle Groups to Target (Optional)'}
-						setSelected={(val) => { setMuscleGroups(val) }}
+						placeholder={'Target Muscle Groups (Optional)'}
+						setSelected={(val) => { setTargetMuscles(val) }}
 						badgeStyles={Styles.recommenderStyles.badge}
 						badgeTextStyles={Styles.textStyles.regular}
 					/>
@@ -194,7 +194,13 @@ const RecommenderPage = () => {
 					</TouchableOpacity>
 					*/}
 				</View>
-			}
+			} 
+			<View >
+				<TouchableOpacity onPress={() => { console.log(Exercise.generateWorkoutFromRequest(equipment, duration, targetmuscles));}}>
+					{button1 ? <WorkoutButton selected={true} text={'Workout --> Console'} /> : <WorkoutButton selected={false} text={'Workout --> Console'} />
+					}
+				</TouchableOpacity>
+			</View>
 			</ScrollView>
 		</View>
 	)
