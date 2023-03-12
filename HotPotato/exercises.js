@@ -129,7 +129,7 @@ function WorkoutRegiment(circuits=[]) {
 // Constructor for workout regiment set - a main exercise coupled with a series of filler exercises
 // First exercise in collection is presumed to be the main exercise
 // Circuit must contain at least two exercises in the collection
-function WorkoutCircuit(main_exercise = new Exercise(), filler_exercises=[]){
+function WorkoutCircuit(main_exercise, filler_exercises=[]){
     this.main = main_exercise;
     this.fillers = filler_exercises;
     /*
@@ -171,6 +171,21 @@ function generateWorkoutFromRequest(equipment_data, workout_duration, muscle_gro
     let ACCESSIBLE_EXERCISES = filterByEquipment(equipment_data, EXERCISE_DATABASE);
     
     // Filter exercise options down to only requested muscle groups
+    if (muscle_groups.includes("Full Body") ) {
+        muscle_groups.push("Upper Body","Lower Body", "Core");
+    }
+    if (muscle_groups.includes("Lower Body") ) {
+        muscle_groups.push("Glutes","Hamstrings","Calves", "Hips", "Plyo");
+    }
+    if (muscle_groups.includes("Upper Body") ) {
+        muscle_groups.push("Arms","Back","Chest", "Back", "Core");
+    }
+    if (muscle_groups.includes("Arms") ) {
+        muscle_groups.push("Triceps","Biceops","Shoulders");
+    }
+    if (muscle_groups.includes("Core") ) {
+        muscle_groups.push("Obliques", "Transversus Abdominis");
+    }
     let TARGET_MUSCLE_EXERCISES = filterByMuscleGroup(muscle_groups, ACCESSIBLE_EXERCISES);
     
     // Filter exercises to acquire potential filler exercises based off muscle group request
