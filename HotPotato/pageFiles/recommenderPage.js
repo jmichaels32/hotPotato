@@ -39,7 +39,7 @@ const GenerateButton = (props) => {
 	)
 }
 
-const RecommenderPage = () => {
+const RecommenderPage = (props) => {
 
 	const [selected, setSelected] = React.useState("");
 	const [activity, setActivity] = React.useState("");
@@ -195,7 +195,7 @@ const RecommenderPage = () => {
 			}
 			{activity == "Strength" && duration != '' &&
 				<View >
-					<TouchableOpacity onPress={() => { setButton1(!button1); setButton2(false); }}>
+					<TouchableOpacity onPress={() => { setButton1(!button1); setButton2(false); props.changePage(Const.RECOMMENDERPAGE, Const.REGIMENPAGE);}}>
 						{button1 ? <WorkoutButton selected={true} text={'Loading Workout...'} /> : <WorkoutButton selected={false} text={'Generate Workout'} />
 						}
 					</TouchableOpacity>
