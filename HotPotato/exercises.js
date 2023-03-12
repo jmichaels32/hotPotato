@@ -2,7 +2,7 @@ import * as mathjs from 'mathjs'; // Used in randomization
 
 // Database for exercises; JSON formatted
 // Keys: "exerciseName", "equipment", "parent", "classification", "muscle1", and "muscle2".
-export const EXERCISE_DATABASE = require('./exercises.json');
+const EXERCISE_DATABASE = require('./exercises.json');
 
 // ----------------------------------------------
 // Boolean helper methods for exercise object keys 
@@ -40,29 +40,25 @@ function isDerivative(input_exercise, exercises) {
 // ---------------------------------------------------------------------------------------------
 
 // Preserves only exercises with accessible equipment
-function getExercisesByEquipment(available_equipment, current_options = EXERCISE_DATABASE) {
+function filterByEquipment(available_equipment, current_options = EXERCISE_DATABASE) {
     // Bodyweight exercises are assumed to not be equipment-limited.
     available_equipment.push("Bodyweight");
-    let AccessibleExercises = current_options.filter(exercise => {
-        isAccessible(exercise, available_equipment);
-    });
-    return AccessibleExercises;
+    return current_options.filter( x => available_equipment.includes(x.equipment));
+    // return AccessibleExercises;
 }
 
 // Preserves only exercises with provided classification(s)
-function getExercisesByClassification(classifications, current_options = EXERCISE_DATABASE) {
-    let MatchingExercises = current_options.filter(exercise => {
-        hasClassifications(exercise, classifications);
-    });
-    return MatchingExercises;
+function filterByClassification(classifications, current_options = EXERCISE_DATABASE) {
+    return current_options.filter( x => 
+        classifications.includes(x.classification)
+    );
 }
 
 // Preserves only exercises which target provided muscle group(s) primarily or secondarily
-function getExercisesByTargetMuscle(target_muscles, current_options = EXERCISE_DATABASE) {
-    let TargettingExercises = current_options.filter(exercise => {
-        hasTargetMuscle(exercise, target_muscles);
-    });
-    return TargettingExercises;
+function filterByMuscleGroup(target_muscles, current_options = EXERCISE_DATABASE) {
+    return current_options.filter( x => 
+        target_muscles.includes(x.muscle1) || target_muscles.includes(x.muscle2)
+    );
 }
 
 // Preserves only exercises which are not derivatives of the provided exercise
@@ -170,44 +166,43 @@ function generateWorkoutFromRequest(equipment_data, workout_duration, muscle_gro
             break;
     }
 
+    
     // Filter exercise options down to only accessible ones
-    let POTENTIAL_EXERCISE_DATABASE = getExercisesByEquipment(equipment_data, EXERCISE_DATABASE);
-
+    let ACCESSIBLE_EXERCISES = filterByEquipment(equipment_data, EXERCISE_DATABASE);
+    
     // Filter exercise options down to only requested muscle groups
-    let TARGET_MUSCLE_DATABASE = getExercisesByTargetMuscle(muscle_groups, POTENTIAL_EXERCISE_DATABASE);
+    let TARGET_MUSCLE_EXERCISES = filterByMuscleGroup(muscle_groups, ACCESSIBLE_EXERCISES);
     
     // Filter exercises to acquire potential filler exercises based off muscle group request
-    let requested_classifications = [];
-    requested_classifications.push("Core", "Mobility", "Stretch");
+    let requested_classifications = ["Core", "Mobility", "Stretch"];
     if (muscle_groups.includes("Upper Body") || muscle_groups.includes("Full Body")) {
         requested_classifications.push("Upper Body Filler", "Upper Body Stretch");
     }
     if (muscle_groups.includes("Lower Body")  || muscle_groups.includes("Full Body")) {
         requested_classifications.push("Lower Body Filler", "Lower Body Stretch");
     }
-    let FILLER_DATABASE = getExercisesByClassification(requested_classifications, POTENTIAL_EXERCISE_DATABASE);
-    
+    let FILLER_EXERCISES = filterByClassification(requested_classifications, ACCESSIBLE_EXERCISES);
+
     // Generate workout circuits based on user requests
     let generated_workout = new WorkoutRegiment()
     let filler_exercises = []
     for (let i = 0; i < num_of_circuits; i++) {
         // Get a main exercise and ensure it is not repeated in the workout
-        let main_exercise = getRandomExercise(TARGET_MUSCLE_DATABASE);
-        TARGET_MUSCLE_DATABASE = removeDerivatives(main_exercise, TARGET_MUSCLE_DATABASE);
-        
+        let main_exercise = getRandomExercise(TARGET_MUSCLE_EXERCISES);
+        // TARGET_MUSCLE_EXERCISES = removeDerivatives(main_exercise, TARGET_MUSCLE_EXERCISES);
+
         // Get 3 filler exercises
         for (let j = 0; j < 3; j++) {
             // Get a filler exercise and ensure it is not repeated in the workout
-            filler_exercises[j] = getRandomExercise(FILLER_DATABASE);
-            FILLER_DATABASE = removeDerivatives(main_exercise, FILLER_DATABASE);
+            filler_exercises[j] = getRandomExercise(FILLER_EXERCISES);
+           // FILLER_EXERCISES = removeDerivatives(main_exercise, FILLER_EXERCISES);
         }
 
-        // Add circuit to the exercise regiment
+        // Add new circuit to the exercise regiment
         let generated_circuit = new WorkoutCircuit(main_exercise, filler_exercises);
         generated_workout.circuits.push(generated_circuit);
     }
-
     return generated_workout;
 };
 
-export {generateWorkoutFromRequest, WorkoutCircuit, WorkoutRegiment}
+export {generateWorkoutFromRequest, Exercise, WorkoutCircuit, WorkoutRegiment}

@@ -74,9 +74,9 @@ const RecommenderPage = () => {
 	]
 
 	const musclegroupsList = [
-		{ key: '1', value: 'Full Body' },
-		{ key: '2', value: 'Upper Body' },
-		{ key: '3', value: 'Lower Body' },
+		{ key: 'Full Body', value: 'Full Body' },
+		{ key: 'Upper Body', value: 'Upper Body' },
+		{ key: 'Lower Body', value: 'Lower Body' },
 	]
 
 	return (
