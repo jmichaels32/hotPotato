@@ -171,7 +171,7 @@ export const recommenderStyles = StyleSheet.create({
     borderRadius: 5,
     borderWidth: 3,
     borderColor: '#443105',
-    height: 200,
+    height: 160,
   },
   // The items in the actual dropdown
   dropdownItems: {
@@ -182,7 +182,7 @@ export const recommenderStyles = StyleSheet.create({
     borderRadius: 5,
     borderWidth: 3,
     borderColor: '#443105',
-    width: 320,
+    width: 300,
   },
   badge: {
     borderColor: '#443105',
