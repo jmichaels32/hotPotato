@@ -50,15 +50,17 @@ export const michaelImagePath = require('./images/profilePics/michael.jpeg');
 // ----------------------------------
 // Component Exports
 // ----------------------------------
+
+import { Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
-import * as Styles from './styles.js'
+import * as Styles from './styles.js';
 
-const ProfileContentBox = ({ children }) => {
+const ProfileContentBox = ({ children, style }) => {
 	return (
 		<LinearGradient 
-			colors={['#FFF2D9', '#FFEBC4']} 
-			style={Styles.pageStyles.contentBox}
+			colors={['#FFF2D9', '#FFE1A8']} 
+			style={[Styles.constantStyles.contentBox, style]}
 			start={{x : 0.5, y : 0.5}} 
 			end={{x : 1, y : 1}}
 		>
@@ -67,5 +69,10 @@ const ProfileContentBox = ({ children }) => {
 	)
 }
 
-export default ProfileContentBox
+const ProfilePhoto = ({style, path}) => {
+	return (
+		<Image style={[Styles.constantStyles.profilePhoto, style]} source={path} />
+	)
+}
 
+export { ProfileContentBox, ProfilePhoto }
