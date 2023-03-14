@@ -103,7 +103,7 @@ class App extends Component {
     return (
       <View style={Styles.appStyles.container}>
         <TopBar state={this.state} onPress={this.setPage}/>
-        <Pages currentPage={this.state.currentPage}/>
+        <Pages currentPage={this.state.currentPage} changePage={this.setPage}/>
         <View style={Styles.appStyles.navbar}>
           <TouchableOpacity onPress={() => this.setPage(null, Const.WORKOUTPAGE)}>
             {this.state.currentPage == Const.WORKOUTPAGE ? <WorkoutIconSelected /> : <WorkoutIcon />}
