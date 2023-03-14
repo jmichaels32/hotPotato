@@ -195,7 +195,12 @@ const RecommenderPage = (props) => {
 			}
 			{activity == "Strength" && duration != '' &&
 				<View >
-					<TouchableOpacity onPress={() => { setButton1(!button1); setButton2(false); props.changePage(Const.RECOMMENDERPAGE, Const.REGIMENPAGE);}}>
+					<TouchableOpacity onPress={() => {
+						setButton1(!button1);
+						setButton2(false);
+						console.log(Exercise.generateWorkoutFromRequest(equipment, duration, targetmuscles));
+						props.changePage(Const.RECOMMENDERPAGE, Const.REGIMENPAGE);
+					}}>
 						{button1 ? <WorkoutButton selected={true} text={'Loading Workout...'} /> : <WorkoutButton selected={false} text={'Generate Workout'} />
 						}
 					</TouchableOpacity>
@@ -207,12 +212,6 @@ const RecommenderPage = (props) => {
 					*/}
 				</View>
 			} 
-			<View >
-				<TouchableOpacity onPress={() => { console.log(Exercise.generateWorkoutFromRequest(equipment, duration, targetmuscles));}}>
-					{button1 ? <WorkoutButton selected={true} text={'Workout --> Console'} /> : <WorkoutButton selected={false} text={'Workout --> Console'} />
-					}
-				</TouchableOpacity>
-			</View>
 			</ScrollView>
 		</View>
 	)
