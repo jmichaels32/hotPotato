@@ -31,14 +31,11 @@ const RegimenPage = () => {
     ];
 
     const styles = StyleSheet.create({
-        container: {
-            flex: 1,
-            marginHorizontal: 16,
-        },
         item: {
             backgroundColor: '#D6AE60',
+            borderRadius: 10,
             padding: 5,
-            marginVertical: 6,
+            marginVertical: 5,
         },
     });
 
@@ -103,33 +100,38 @@ const RegimenPage = () => {
             </View>
             <Text style={Styles.textStyles.medium}> Complete 3 rounds of each circuit. </Text>
             <Text style={Styles.textStyles.small}> For each circuit round, complete 3-7 repetitions of the main exercise and 8-12 repetitions of the filler exercises. </Text>
-            <SafeAreaView style={styles.container}>
+            <SafeAreaView style={Styles.pageStyles.container} width={'90%'} >
                 <SectionList
                     sections={DATA}
                     keyExtractor={(item, index) => item + index}
                     renderItem={({ item }) => (
                         <View style={styles.item}>
-                            <LinearGradient colors={['#FFF2D9', '#FFD77D']} start={{ x: .8, y: 0}} end={{x: 1, y: 1}}>
-                            <Text style={Styles.textStyles.medium}>{item}</Text>
-                            <Text>8-12 reps</Text>
+                            <LinearGradient colors={['#FFF2D9', '#FFD77D']} start={{ x: .3, y: 0 }} end={{x: 0.3, y: 1}} style={{padding: 10, borderRadius: 10}}>
+                            <View style={{flexDirection: 'row'}}>
+                                <Text style={Styles.textStyles.medium}>{item}</Text>
+                                </View>
+
+                                <View style={{ flexDirection: 'row', justifyContent: 'flex-end'}}>
+                                    <Checkbox />
+                                    <Text style={{flexDirection: 'row', alignSelf: 'center'}}>  </Text>
+                                    <Checkbox />
+                                    <Text style={{flexDirection: 'row', alignSelf: 'center'}}>  </Text>
+                                    <Checkbox />
+                            </View>
+                            <Text>   8-12 reps</Text>
+
                             </LinearGradient>
                         </View>
 
 
                     )}
                     renderSectionHeader={(main_exercise) => (
-                        <LinearGradient colors={['#FFD77D', '#D6AE60']} start={{ x: 0.7, y: 0 }} end={{x: 0.65, y: 0.3}}>
-                        <View >
-                        <Text style={Styles.textStyles.subHeader}> Circuit # {DATA.indexOf(main_exercise)}</Text>
-                        <Text style={Styles.textStyles.medium}> Completed Rounds:</Text>
-                            <View style={{flexDirection: 'row'}}>
-                                <Text style={{flexDirection: 'row', alignSelf: 'center'}}>    #1: </Text>
-                                <Checkbox />
-                                <Text style={{flexDirection: 'row', alignSelf: 'center'}}>    #2: </Text>
-                                <Checkbox />
-                                <Text style={{flexDirection: 'row', alignSelf: 'center'}}>    #3: </Text>
-                                <Checkbox />
-                            </View>
+                        // <LinearGradient colors={['#FFD77D', '#D6AE60']} start={{ x: 0.7, y: 0 }} end={{x: 0.65, y: 0.3}}>
+                        <LinearGradient colors={['#FFD77D', '#D6AE60']} start={{ x: 0, y: 0 }} end={{x: 0.2, y: 1}} style={{padding: 10, borderRadius: 10}}>
+                        <Text style={Styles.textStyles.subHeader}> Circuit # </Text>
+                        <View style={Styles.textStyles.medium}>
+                        <Text style={Styles.textStyles.medium}>                         Completed Rounds  </Text>
+                        <Text style={Styles.textStyles.medium}>                              #1      #2      #3   </Text>
                         </View>
                         </LinearGradient>
                     )}
