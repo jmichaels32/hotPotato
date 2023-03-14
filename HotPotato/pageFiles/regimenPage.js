@@ -40,52 +40,74 @@ const RegimenPage = () => {
     });
 
 
-    const regimenList = [
-        { index: 0, name: 'Stretches', value: 5 },
-        { index: 1, name: 'Planks', value: 10 },
-        { index: 2, name: 'Rowing Machine', value: 20 },
-        { index: 3, name: 'Treadmill', value: 10 },
-    ];
+    // const regimenList = [
+    //     { index: 0, name: 'Stretches', value: 5 },
+    //     { index: 1, name: 'Planks', value: 10 },
+    //     { index: 2, name: 'Rowing Machine', value: 20 },
+    //     { index: 3, name: 'Treadmill', value: 10 },
+    // ];
 
-    const [selected, setSelected] = React.useState(Array(regimenList.length + 1).fill(false))
+    // const [selected, setSelected] = React.useState(Array(regimenList.length + 1).fill(false))
     const [sum, setSum] = React.useState(0)
 
-    const updateSelected = (index) => {
-        let selectedCopy = [...selected];
-        selectedCopy[index] = !selectedCopy[index];
-        setSelected(selectedCopy);
-    };
+    // const updateSelected = (index) => {
+    //     let selectedCopy = [...selected];
+    //     selectedCopy[index] = !selectedCopy[index];
+    //     setSelected(selectedCopy);
+    // };
 
-    useEffect(() => {
-        // Activity point contribution
-        let activitySum = regimenList.reduce(function (acc, obj) {
-            if (selected[obj.index]) {
-                return acc + obj.value;
-            }
-            else {
-                return acc;
-            }
-        }, 0);
+    // useEffect(() => {
+    //     // Activity point contribution
+    //     let activitySum = regimenList.reduce(function (acc, obj) {
+    //         if (selected[obj.index]) {
+    //             return acc + obj.value;
+    //         }
+    //         else {
+    //             return acc;
+    //         }
+    //     }, 0);
 
-        // Picture point contribution 
-        if (selected[regimenList.length]) {
-            activitySum += 10;
-        }
-        setSum(activitySum);
-    }, [selected])
+    //     // Picture point contribution 
+    //     if (selected[regimenList.length]) {
+    //         activitySum += 10;
+    //     }
+    //     setSum(activitySum);
+    // }, [selected])
 
+    // Original Checkbox functionality
+    // const Checkbox = (props) => {
+
+    //     if (selected[props.index]) {
+    //         return (
+    //             <TouchableOpacity onPress={() => { updateSelected(props.index); }}>
+    //                 <CheckedBox width={40} height={40} />
+    //             </TouchableOpacity>
+    //         )
+    //     }
+    //     else {
+    //         return (
+    //             <TouchableOpacity onPress={() => { updateSelected(props.index); }}>
+    //                 <UncheckedBox width={40} height={40} />
+    //             </TouchableOpacity>
+    //         )
+    //     }
+    // }
+
+    // Temporary fix for cosmetic checkbox functionality
     const Checkbox = (props) => {
 
-        if (selected[props.index]) {
+        const [check, setCheck] = React.useState(false);
+
+        if (check) {
             return (
-                <TouchableOpacity onPress={() => { updateSelected(props.index); }}>
+                <TouchableOpacity onPress={() => { setCheck(!check); }}>
                     <CheckedBox width={40} height={40} />
                 </TouchableOpacity>
             )
         }
         else {
             return (
-                <TouchableOpacity onPress={() => { updateSelected(props.index); }}>
+                <TouchableOpacity onPress={() => { setCheck(!check); }}>
                     <UncheckedBox width={40} height={40} />
                 </TouchableOpacity>
             )
