@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, SectionList, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, SectionList, TouchableOpacity, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 // Local file import
@@ -14,7 +14,7 @@ const RegimenPage = () => {
     const DATA = [
         {
             "main_exercise": "Pullups",
-            data: ["Pullups",'Russian Twists', 'Band Pull', 'Med Ball Slams'],
+            data: ["Pullups", 'Russian Twists', 'Band Pull', 'Med Ball Slams'],
         },
         {
             "main_exercise": 'Russian Twists',
@@ -35,7 +35,7 @@ const RegimenPage = () => {
             backgroundColor: '#D6AE60',
             borderRadius: 10,
             padding: 5,
-            marginVertical: 5,
+            marginVertical: 4,
         },
     });
 
@@ -96,48 +96,61 @@ const RegimenPage = () => {
 
         <View style={Styles.pageStyles.container}>
             <View style={Styles.pageStyles.title}>
-            <Text style={Styles.textStyles.subHeader}>Your Workout Regimen</Text>
+                <Text style={Styles.textStyles.subHeader}>Your Workout Regimen</Text>
             </View>
-            <Text style={Styles.textStyles.medium}> Complete 3 rounds of each circuit. </Text>
-            <Text style={Styles.textStyles.small}> For each circuit round, complete 3-7 repetitions of the main exercise and 8-12 repetitions of the filler exercises. </Text>
-            <SafeAreaView style={Styles.pageStyles.container} width={'90%'} >
+            <Text style={Styles.textStyles.small}> Do 3 rounds of each circuit. A round is 3-7 reps of the main exercise and 8-12 reps of the filler exercises. </Text>
+            <SafeAreaView style={Styles.pageStyles.container} width={'90%'} height={'68%'}>
                 <SectionList
                     sections={DATA}
                     keyExtractor={(item, index) => item + index}
                     renderItem={({ item }) => (
                         <View style={styles.item}>
-                            <LinearGradient colors={['#FFF2D9', '#FFD77D']} start={{ x: .3, y: 0 }} end={{x: 0.3, y: 1}} style={{padding: 10, borderRadius: 10}}>
-                            <View style={{flexDirection: 'row'}}>
-                                <Text style={Styles.textStyles.medium}>{item}</Text>
+                            <LinearGradient colors={['#FFF2D9', '#FFD77D']} start={{ x: .3, y: 0 }} end={{ x: 0.3, y: 1 }} style={{ padding: 5, borderRadius: 10 }}>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <Text style={Styles.textStyles.medium}>{item}</Text>
+                                    <Text> 10 pts</Text>
                                 </View>
 
-                                <View style={{ flexDirection: 'row', justifyContent: 'flex-end'}}>
+                                <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
                                     <Checkbox />
-                                    <Text style={{flexDirection: 'row', alignSelf: 'center'}}>  </Text>
+                                    <Text style={{ flexDirection: 'row', alignSelf: 'center' }}>  </Text>
                                     <Checkbox />
-                                    <Text style={{flexDirection: 'row', alignSelf: 'center'}}>  </Text>
+                                    <Text style={{ flexDirection: 'row', alignSelf: 'center' }}>  </Text>
                                     <Checkbox />
-                            </View>
-                            <Text>   8-12 reps</Text>
+                                </View>
 
                             </LinearGradient>
                         </View>
-
-
                     )}
-                    renderSectionHeader={(main_exercise) => (
+                    renderSectionHeader={() => (
                         // <LinearGradient colors={['#FFD77D', '#D6AE60']} start={{ x: 0.7, y: 0 }} end={{x: 0.65, y: 0.3}}>
-                        <LinearGradient colors={['#FFD77D', '#D6AE60']} start={{ x: 0, y: 0 }} end={{x: 0.2, y: 1}} style={{padding: 10, borderRadius: 10}}>
-                        <Text style={Styles.textStyles.subHeader}> Circuit # </Text>
-                        <View style={Styles.textStyles.medium}>
-                        <Text style={Styles.textStyles.medium}>                         Completed Rounds  </Text>
-                        <Text style={Styles.textStyles.medium}>                              #1      #2      #3   </Text>
-                        </View>
+                        <LinearGradient colors={['#FFD77D', '#D6AE60']} start={{ x: 0, y: 0 }} end={{ x: 0.5, y: 1 }} style={{ padding: 5, borderRadius: 10 }}>
+                            <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
+                                <Text style={Styles.textStyles.subHeader}> Circuit 1 </Text>
+                                <Text style={Styles.textStyles.medium}>   Completed Rounds  </Text>
+                            </View>
+                            <View style={Styles.textStyles.medium}>
+                                <Text style={Styles.textStyles.medium}>                              #1      #2      #3   </Text>
+                            </View>
                         </LinearGradient>
                     )}
+
                 />
             </SafeAreaView>
-
+            <View style={[Styles.regimenStyles.sumbar, { paddingTop: 10 }]}>
+                <View style={{alignContent: 'center'}}>
+                    <Text style={Styles.textStyles.medium}>  Take a pic! </Text>
+                    <View style={{alignSelf: 'center', flexDirection: 'row'}}>
+                    <CameraIcon/>
+                    <Text style={[Styles.textStyles.regular, { color: '#D6AE60' }]}> 10 pts</Text>
+                    </View>
+                </View>
+                <TouchableOpacity>
+                    <LinearGradient colors={['#FFD77D', '#FFF2D9']} style={[Styles.pageStyles.acceptButton, { width: 150 }]} >
+                        <Text style={Styles.textStyles.medium}> Done? (Total: {sum})</Text>
+                    </LinearGradient>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }
