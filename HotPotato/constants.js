@@ -26,6 +26,9 @@ import FortressIconSelected from './images/selectedIcons/fortressIconSelected.sv
 import BattleIconSelected from './images/selectedIcons/battleIconSelected.svg'
 import ProfileIconSelected from './images/selectedIcons/profileIconSelected.svg'
 
+// Fortress SVGs
+import Fortress from './images/fortress/fortress.svg'
+
 // Miscellaneous SVGs
 import ActivityPlus from './images/topbar/activityPlus.svg'
 import AmmoIcon from './images/topbar/ammoIcon.svg'
@@ -39,7 +42,7 @@ import CameraIcon from './images/icons/cameraIcon.svg'
 
 export { WorkoutIcon, FortressIcon, BattleIcon, ProfileIcon, WorkoutIconSelected, FortressIconSelected,
 				 BattleIconSelected, ProfileIconSelected, ActivityPlus, LogoLight, LogoDark, BackButton, 
-				 AmmoIcon, AttackAmmoIcon, UncheckedBox, CheckedBox, CameraIcon }
+				 AmmoIcon, AttackAmmoIcon, UncheckedBox, CheckedBox, CameraIcon, Fortress }
 
 // ----------------------------------
 // Image Imports
