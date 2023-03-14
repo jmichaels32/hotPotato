@@ -60,6 +60,11 @@ export const pageStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  scrollContainer: {
+    flexGrow: 1, 
+    // display: 'flex',
+    alignItems: 'center',
+  },
 });
 
 export const appStyles = StyleSheet.create({
@@ -158,6 +163,9 @@ export const textStyles = StyleSheet.create({
     fontFamily: "Nunito-ExtraBold",
     fontSize: 25,
     lineHeight: 35,
+  },
+  redHighlight: {
+    color: "#FF4545"
   }
 });
 
@@ -171,7 +179,8 @@ export const recommenderStyles = StyleSheet.create({
     borderRadius: 5,
     borderWidth: 3,
     borderColor: '#443105',
-    height: 160,
+    height: 140,
+    width: 300,
   },
   // The items in the actual dropdown
   dropdownItems: {
