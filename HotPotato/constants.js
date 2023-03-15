@@ -28,6 +28,10 @@ import ProfileIconSelected from './images/selectedIcons/profileIconSelected.svg'
 
 // Fortress SVGs
 import Fortress from './images/fortress/fortress.svg'
+import Landscape from './images/fortress/landscape.svg'
+import SoldierTower from './images/fortress/soldierTower.svg'
+import WizardTower from './images/fortress/wizardTower.svg'
+import KnightTower from './images/fortress/knightTower.svg'
 
 // Miscellaneous SVGs
 import ActivityPlus from './images/topbar/activityPlus.svg'
@@ -42,7 +46,8 @@ import CameraIcon from './images/icons/cameraIcon.svg'
 
 export { WorkoutIcon, FortressIcon, BattleIcon, ProfileIcon, WorkoutIconSelected, FortressIconSelected,
 				 BattleIconSelected, ProfileIconSelected, ActivityPlus, LogoLight, LogoDark, BackButton, 
-				 AmmoIcon, AttackAmmoIcon, UncheckedBox, CheckedBox, CameraIcon, Fortress }
+				 AmmoIcon, AttackAmmoIcon, UncheckedBox, CheckedBox, CameraIcon, Fortress, Landscape,
+				 SoldierTower, WizardTower, KnightTower }
 
 // ----------------------------------
 // Image Imports
