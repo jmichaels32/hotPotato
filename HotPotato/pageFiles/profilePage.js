@@ -29,7 +29,7 @@ const ProfileText = () => {
 	return (
 		<View style={styles.textRegion}>
 			<Text style={styles.mainText}> {name} </Text>
-			<Line color={'#443105'} height={3} width={100} left={4}/>
+			<Line height={3} width={100} left={4}/>
 			<Text style={styles.text}> Member since {memberSince} </Text>
 			<Text style={styles.text}> {location} </Text>
 			<Text style={styles.text}> {streak} day streak </Text>

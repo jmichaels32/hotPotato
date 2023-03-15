@@ -2,12 +2,20 @@
 // File defining constants for widespread use within the app
 // ----------------------------------
 
+// Main Pages
 export const WORKOUTPAGE = 0;
 export const FORTRESSPAGE = 1;
 export const BATTLEPAGE = 2;
 export const PROFILEPAGE = 3;
+
+// Subpages
+// Recommender pages
 export const RECOMMENDERPAGE = 4;
 export const REGIMENPAGE = 5;
+
+// Profile Pages
+export const WORKOUTPREFERENCESPAGE = 6;
+export const MYGOALSPAGE = 7;
 
 // Display constants
 export const DISPLAY = true;
@@ -78,7 +86,7 @@ const Line = ({ color, height, width, left }) => {
 }
 
 Line.defaultProps = {
-  color: 'gray',
+  color: '#443105',
   height: 10,
   width: 10,
   left: 0,

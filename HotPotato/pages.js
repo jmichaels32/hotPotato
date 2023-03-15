@@ -10,6 +10,7 @@ import BattlePage from './pageFiles/battlePage.js';
 import ProfilePage from './pageFiles/profilePage.js';
 import WorkoutPage from './pageFiles/workoutPage.js';
 import RegimenPage from './pageFiles/regimenPage.js';
+import WorkoutPreferencesPage from './pageFiles/workoutpreferencespage.js';
 
 const Pages = (props) => {
     return (
@@ -20,6 +21,7 @@ const Pages = (props) => {
             {props.currentPage == Const.PROFILEPAGE && <ProfilePage />}
             {props.currentPage == Const.RECOMMENDERPAGE && <RecommenderPage changePage={props.changePage}/>}
             {props.currentPage == Const.REGIMENPAGE && <RegimenPage />}
+            {props.currentPage == Const.WORKOUTPREFERENCESPAGE && <WorkoutPreferencesPage />}
         </View>
     );
 };
