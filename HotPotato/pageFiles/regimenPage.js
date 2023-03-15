@@ -10,7 +10,11 @@ import * as Exercise from '../exercises.js';
 import * as Recommendation from './recommenderPage.js';
 import { indexTransformDependencies } from 'mathjs';
 
-const RegimenPage = () => {
+/* 
+'props' variable contains:
+  generateWorkoutFromRequest
+*/
+const RegimenPage = (props) => {
     const DATA = [
         {
             "main_exercise": "Pullups",
