@@ -106,7 +106,6 @@ const ProfileContentBox = ({ children, style }) => {
 	)
 }
 
-// TODO: Add onPress feature to change pages
 const SettingButton = ({ text, style, internalStyle, onPress }) => {
 	return (
 		<TouchableOpacity style={style} onPress={onPress}>
