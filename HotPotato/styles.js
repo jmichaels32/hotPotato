@@ -1,5 +1,28 @@
 import { StyleSheet } from 'react-native';
 
+// Styles for use in general components (defined in constants.js)
+export const constantStyles = StyleSheet.create({
+  contentBox: {
+    // Colors
+    backgroundColor: '#FDDC9B',
+    borderColor: '#D6AE60',
+
+    // Shape
+    borderWidth: 3,
+    borderRadius: 10,
+    marginBottom: 7,
+    padding: 10,
+    width: '95%',
+
+    //Content
+    flexDirection: 'row',
+  },
+  profilePhoto: {
+    backgroundColor: "#FDDC9B",
+    borderRadius: "100%",
+  }
+});
+
 export const font = StyleSheet.create({
   titleFont: {
     fontFamily: 'Nunito-Reg',
@@ -22,6 +45,8 @@ export const pageStyles = StyleSheet.create({
     backgroundColor: '#FDDC9B',
     borderRadius: 15,
   },
+
+  // TODO: Fix redundancy with above code
   title: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -35,7 +60,7 @@ export const pageStyles = StyleSheet.create({
     borderWidth: 3,
     borderRadius: 10,
     marginBottom: 7,
-    // height: '20%',
+    //height: '20%',
     width: '95%',
     padding: 10,
 
