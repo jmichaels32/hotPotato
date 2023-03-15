@@ -39,6 +39,12 @@ const GenerateButton = (props) => {
 	)
 }
 
+/* 
+'props' variable contains:
+  changePage 
+ 	┕-> (used to change to a different page displayed in the app)
+  changeGenerateWorkoutFromRequest
+*/
 const RecommenderPage = (props) => {
 
 	const [selected, setSelected] = React.useState("");
