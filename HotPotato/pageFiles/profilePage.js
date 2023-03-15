@@ -37,7 +37,11 @@ const ProfileText = () => {
 	)
 }
 
-const ProfilePage = () => {
+/* 
+'props' variable includes
+	changePage
+*/
+const ProfilePage = (props) => {
 	return (
 		<View style={styles.container}>
 			<View style={styles.infoContainer}>
@@ -49,11 +53,13 @@ const ProfilePage = () => {
 				<SettingButton 
 					text={"My Workout Preferences"} 
 					style={styles.settingButton}
-					internalStyle={styles.settingButtonInternal}/>
+					internalStyle={styles.settingButtonInternal}
+					onPress={() => props.changePage(Const.PROFILEPAGE, Const.WORKOUTPREFERENCESPAGE)}/>
 				<SettingButton 
 					text={"My Goals"} 
 					style={styles.settingButton}
-					internalStyle={styles.settingButtonInternal}/>
+					internalStyle={styles.settingButtonInternal}
+					onPress={() => props.changePage(Const.PROFILEPAGE, Const.MYGOALSPAGE)}/>
 				<SettingButton 
 					text={"Report a Bug"} 
 					style={styles.settingButton}
