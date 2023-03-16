@@ -9,9 +9,6 @@ export const PROFILEPAGE = 3;
 export const RECOMMENDERPAGE = 4;
 export const REGIMENPAGE = 5;
 
-// Display constants
-export const DISPLAY = true;
-
 // ----------------------------------
 // Import SVGs
 // ----------------------------------

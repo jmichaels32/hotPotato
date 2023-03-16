@@ -13,25 +13,28 @@ import { WorkoutIcon, FortressIcon, BattleIcon, ProfileIcon,
          ActivityPlus, LogoLight, LogoDark, BackButton, AmmoIcon } from './constants.js'
 
 const TopBar = (props) => {
-  const buttonStyle = props.state.displayBackButton ? Styles.displayStyles.show : Styles.displayStyles.hide;
+  const buttonStyle = props.state.previousPage.length != 0 ? Styles.displayStyles.show : Styles.displayStyles.hide;
 
   const goBack = () => {
     const pageChange = props.state.previousPage.pop();
+    
     if (props.state.previousPage.length == 0) {
-      props.onPress(null, pageChange)
+      props.setState({currentPage : pageChange,
+                     previousPage : []})
     } else {
-      props.onPress(props.state.previousPage, pageChange)
+      props.setState({currentPage : pageChange,
+                     previousPage : props.state.previousPage})
     }
   };
 
   return (
     <View style={Styles.appStyles.topbar}>
       <TouchableOpacity style={buttonStyle} onPress={goBack}>
-        <BackButton width={40} height={40} />
+        <BackButton style={buttonStyle} width={40} height={40} />
       </TouchableOpacity>
       <LogoLight height={40} />
       {props.state.currentPage == Const.WORKOUTPAGE 
-      ? <TouchableOpacity onPress={() => props.onPress(Const.WORKOUTPAGE, Const.RECOMMENDERPAGE)}>
+      ? <TouchableOpacity onPress={() => props.setPage(Const.WORKOUTPAGE, Const.RECOMMENDERPAGE)}>
           <ActivityPlus width={50} height={50} style={Styles.displayStyles.show}/> 
         </TouchableOpacity>
       : 
@@ -59,26 +62,23 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.setPage = this.setPage.bind(this);
+    this.setState = this.setState.bind(this);
   }
 
   state = {
     currentPage : Const.WORKOUTPAGE,
-    // By storing as an array we're able to remember all previous pages allowing for nested pages (and working back button)
     previousPage : [],
-    displayBackButton : !Const.DISPLAY, 
     fontsLoaded : false,
   }
 
   setPage(prevPage, page) {
-    // If we're not dealing with a home/the origin page
-    if (prevPage != null) {
+    // If we're dealing with a home/ origin page
+    if (prevPage == null) {
       this.setState({currentPage : page,
-                     previousPage : [...this.state.previousPage, prevPage],
-                     displayBackButton : Const.DISPLAY})
+                     previousPage : []})
     } else {
       this.setState({currentPage : page,
-                     previousPage : this.state.previousPage,
-                     displayBackButton : !Const.DISPLAY})
+                     previousPage : [...this.state.previousPage, prevPage]})
     }
   }
 
@@ -102,7 +102,7 @@ class App extends Component {
     }
     return (
       <View style={Styles.appStyles.container}>
-        <TopBar state={this.state} onPress={this.setPage}/>
+        <TopBar state={this.state} setPage={this.setPage} setState={this.setState}/>
         <Pages currentPage={this.state.currentPage} changePage={this.setPage}/>
         <View style={Styles.appStyles.navbar}>
           <TouchableOpacity onPress={() => this.setPage(null, Const.WORKOUTPAGE)}>
