@@ -15,24 +15,8 @@ import { indexTransformDependencies } from 'mathjs';
   generateWorkoutFromRequest
 */
 const RegimenPage = (props) => {
-    const DATA = [
-        {
-            "main_exercise": "Pullups",
-            data: ["Pullups", 'Russian Twists', 'Band Pull', 'Med Ball Slams'],
-        },
-        {
-            "main_exercise": 'Russian Twists',
-            data: ['Russian Twists', 'Band Pull', 'Med Ball Slams'],
-        },
-        {
-            "main_exercise": 'Pushups',
-            data: ['Russian Twists', 'Band Pull', 'Med Ball Slams'],
-        },
-        {
-            "main_exercise": "Child's Pose",
-            data: ['Russian Twists', 'Band Pull', 'Med Ball Slams'],
-        },
-    ];
+    console.log(props.generateWorkoutFromRequest);
+    const REGIMENT = props.generateWorkoutFromRequest;
 
     const styles = StyleSheet.create({
         item: {
@@ -105,8 +89,9 @@ const RegimenPage = (props) => {
             <Text style={Styles.textStyles.small}> Do 3 rounds of each circuit. A round is 3-7 reps of the main exercise and 8-12 reps of the filler exercises. </Text>
             <SafeAreaView style={Styles.pageStyles.container} width={'90%'} height={'68%'}>
                 <SectionList
-                    sections={DATA}
+                    sections={REGIMENT}
                     keyExtractor={(item, index) => item + index}
+                    //keyExtractor={(item, index) => item + index}
                     renderItem={({ item }) => (
                         <View style={styles.item}>
                             <LinearGradient colors={['#FFF2D9', '#FFD77D']} start={{ x: .3, y: 0 }} end={{ x: 0.3, y: 1 }} style={{ padding: 5, borderRadius: 10 }}>
@@ -126,12 +111,12 @@ const RegimenPage = (props) => {
                             </LinearGradient>
                         </View>
                     )}
-                    renderSectionHeader={() => (
+                    renderSectionHeader={({section: {title}}) => (
                         // <LinearGradient colors={['#FFD77D', '#D6AE60']} start={{ x: 0.7, y: 0 }} end={{x: 0.65, y: 0.3}}>
                         <LinearGradient colors={['#FFD77D', '#D6AE60']} start={{ x: 0, y: 0 }} end={{ x: 0.5, y: 1 }} style={{ padding: 5, borderRadius: 10 }}>
-                            <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
-                                <Text style={Styles.textStyles.subHeader}> Circuit 1 </Text>
-                                <Text style={Styles.textStyles.medium}>   Completed Rounds  </Text>
+                            <View>
+                                <Text style={Styles.textStyles.subHeader}>  {title} </Text>
+                                <Text style={[Styles.textStyles.medium, {alignSelf: 'flex-end'}]}>   Completed Rounds  </Text>
                             </View>
                             <View style={Styles.textStyles.medium}>
                                 <Text style={Styles.textStyles.medium}>                              #1      #2      #3   </Text>

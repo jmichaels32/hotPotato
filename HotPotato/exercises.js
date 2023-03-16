@@ -38,6 +38,12 @@ function isDerivative(input_exercise, exercises) {
 //   - Returns database of exercises filtered according to input parameters.
 //   - Defaults to using entire database if a pre-filtered selection of options is not provided.
 // ---------------------------------------------------------------------------------------------
+// Returns the Exercise object with provided name (first found match is returned, assumed no duplicity)
+function getExerciseFromName(exercise_name) {
+    return EXERCISE_DATABASE.find(exercise => {
+        exercise.exerciseName == exercise_name
+    });
+}
 
 // Preserves only exercises with accessible equipment
 function filterByEquipment(available_equipment, current_options = EXERCISE_DATABASE) {
@@ -103,6 +109,7 @@ function Exercise(name = "", equipment_needed = "", parent_derivation = "", clas
     this.muscle2 = secondary_muscle_targeted;
 };
 
+//TODO: ENsure WorkoutRegimen & Workout Circuit are fully deprecated and replaces with list of exercise names
 // Constructor for workout regiment - a collection of sets
 function WorkoutRegiment(circuits=[]) {
     this.circuits = circuits; 
@@ -129,9 +136,9 @@ function WorkoutRegiment(circuits=[]) {
 // Constructor for workout regiment set - a main exercise coupled with a series of filler exercises
 // First exercise in collection is presumed to be the main exercise
 // Circuit must contain at least two exercises in the collection
-function WorkoutCircuit(main_exercise, filler_exercises=[]){
-    this.main = main_exercise;
-    this.fillers = filler_exercises;
+function WorkoutCircuit(title = "", exercises = []){
+    this.title = title;
+    this.data = exercises;
     /*
     this.getWorkoutJSON = JSON.stringify(this);
    JSON-encoded object:
@@ -149,6 +156,9 @@ function WorkoutCircuit(main_exercise, filler_exercises=[]){
 // workout_duration: short, medium, or long (ie 1, 2 or 3 mini-sets)
 // muscle_groups: list of muscle groups to target
 // TODO: Ensure unspecified muscle group is properly handled
+// Returns array of circuits.
+// NOTE: Since using Maps as children is not supported in front end for ReactElements, Return value is
+// an array of keyed ReactElements instead.
 function generateWorkoutFromRequest(equipment_data, workout_duration, muscle_groups){
     // Generate number of circuits based on workout_duration
     let num_of_circuits =  1;
@@ -199,25 +209,37 @@ function generateWorkoutFromRequest(equipment_data, workout_duration, muscle_gro
     let FILLER_EXERCISES = filterByClassification(requested_classifications, ACCESSIBLE_EXERCISES);
 
     // Generate workout circuits based on user requests
-    let generated_workout = new WorkoutRegiment()
-    let filler_exercises = []
+    //let generated_workout = new WorkoutRegiment()
+    let generated_workout = [];
+
     for (let i = 0; i < num_of_circuits; i++) {
+        let circuit_exercises = [];
         // Get a main exercise and ensure it is not repeated in the workout
         let main_exercise = getRandomExercise(TARGET_MUSCLE_EXERCISES);
+        circuit_exercises[0] = main_exercise.exerciseName;
         // TARGET_MUSCLE_EXERCISES = removeDerivatives(main_exercise, TARGET_MUSCLE_EXERCISES);
+
+        // Name circuit based off of main exercise
+        let title = "Circuit #";
+        title += (i+1);
+        title += ": ";
+        title += (main_exercise.exerciseName);
 
         // Get 3 filler exercises
         for (let j = 0; j < 3; j++) {
             // Get a filler exercise and ensure it is not repeated in the workout
-            filler_exercises[j] = getRandomExercise(FILLER_EXERCISES);
+            let filler_exercise = getRandomExercise(FILLER_EXERCISES);
+            circuit_exercises[j+1] = filler_exercise.exerciseName;
            // FILLER_EXERCISES = removeDerivatives(main_exercise, FILLER_EXERCISES);
         }
 
         // Add new circuit to the exercise regiment
-        let generated_circuit = new WorkoutCircuit(main_exercise, filler_exercises);
-        generated_workout.circuits.push(generated_circuit);
+        generated_workout.push(new WorkoutCircuit(title, circuit_exercises));
+        //generated_workout.circuits.push(generated_circuit);
+        //generated_workout.push(circuits_exercises[i])
     }
     return generated_workout;
 };
+// Each section should be organized as key value pairs in an array, such as
 
 export {generateWorkoutFromRequest, Exercise, WorkoutCircuit, WorkoutRegiment}

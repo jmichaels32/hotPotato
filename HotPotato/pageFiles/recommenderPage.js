@@ -204,7 +204,7 @@ const RecommenderPage = (props) => {
 					<TouchableOpacity onPress={() => {
 						setButton1(!button1);
 						setButton2(false);
-						console.log(Exercise.generateWorkoutFromRequest(equipment, duration, targetmuscles));
+						props.changeGenerateWorkoutFromRequest(JSON.stringify(Exercise.generateWorkoutFromRequest(equipment, duration, targetmuscles)));
 						props.changePage(Const.RECOMMENDERPAGE, Const.REGIMENPAGE);
 					}}>
 						{button1 ? <WorkoutButton selected={true} text={'Loading Workout...'} /> : <WorkoutButton selected={false} text={'Generate Workout'} />
