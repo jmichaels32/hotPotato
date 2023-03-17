@@ -187,7 +187,7 @@ const RecommenderPage = (props) => {
 						dropdownTextStyles={[Styles.textStyles.medium]}
 						data={musclegroupsList}
 						searchPlaceholder={'Search'}
-						placeholder={'Target Muscle Groups (Optional)'}
+						placeholder={'Target Muscle Groups'}
 						setSelected={(val) => { setTargetMuscles(val) }}
 						badgeStyles={Styles.recommenderStyles.badge}
 						badgeTextStyles={Styles.textStyles.regular}
@@ -199,7 +199,7 @@ const RecommenderPage = (props) => {
 				})} */}
 				</View>
 			}
-			{activity == "Strength" && duration != '' &&
+			{activity == "Strength" && duration != '' && targetmuscles.length != 0 &&
 				<View >
 					<TouchableOpacity onPress={() => {
 						setButton1(!button1);
