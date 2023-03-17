@@ -15,15 +15,6 @@ import { indexTransformDependencies } from 'mathjs';
   generateWorkoutFromRequest
 */
 const RegimenPage = (props) => {
-    // Currently, the output to the console is correct.
-    // If I set const REGIMENT equal to the console output value, the page also works and loads as intended.
-    // But, doing     const REGIMENT = props.generateWorkoutFromRequest; gets an error message
-    // "undefined is not an object (evaluating 'items.length')"
-    // I don't know JS well enough to know the intricacies that might be making the console output 
-    // different than the actual variable value
-    // NOTE: I still need to fix a bug w the form for incomplete entry, so if navigating app to debug be sure to
-    // check at least one box for each form filter item.
-    console.log(props.generateWorkoutFromRequest);
     const REGIMENT = props.generateWorkoutFromRequest;
 
     const styles = StyleSheet.create({
