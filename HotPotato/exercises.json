@@ -347,7 +347,7 @@
     "exerciseName": "Pull Ups",
     "equipment": "Pull-Up Bar",
     "parent": "Pull Ups",
-    "classification": "Upper Body",
+    "classification": "Main Upper Body",
     "muscle1": "Back",
     "muscle2": "Arms"
   },
@@ -355,7 +355,7 @@
     "exerciseName": "Chin-ups",
     "equipment": "Pull-Up Bar",
     "parent": "Pull Ups",
-    "classification": "Upper Body",
+    "classification": "Main Upper Body",
     "muscle1": "Back",
     "muscle2": "Arms"
   },
@@ -371,7 +371,7 @@
     "exerciseName": "Neutral Grip Pull Ups",
     "equipment": "Pull-Up Bar",
     "parent": "Pull Ups",
-    "classification": "Upper Body",
+    "classification": "Main Upper Body",
     "muscle1": "Scaps",
     "muscle2": ""
   },
