@@ -215,14 +215,16 @@ function generateWorkoutFromRequest(equipment_data, workout_duration, muscle_gro
 
     // Generate a workout consisting of a series of circuits
     // TODO: Ensure no exercise is repeated elsewhere in the workout.
-    // TODO: Check/handle if collection is empty before drawing a random exercise.
     let generated_workout = [];
     for (let i = 0; i < num_of_circuits; i++) {
         // For each circuit, get a main exercise
         let circuit_exercises = [];
+                // Check/handle if a collection is empty before attempting to select exercises.
         let main_exercise = getRandomExercise(MAIN_EXERCISES);
-        circuit_exercises[0] = main_exercise.exerciseName;
-        // TARGET_MUSCLE_EXERCISES = removeDerivatives(main_exercise, TARGET_MUSCLE_EXERCISES);
+        if (main_exercise !== undefined) {
+            circuit_exercises.push(main_exercise.exerciseName);
+            // TARGET_MUSCLE_EXERCISES = removeDerivatives(main_exercise, TARGET_MUSCLE_EXERCISES);
+        }
 
         // Get a stretch or mobility exercise, ideally one targetting the same muscle group as the main exercise
         let MATCHING_MOVEMENT = filterByMuscleGroup([main_exercise.muscle1, main_exercise.muscle2], MOBILITY_MOVEMENTS);
@@ -230,19 +232,25 @@ function generateWorkoutFromRequest(equipment_data, workout_duration, muscle_gro
             MATCHING_MOVEMENT = MOBILITY_MOVEMENTS;
         }
         let matching_stretch = getRandomExercise(MATCHING_MOVEMENT);
-        circuit_exercises[1] = matching_stretch.exerciseName;
+        if (matching_stretch !== undefined) {
+            circuit_exercises.push(matching_stretch.exerciseName);
+        }
 
         // Get a filler exercise targetting the core
         let core_exercise = getRandomExercise(filterByClassification(["Core"], ACCESSIBLE_EXERCISES));
-        circuit_exercises[2] = core_exercise.exerciseName;
+        if (core_exercise !== undefined) {
+            circuit_exercises.push(core_exercise.exerciseName);
+        }
 
         // Get 1 more filler exercises, and ensure they are not repeated in the workout.
         let filler_exercise = getRandomExercise(FILLER_EXERCISES);
-        circuit_exercises[3] = filler_exercise.exerciseName;
+        if (filler_exercise !== undefined) {
+            circuit_exercises.push(filler_exercise.exerciseName);
+        }
 
         // Add new circuit to the exercise regiment
         // Name the circuit based off of its number and its main exercise.
-        let title = "Circuit #" + (i+1) + ": " + (main_exercise.exerciseName);
+        let title = "Circuit #" + (i+1) + ": " + (circuit_exercises[0]);
         generated_workout.push(new WorkoutCircuit(title, circuit_exercises));
     }
     return generated_workout;

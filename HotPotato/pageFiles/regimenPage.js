@@ -96,6 +96,7 @@ const RegimenPage = (props) => {
                             <LinearGradient colors={['#FFF2D9', '#FFD77D']} start={{ x: .3, y: 0 }} end={{ x: 0.3, y: 1 }} style={{ padding: 5, borderRadius: 10 }}>
                                 <View style={{ flexDirection: 'row' }}>
                                     <Text style={Styles.textStyles.medium}>{item}</Text>
+                                    {/* TODO: Determine point allotments?*/}
                                     <Text> 10 pts</Text>
                                 </View>
 
@@ -115,10 +116,10 @@ const RegimenPage = (props) => {
                         <LinearGradient colors={['#FFD77D', '#D6AE60']} start={{ x: 0, y: 0 }} end={{ x: 0.5, y: 1 }} style={{ padding: 5, borderRadius: 10 }}>
                             <View>
                                 <Text style={Styles.textStyles.subHeader}>  {title} </Text>
-                                <Text style={[Styles.textStyles.medium, {alignSelf: 'flex-end'}]}>   Completed Rounds  </Text>
                             </View>
-                            <View style={Styles.textStyles.medium}>
-                                <Text style={Styles.textStyles.medium}>                              #1      #2      #3   </Text>
+                            <View style={{alignItems: 'flex-end'}}>
+                                <Text style={Styles.textStyles.medium}>Completed Rounds</Text>
+                                <Text style={Styles.textStyles.medium}>#1       #2      #3    </Text>
                             </View>
                         </LinearGradient>
                     )}
