@@ -70,10 +70,9 @@ function filterByMuscleGroup(target_muscles, current_options = EXERCISE_DATABASE
 // Preserves only exercises which are not derivatives of the provided exercise
 // Provided exercise is also removed, if present
 function removeDerivatives(provided_exercise, current_options = EXERCISE_DATABASE) {
-    let UniqueExercise = current_options.filter(exercise => {
-        !isDerivative(exercise, current_options);
+    return current_options.filter(x => {
+        x.parent != provided_exercise.parent
     });
-    return UniqueExercise;
 }
 
 // Removes any instances of specified exercise from the provided collection and any duplicate of exercise
@@ -160,7 +159,8 @@ function WorkoutCircuit(title = "", exercises = []){
 // NOTE: Since using Maps as children is not supported in front end for ReactElements, Return value is
 // an array of keyed ReactElements instead.
 function generateWorkoutFromRequest(equipment_data, workout_duration, muscle_groups){
-    // Generate number of circuits based on workout_duration
+    
+    // Generate number of circuits based on provided workout_duration
     let num_of_circuits =  1;
     switch(workout_duration) {
         case "Medium":
@@ -176,11 +176,10 @@ function generateWorkoutFromRequest(equipment_data, workout_duration, muscle_gro
             break;
     }
 
-    
-    // Filter exercise options down to only accessible ones
+    // Filter exercise options down to only accessible ones based on provided equipment_data
     let ACCESSIBLE_EXERCISES = filterByEquipment(equipment_data, EXERCISE_DATABASE);
     
-    // Filter exercise options down to only requested muscle groups
+    // Appropriately expand provided target muscle groups to include child elements
     if (muscle_groups.includes("Full Body") ) {
         muscle_groups.push("Upper Body","Lower Body", "Core");
     }
@@ -191,55 +190,62 @@ function generateWorkoutFromRequest(equipment_data, workout_duration, muscle_gro
         muscle_groups.push("Arms","Back","Chest", "Back", "Core");
     }
     if (muscle_groups.includes("Arms") ) {
-        muscle_groups.push("Triceps","Biceops","Shoulders");
+        muscle_groups.push("Triceps","Biceps","Shoulders");
     }
     if (muscle_groups.includes("Core") ) {
         muscle_groups.push("Obliques", "Transversus Abdominis");
     }
     let TARGET_MUSCLE_EXERCISES = filterByMuscleGroup(muscle_groups, ACCESSIBLE_EXERCISES);
     
-    // Filter exercises to acquire potential filler exercises based off muscle group request
-    let requested_classifications = ["Core", "Mobility", "Stretch"];
-    if (muscle_groups.includes("Upper Body") || muscle_groups.includes("Full Body")) {
-        requested_classifications.push("Upper Body Filler", "Upper Body Stretch");
-    }
-    if (muscle_groups.includes("Lower Body")  || muscle_groups.includes("Full Body")) {
-        requested_classifications.push("Lower Body Filler", "Lower Body Stretch");
-    }
-    let FILLER_EXERCISES = filterByClassification(requested_classifications, ACCESSIBLE_EXERCISES);
+    // Assemble collection of potential main exercises
+    let MAIN_EXERCISES = filterByClassification(["Main Upper Body", "Main Lower Body"], TARGET_MUSCLE_EXERCISES);
 
-    // Generate workout circuits based on user requests
-    //let generated_workout = new WorkoutRegiment()
+    // Assemble collection of potential matching stretch & mobility movements
+    let MOBILITY_MOVEMENTS = filterByClassification(["Mobilit", "Stretch"], ACCESSIBLE_EXERCISES);
+    
+    // Assemble collection of potential filler exercises
+    let filler_classifications = [];
+    if (muscle_groups.includes("Upper Body")) {
+        filler_classifications.push("Filler Upper Body");
+    }
+    if (muscle_groups.includes("Lower Body")) {
+        filler_classifications.push("Filler Lower Body");
+    }
+    let FILLER_EXERCISES = filterByClassification(filler_classifications, TARGET_MUSCLE_EXERCISES);
+
+    // Generate a workout consisting of a series of circuits
+    // TODO: Ensure no exercise is repeated elsewhere in the workout.
+    // TODO: Check/handle if collection is empty before drawing a random exercise.
     let generated_workout = [];
-
     for (let i = 0; i < num_of_circuits; i++) {
+        // For each circuit, get a main exercise
         let circuit_exercises = [];
-        // Get a main exercise and ensure it is not repeated in the workout
-        let main_exercise = getRandomExercise(TARGET_MUSCLE_EXERCISES);
+        let main_exercise = getRandomExercise(MAIN_EXERCISES);
         circuit_exercises[0] = main_exercise.exerciseName;
         // TARGET_MUSCLE_EXERCISES = removeDerivatives(main_exercise, TARGET_MUSCLE_EXERCISES);
 
-        // Name circuit based off of main exercise
-        let title = "Circuit #";
-        title += (i+1);
-        title += ": ";
-        title += (main_exercise.exerciseName);
-
-        // Get 3 filler exercises
-        for (let j = 0; j < 3; j++) {
-            // Get a filler exercise and ensure it is not repeated in the workout
-            let filler_exercise = getRandomExercise(FILLER_EXERCISES);
-            circuit_exercises[j+1] = filler_exercise.exerciseName;
-           // FILLER_EXERCISES = removeDerivatives(main_exercise, FILLER_EXERCISES);
+        // Get a stretch or mobility exercise, ideally one targetting the same muscle group as the main exercise
+        let MATCHING_MOVEMENT = filterByMuscleGroup([main_exercise.muscle1, main_exercise.muscle2], MOBILITY_MOVEMENTS);
+        if (MATCHING_MOVEMENT.length === 0) {
+            MATCHING_MOVEMENT = MOBILITY_MOVEMENTS;
         }
+        let matching_stretch = getRandomExercise(MATCHING_MOVEMENT);
+        circuit_exercises[1] = matching_stretch.exerciseName;
+
+        // Get a filler exercise targetting the core
+        let core_exercise = getRandomExercise(filterByClassification(["Core"], ACCESSIBLE_EXERCISES));
+        circuit_exercises[2] = core_exercise.exerciseName;
+
+        // Get 1 more filler exercises, and ensure they are not repeated in the workout.
+        let filler_exercise = getRandomExercise(FILLER_EXERCISES);
+        circuit_exercises[3] = filler_exercise.exerciseName;
 
         // Add new circuit to the exercise regiment
+        // Name the circuit based off of its number and its main exercise.
+        let title = "Circuit #" + (i+1) + ": " + (main_exercise.exerciseName);
         generated_workout.push(new WorkoutCircuit(title, circuit_exercises));
-        //generated_workout.circuits.push(generated_circuit);
-        //generated_workout.push(circuits_exercises[i])
     }
     return generated_workout;
 };
-// Each section should be organized as key value pairs in an array, such as
 
 export {generateWorkoutFromRequest, Exercise, WorkoutCircuit, WorkoutRegiment}

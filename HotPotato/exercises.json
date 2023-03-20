@@ -307,7 +307,7 @@
     "exerciseName": "Clamshells",
     "equipment": "Band",
     "parent": "Clamshells",
-    "classification": "Lower Body Filler",
+    "classification": "Filler Lower Body",
     "muscle1": "Hips",
     "muscle2": "Glutes"
   },
@@ -443,7 +443,7 @@
     "exerciseName": "Single-Leg Barbell RDL",
     "equipment": "Barbell",
     "parent": "RDL",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Hamstrings",
     "muscle2": "Glutes"
   },
@@ -451,7 +451,7 @@
     "exerciseName": "Dumbell RDL",
     "equipment": "Weights",
     "parent": "RDL",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Hamstrings",
     "muscle2": "Glutes"
   },
@@ -459,7 +459,7 @@
     "exerciseName": "Single-Leg Dumbell RDL",
     "equipment": "Weights",
     "parent": "RDL",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Hamstrings",
     "muscle2": "Glutes"
   },
@@ -523,7 +523,7 @@
     "exerciseName": "Box Jump / Squat Jump",
     "equipment": "Bodyweight",
     "parent": "Box Jump",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Plyo",
     "muscle2": ""
   },
@@ -531,7 +531,7 @@
     "exerciseName": "One-Step Box Jump / Squat Jump",
     "equipment": "Bodyweight",
     "parent": "Box Jump",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Plyo",
     "muscle2": ""
   },
@@ -539,7 +539,7 @@
     "exerciseName": "Repeated Broad Jump",
     "equipment": "Bodyweight",
     "parent": "Broad Jump",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Plyo",
     "muscle2": ""
   },
@@ -555,7 +555,7 @@
     "exerciseName": "Split Squat Jump",
     "equipment": "Bodyweight",
     "parent": "Split Jump",
-    "classification": "Lower Body",
+    "classification": "Filler Lower Body",
     "muscle1": "Plyo",
     "muscle2": ""
   },
@@ -587,7 +587,7 @@
     "exerciseName": "Barbell Front Squat",
     "equipment": "Barbell",
     "parent": "Squat",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Quads",
     "muscle2": "Glutes"
   },
@@ -595,7 +595,7 @@
     "exerciseName": "Barbell Back Squat",
     "equipment": "Barbell",
     "parent": "Squat",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Quads",
     "muscle2": "Glutes"
   },
@@ -603,7 +603,7 @@
     "exerciseName": "Deadlift",
     "equipment": "Barbell",
     "parent": "Deadlift",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Quads",
     "muscle2": "Glutes"
   },
@@ -611,7 +611,7 @@
     "exerciseName": "Dumbell Deadlift",
     "equipment": "Weights",
     "parent": "Deadlift",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Quads",
     "muscle2": "Glutes"
   },
@@ -619,7 +619,7 @@
     "exerciseName": "Dumbell Squat",
     "equipment": "Weights",
     "parent": "Squat",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Quads",
     "muscle2": "Glutes"
   },
@@ -627,7 +627,7 @@
     "exerciseName": "Squat",
     "equipment": "Bodyweight",
     "parent": "Squat",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Quads",
     "muscle2": "Glutes"
   },
@@ -635,7 +635,7 @@
     "exerciseName": "Barbell Split Squat",
     "equipment": "Barbell",
     "parent": "Split Squat",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Glutes",
     "muscle2": "Quads"
   },
@@ -643,7 +643,7 @@
     "exerciseName": "Dumbell Split Squat",
     "equipment": "Weights",
     "parent": "Split Squat",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Glutes",
     "muscle2": "Quads"
   },
@@ -651,7 +651,7 @@
     "exerciseName": "Split Squat",
     "equipment": "Bodyweight",
     "parent": "Split Squat",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Glutes",
     "muscle2": "Quads"
   },
@@ -659,7 +659,7 @@
     "exerciseName": "Goblet Squat",
     "equipment": "Weights",
     "parent": "Squat",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Glutes",
     "muscle2": "Quads"
   },
@@ -667,7 +667,7 @@
     "exerciseName": "Dumbell Goblet Squat",
     "equipment": "Weights",
     "parent": "Squat",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Glutes",
     "muscle2": "Quads"
   },
@@ -675,7 +675,7 @@
     "exerciseName": "Wall Sit",
     "equipment": "Bodyweight",
     "parent": "Wall Sit",
-    "classification": "Lower Body",
+    "classification": "Main Lower Body",
     "muscle1": "Quads",
     "muscle2": "Glutes"
   },
@@ -747,7 +747,7 @@
     "exerciseName": "Push Jerk",
     "equipment": "Weights",
     "parent": "Clean",
-    "classification": "Upper Body",
+    "classification": "Main Upper Body",
     "muscle1": "",
     "muscle2": ""
   }
