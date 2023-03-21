@@ -56,7 +56,7 @@ class App extends Component {
   }
 
   state = {
-    currentPage: Const.WORKOUTPAGE,
+    currentPage: Const.BATTLEPAGE,
     fontsLoaded: false,
   };
 
