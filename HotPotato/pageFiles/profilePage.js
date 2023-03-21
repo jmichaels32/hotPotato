@@ -29,7 +29,7 @@ const ProfileText = () => {
 	return (
 		<View style={styles.textRegion}>
 			<Text style={styles.mainText}> {name} </Text>
-			<Line color={'#443105'} height={3} width={100} left={4}/>
+			<Line height={3} width={100} left={4}/>
 			<Text style={styles.text}> Member since {memberSince} </Text>
 			<Text style={styles.text}> {location} </Text>
 			<Text style={styles.text}> {streak} day streak </Text>
@@ -37,7 +37,11 @@ const ProfileText = () => {
 	)
 }
 
-const ProfilePage = () => {
+/* 
+'props' variable includes
+	changePage
+*/
+const ProfilePage = (props) => {
 	return (
 		<View style={styles.container}>
 			<View style={styles.infoContainer}>
@@ -49,11 +53,13 @@ const ProfilePage = () => {
 				<SettingButton 
 					text={"My Workout Preferences"} 
 					style={styles.settingButton}
-					internalStyle={styles.settingButtonInternal}/>
+					internalStyle={styles.settingButtonInternal}
+					onPress={() => props.changePage(Const.PROFILEPAGE, Const.WORKOUTPREFERENCESPAGE)}/>
 				<SettingButton 
 					text={"My Goals"} 
 					style={styles.settingButton}
-					internalStyle={styles.settingButtonInternal}/>
+					internalStyle={styles.settingButtonInternal}
+					onPress={() => props.changePage(Const.PROFILEPAGE, Const.MYGOALSPAGE)}/>
 				<SettingButton 
 					text={"Report a Bug"} 
 					style={styles.settingButton}
