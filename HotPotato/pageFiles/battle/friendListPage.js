@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Image, Button } from "react-native";
+import { Text, View, StyleSheet, Image, Button, Pressable } from "react-native";
 
 // Local file import
 import * as Styles from "../../styles.js";
@@ -13,7 +13,7 @@ const AttackIcon = () => {
   );
 };
 
-const Friend = ({ name, path }) => {
+const Friend = ({ name, path, navigation }) => {
   return (
     <View style={styles.friendBar}>
       <Image style={styles.friendPic} source={path} />
@@ -22,7 +22,9 @@ const Friend = ({ name, path }) => {
         <Text style={styles.subText}>2 day streak</Text>
         <Text style={styles.subText}>View Recent Activity</Text>
       </View>
-      <AttackIcon />
+      <Pressable style = {{marginLeft: "10%"}} onPress={() => navigation.navigate("ChallengeFriend", {name: name})}>
+        <AttackIcon />
+      </Pressable>
     </View>
   );
 };
@@ -34,10 +36,10 @@ const FriendList = ({ navigation }) => {
       <View style={Styles.pageStyles.title}>
         <Text style={Styles.textStyles.header}> Friend's List </Text>
       </View>
-      <Friend name={"Jack M."} path={Const.jackImagePath}></Friend>
-      <Friend name={"Daphne "} path={Const.daphneImagePath}></Friend>
-      <Friend name={"Asha "} path={Const.ashaImagePath}></Friend>
-      <Friend name={"Michael "} path={Const.michaelImagePath}></Friend>
+      <Friend name={"Jack M."} path={Const.jackImagePath} navigation={navigation}></Friend>
+      <Friend name={"Daphne "} path={Const.daphneImagePath} navigation={navigation}></Friend>
+      <Friend name={"Asha "} path={Const.ashaImagePath} navigation={navigation}></Friend>
+      <Friend name={"Michael "} path={Const.michaelImagePath} navigation={navigation}></Friend>
     </View>
   );
 };
@@ -78,21 +80,20 @@ const styles = StyleSheet.create({
   },
   ammoIcon: {
     zIndex: 2,
-    marginLeft: "auto",
-    marginRight: "auto",
     marginTop: "auto",
     marginBottom: "auto",
+    left: "80%",
   },
   unionIcon: {
+    marginLeft: "auto",
     zIndex: 1,
     position: "absolute",
   },
   attack: {
     top: 10,
     right: 20,
-    position: "absolute",
     color: "black",
-    width: "20%",
+    width: "80%",
     height: "50%",
   },
   textCol: {

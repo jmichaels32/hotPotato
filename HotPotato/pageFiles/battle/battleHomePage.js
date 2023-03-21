@@ -4,13 +4,22 @@ import { Text, View, StyleSheet, Pressable, Image } from "react-native";
 import * as Styles from "../../styles.js";
 import * as Const from "../../constants.js";
 
-const RecentActivityRow = () => {
+const RecentActivityRow = ({attacker, attackee}) => {
   return (
     <View style={stylesActivity.row}>
-      <Image style={{...stylesActivity.pic, ...stylesActivity.pic1}} source={Const.jackImagePath} />
-      <Image style={{...stylesActivity.pic, ...stylesActivity.pic2}} source={Const.unionIconPath} />
-      <Image style={{...stylesActivity.pic, ...stylesActivity.pic3}} source={Const.jackImagePath} />
-      <Text style={stylesActivity.text}>You attacked jack!</Text>
+      <Image
+        style={{ ...stylesActivity.pic, ...stylesActivity.pic1 }}
+        source={attacker.path}
+      />
+      <Image
+        style={{ ...stylesActivity.pic, ...stylesActivity.pic2 }}
+        source={Const.unionIconPath}
+      />
+      <Image
+        style={{ ...stylesActivity.pic, ...stylesActivity.pic3 }}
+        source={attackee.path}
+      />
+      <Text style={stylesActivity.text}>{attacker.name} attacked {attackee.name}!</Text>
     </View>
   );
 };
@@ -29,20 +38,20 @@ const stylesActivity = StyleSheet.create({
   },
   pic1: {
     zIndex: 2,
-    marginLeft: "5%"
+    marginLeft: "5%",
   },
   pic2: {
     zIndex: 1,
-    marginLeft: "-6%"
+    marginLeft: "-6%",
   },
   pic3: {
     zIndex: 0,
-    marginLeft: "-6%"
+    marginLeft: "-6%",
   },
   text: {
     marginTop: "auto",
     marginBottom: "auto",
-  }
+  },
 });
 
 const BattleHomePage = ({ navigation }) => {
@@ -73,17 +82,31 @@ const BattleHomePage = ({ navigation }) => {
           source={Const.unionIconPath}
         />
       </View>
-      <Pressable
-        style={styles.friendsList}
-        onPress={() => navigation.navigate("FriendsList")}
-      >
-        <Text style={styles.friendsListText}>{`Friend's \nList`}</Text>
-      </Pressable>
+      <View style={styles.row}>
+        <Pressable
+          style={styles.friendsList}
+          onPress={() => navigation.navigate("FriendsList")}
+        >
+          <Text style={styles.friendsListText}>{`Friend's\nList`}</Text>
+        </Pressable>
+        <Pressable
+          style={styles.friendsList}
+          onPress={() => navigation.navigate("FriendsList")}
+        >
+          <Text style={styles.friendsListText}>{`Discover\nNear You`}</Text>
+        </Pressable>
+        <Pressable
+          style={styles.friendsList}
+          onPress={() => navigation.navigate("FriendsList")}
+        >
+          <Text style={styles.friendsListText}>{`Leader\nBoard`}</Text>
+        </Pressable>
+      </View>
       <View style={styles.recentActivity}>
         <Text style={styles.recentActivityText}>Recent Battles</Text>
         <View style={stylesActivity.column}>
-          <RecentActivityRow />
-          <RecentActivityRow />
+          <RecentActivityRow attacker={{name: "You", path: Const.ashaImagePath}} attackee = {{name: "Jack", path: Const.jackImagePath}}/>
+          <RecentActivityRow attacker={{name: "Jack", path: Const.jackImagePath}} attackee = {{name: "You", path: Const.ashaImagePath}}/>
         </View>
       </View>
     </View>
@@ -91,6 +114,11 @@ const BattleHomePage = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  row: {
+    flexDirection: "row",
+    height: "15%",
+    marginBottom: "2%",
+  },
   header: {
     fontFamily: "Nunito-ExtraBold",
     fontSize: 30,
@@ -154,8 +182,8 @@ const styles = StyleSheet.create({
     backgroundColor: "papayawhip",
     marginLeft: "auto",
     marginRight: "auto",
-    width: "30%",
-    height: "15%",
+    width: "33%",
+    height: "100%",
     borderColor: "#D6AE60",
     borderWidth: 3,
     borderRadius: 10,

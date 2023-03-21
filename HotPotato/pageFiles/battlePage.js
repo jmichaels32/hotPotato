@@ -4,6 +4,8 @@ import { View, StyleSheet } from "react-native";
 import * as Styles from "../styles.js";
 import FriendsList from "./battle/friendListPage.js";
 import BattleHomePage from "./battle/battleHomePage.js";
+import ChallengeFriend from "./battle/challengeFriend.js";
+
 import { createStackNavigator } from "@react-navigation/stack";
 
 const BattlePage = () => {
@@ -20,6 +22,11 @@ const BattlePage = () => {
             <Stack.Screen
               name="FriendsList"
               component={FriendsList}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ChallengeFriend"
+              component={ChallengeFriend}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>
