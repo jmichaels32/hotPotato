@@ -8,7 +8,7 @@ import * as Styles from '../styles.js';
 import { CameraIcon, CheckedBox, UncheckedBox } from "../constants.js"
 import * as Exercise from '../exercises.js';
 import * as Recommendation from './recommenderPage.js';
-import { indexTransformDependencies } from 'mathjs';
+import { count, indexTransformDependencies } from 'mathjs';
 
 /* 
 'props' variable contains:
@@ -16,25 +16,14 @@ import { indexTransformDependencies } from 'mathjs';
 */
 const RegimenPage = (props) => {
     const REGIMENT = props.generateWorkoutFromRequest;
+    let i = -1;
+    // Count number of exercises for checkboxes
+    let NUM_OF_EXERCISES = 0;
+    for (let i = 0; i < REGIMENT.length; ++i){
+        NUM_OF_EXERCISES += REGIMENT[i].data.length;
+    }
 
-    const styles = StyleSheet.create({
-        item: {
-            backgroundColor: '#D6AE60',
-            borderRadius: 10,
-            padding: 5,
-            marginVertical: 4,
-        },
-    });
-
-
-    const regimenList = [
-        { index: 0, name: 'Stretches', value: 5 },
-        { index: 1, name: 'Planks', value: 10 },
-        { index: 2, name: 'Rowing Machine', value: 20 },
-        { index: 3, name: 'Treadmill', value: 10 },
-    ];
-
-    const [selected, setSelected] = React.useState(Array(regimenList.length + 1).fill(false))
+    const [selected, setSelected] = React.useState(Array(NUM_OF_EXERCISES + 1).fill(false)) // Add 1 to array for camera
     const [sum, setSum] = React.useState(0)
 
     const updateSelected = (index) => {
@@ -43,6 +32,7 @@ const RegimenPage = (props) => {
         setSelected(selectedCopy);
     };
 
+    /*
     useEffect(() => {
         // Activity point contribution
         let activitySum = regimenList.reduce(function (acc, obj) {
@@ -60,6 +50,7 @@ const RegimenPage = (props) => {
         }
         setSum(activitySum);
     }, [selected])
+    */
 
     const Checkbox = (props) => {
 
@@ -90,9 +81,8 @@ const RegimenPage = (props) => {
                 <SectionList
                     sections={REGIMENT}
                     keyExtractor={(item, index) => item + index}
-                    //keyExtractor={(item, index) => item + index}
                     renderItem={({ item }) => (
-                        <View style={styles.item}>
+                        <View style={{ backgroundColor: '#D6AE60', borderRadius: 10, padding: 5, marginVertical: 4 }}>
                             <LinearGradient colors={['#FFF2D9', '#FFD77D']} start={{ x: .3, y: 0 }} end={{ x: 0.3, y: 1 }} style={{ padding: 5, borderRadius: 10 }}>
                                 <View style={{ flexDirection: 'row' }}>
                                     <Text style={Styles.textStyles.medium}>{item}</Text>
@@ -101,11 +91,11 @@ const RegimenPage = (props) => {
                                 </View>
 
                                 <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
-                                    <Checkbox />
+                                    <Checkbox index = {i+=1}/>
                                     <Text style={{ flexDirection: 'row', alignSelf: 'center' }}>  </Text>
-                                    <Checkbox />
+                                    <Checkbox index = {i+=1} />
                                     <Text style={{ flexDirection: 'row', alignSelf: 'center' }}>  </Text>
-                                    <Checkbox />
+                                    <Checkbox index = {i+=1} />
                                 </View>
 
                             </LinearGradient>
