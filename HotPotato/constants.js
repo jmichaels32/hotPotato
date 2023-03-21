@@ -17,9 +17,6 @@ export const REGIMENPAGE = 5;
 export const WORKOUTPREFERENCESPAGE = 6;
 export const MYGOALSPAGE = 7;
 
-// Display constants
-export const DISPLAY = true;
-
 // ----------------------------------
 // Import SVGs
 // ----------------------------------
