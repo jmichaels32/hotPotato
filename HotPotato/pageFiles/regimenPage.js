@@ -32,11 +32,11 @@ const RegimenPage = (props) => {
     const [sum, setSum] = React.useState(0)
     const [percentage, setPercentage] = React.useState(0)
 
-    // const updateSelected = (index) => {
-    //     let selectedCopy = [...selected];
-    //     selectedCopy[index] = !selectedCopy[index];
-    //     setSelected(selectedCopy);
-    // };
+    const updateSelected = (index) => {
+         let selectedCopy = [...selected];
+         selectedCopy[index] = !selectedCopy[index];
+         setSelected(selectedCopy);
+    };
 
     useEffect(() => {
         // Activity point contribution
@@ -51,22 +51,6 @@ const RegimenPage = (props) => {
         setSum(activitySum);
         setPercentage(count / num_checkboxes);
     }, [selected])
-
-    //     if (selected[props.index]) {
-    //         return (
-    //             <TouchableOpacity onPress={() => { updateSelected(props.index); }}>
-    //                 <CheckedBox width={40} height={40} />
-    //             </TouchableOpacity>
-    //         )
-    //     }
-    //     else {
-    //         return (
-    //             <TouchableOpacity onPress={() => { updateSelected(props.index); }}>
-    //                 <UncheckedBox width={40} height={40} />
-    //             </TouchableOpacity>
-    //         )
-    //     }
-    // }
 
     // Temporary fix for cosmetic checkbox functionality
     const Checkbox = (props) => {

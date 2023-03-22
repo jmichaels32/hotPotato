@@ -23,7 +23,7 @@ export async function getPotatoes() {
   return await getDoc(doc(db, POTATOES, USER));
 }
 
-export async function setPotatoes() {
+export async function setPotatoes() {}
 
 export async function createProfile(profile) {
     const id = uuid.v4();
