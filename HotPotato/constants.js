@@ -2,15 +2,20 @@
 // File defining constants for widespread use within the app
 // ----------------------------------
 
+// Main Pages
 export const WORKOUTPAGE = 0;
 export const FORTRESSPAGE = 1;
 export const BATTLEPAGE = 2;
 export const PROFILEPAGE = 3;
+
+// Subpages
+// Recommender pages
 export const RECOMMENDERPAGE = 4;
 export const REGIMENPAGE = 5;
 
-// Display constants
-export const DISPLAY = true;
+// Profile Pages
+export const WORKOUTPREFERENCESPAGE = 6;
+export const MYGOALSPAGE = 7;
 
 // ----------------------------------
 // Import SVGs
@@ -61,3 +66,70 @@ export const jackImagePath = require('./images/profilePics/jack.jpeg');
 export const daphneImagePath = require('./images/profilePics/daphne.jpeg');
 export const ashaImagePath = require('./images/profilePics/asha.jpeg');
 export const michaelImagePath = require('./images/profilePics/michael.jpeg');
+
+// ----------------------------------
+// Component Exports
+// ----------------------------------
+
+import { Image, TouchableOpacity, View, Text } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+
+import * as Styles from './styles.js';
+
+// General Components
+const Line = ({ color, height, width, left }) => {
+  return (
+    <View style={{
+        borderBottomColor: color,
+        borderBottomWidth: height,
+        width: width,
+        marginLeft: left,
+
+        borderRadius: 10,
+      }}/>
+  )
+}
+
+Line.defaultProps = {
+  color: '#443105',
+  height: 10,
+  width: 10,
+  left: 0,
+};
+
+// For the profile page
+const ProfileContentBox = ({ children, style }) => {
+	return (
+		<LinearGradient 
+			colors={['#FFF2D9', '#FFE1A8']} 
+			style={[Styles.constantStyles.contentBox, style]}
+			start={{x : 0.5, y : 0.5}} 
+			end={{x : 1, y : 1}}
+		>
+			{children}
+		</LinearGradient>
+	)
+}
+
+const SettingButton = ({ text, style, internalStyle, onPress }) => {
+	return (
+		<TouchableOpacity style={style} onPress={onPress}>
+			<LinearGradient
+				colors={['#FFF2D9', '#FFE1A8']} 
+				style={[Styles.constantStyles.contentBox, internalStyle]}
+				start={{x : 0.5, y : 0.5}} 
+				end={{x : 1, y : 1}}
+			>
+				<Text style={Styles.textStyles.subHeader}> {text} </Text>
+			</LinearGradient>
+		</TouchableOpacity>
+	)
+}
+
+const ProfilePhoto = ({style, path}) => {
+	return (
+		<Image style={[Styles.constantStyles.profilePhoto, style]} source={path} />
+	)
+}
+
+export { Line, ProfileContentBox, SettingButton, ProfilePhoto }

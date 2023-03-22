@@ -8,27 +8,11 @@ import * as Styles from '../styles.js';
 import { CameraIcon, CheckedBox, UncheckedBox } from "../constants.js"
 import * as Exercise from '../exercises.js';
 import * as Recommendation from './recommenderPage.js';
-import { indexTransformDependencies } from 'mathjs';
+import { count, indexTransformDependencies } from 'mathjs';
 
-const RegimenPage = () => {
-    const DATA = [
-        {
-            "main_exercise": "Pullups",
-            data: ["Pullups", 'Russian Twists', 'Band Pull', 'Med Ball Slams'],
-        },
-        {
-            "main_exercise": 'Russian Twists',
-            data: ['Russian Twists', 'Band Pull', 'Med Ball Slams'],
-        },
-        {
-            "main_exercise": 'Pushups',
-            data: ['Russian Twists', 'Band Pull', 'Med Ball Slams'],
-        },
-        {
-            "main_exercise": "Child's Pose",
-            data: ['Russian Twists', 'Band Pull', 'Med Ball Slams'],
-        },
-    ];
+const RegimenPage = (props) => {
+    const REGIMENT = props.generateWorkoutFromRequest;
+    let i = 0;
 
     const styles = StyleSheet.create({
         item: {
@@ -38,16 +22,13 @@ const RegimenPage = () => {
             marginVertical: 4,
         },
     });
-
-
-    // const regimenList = [
-    //     { index: 0, name: 'Stretches', value: 5 },
-    //     { index: 1, name: 'Planks', value: 10 },
-    //     { index: 2, name: 'Rowing Machine', value: 20 },
-    //     { index: 3, name: 'Treadmill', value: 10 },
-    // ];
-
-    // const [selected, setSelected] = React.useState(Array(regimenList.length + 1).fill(false))
+    // Count number of exercises for checkboxes
+    let num_exercises = 0;
+    for (let i = 0; i < REGIMENT.length; ++i){
+        num_exercises += REGIMENT[i].data.length;
+    }
+    let num_checkboxes = 3 * num_exercises + 1 // 3 rounds + 1 for camera points
+    const [selected, setSelected] = React.useState(Array(num_checkboxes).fill(false))
     const [sum, setSum] = React.useState(0)
 
     // const updateSelected = (index) => {
@@ -56,26 +37,22 @@ const RegimenPage = () => {
     //     setSelected(selectedCopy);
     // };
 
-    // useEffect(() => {
-    //     // Activity point contribution
-    //     let activitySum = regimenList.reduce(function (acc, obj) {
-    //         if (selected[obj.index]) {
-    //             return acc + obj.value;
-    //         }
-    //         else {
-    //             return acc;
-    //         }
-    //     }, 0);
-
-    //     // Picture point contribution 
-    //     if (selected[regimenList.length]) {
-    //         activitySum += 10;
-    //     }
-    //     setSum(activitySum);
-    // }, [selected])
-
-    // Original Checkbox functionality
-    // const Checkbox = (props) => {
+    useEffect(() => {
+        // Activity point contribution
+        let activitySum = 0;
+        for (let i = 0; i < num_checkboxes; i++){
+            if (selected[i] === true) {
+                activitySum += 5;
+            }
+        }
+        // Picture point contribution
+        /*
+        if (selected[selected.length - 1]) {
+            activitySum += 10;
+        }
+        */
+        setSum(activitySum);
+    }, [selected])
 
     //     if (selected[props.index]) {
     //         return (
@@ -95,27 +72,24 @@ const RegimenPage = () => {
 
     // Temporary fix for cosmetic checkbox functionality
     const Checkbox = (props) => {
-
-        const [check, setCheck] = React.useState(false);
-
-        if (check) {
+    if (selected[props.index]) {
             return (
-                <TouchableOpacity onPress={() => { setCheck(!check); }}>
-                    <CheckedBox width={40} height={40} />
+                <TouchableOpacity onPress={() => { updateSelected(props.index); }}>
+                    <CheckedBox width={30} height={30} />
                 </TouchableOpacity>
             )
         }
         else {
             return (
-                <TouchableOpacity onPress={() => { setCheck(!check); }}>
-                    <UncheckedBox width={40} height={40} />
+
+                <TouchableOpacity onPress={() => { updateSelected(props.index); }}>
+                    <UncheckedBox width={30} height={30} />
                 </TouchableOpacity>
             )
         }
     }
 
     return (
-
         <View style={Styles.pageStyles.container}>
             <View style={Styles.pageStyles.title}>
                 <Text style={Styles.textStyles.subHeader}>Your Workout Regimen</Text>
@@ -123,36 +97,36 @@ const RegimenPage = () => {
             <Text style={Styles.textStyles.small}> Do 3 rounds of each circuit. A round is 3-7 reps of the main exercise and 8-12 reps of the filler exercises. </Text>
             <SafeAreaView style={Styles.pageStyles.container} width={'90%'} height={'68%'}>
                 <SectionList
-                    sections={DATA}
+                    sections={REGIMENT}
                     keyExtractor={(item, index) => item + index}
                     renderItem={({ item }) => (
-                        <View style={styles.item}>
+                        <View style={{ backgroundColor: '#D6AE60', borderRadius: 10, padding: 5, marginVertical: 4 }}>
                             <LinearGradient colors={['#FFF2D9', '#FFD77D']} start={{ x: .3, y: 0 }} end={{ x: 0.3, y: 1 }} style={{ padding: 5, borderRadius: 10 }}>
                                 <View style={{ flexDirection: 'row' }}>
                                     <Text style={Styles.textStyles.medium}>{item}</Text>
-                                    <Text> 10 pts</Text>
+                                    <Text> 5 pts</Text>
                                 </View>
 
                                 <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
-                                    <Checkbox />
+                                    <Checkbox index = {(i++)}/>
                                     <Text style={{ flexDirection: 'row', alignSelf: 'center' }}>  </Text>
-                                    <Checkbox />
+                                    <Checkbox index = {(i++)}/>
                                     <Text style={{ flexDirection: 'row', alignSelf: 'center' }}>  </Text>
-                                    <Checkbox />
+                                    <Checkbox index = {(i++)}/>
                                 </View>
 
                             </LinearGradient>
                         </View>
                     )}
-                    renderSectionHeader={() => (
+                    renderSectionHeader={({section: {title}}) => (
                         // <LinearGradient colors={['#FFD77D', '#D6AE60']} start={{ x: 0.7, y: 0 }} end={{x: 0.65, y: 0.3}}>
                         <LinearGradient colors={['#FFD77D', '#D6AE60']} start={{ x: 0, y: 0 }} end={{ x: 0.5, y: 1 }} style={{ padding: 5, borderRadius: 10 }}>
-                            <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
-                                <Text style={Styles.textStyles.subHeader}> Circuit 1 </Text>
-                                <Text style={Styles.textStyles.medium}>   Completed Rounds  </Text>
+                            <View>
+                                <Text style={Styles.textStyles.subHeader}>  {title} </Text>
                             </View>
-                            <View style={Styles.textStyles.medium}>
-                                <Text style={Styles.textStyles.medium}>                              #1      #2      #3   </Text>
+                            <View style={{alignItems: 'flex-end'}}>
+                                <Text style={Styles.textStyles.medium}>Completed Rounds</Text>
+                                <Text style={Styles.textStyles.medium}>#1    #2    #3   </Text>
                             </View>
                         </LinearGradient>
                     )}
@@ -176,126 +150,5 @@ const RegimenPage = () => {
         </View>
     )
 }
-
-/* ORIGINAL DAPHNE CODE BELOW
-<SafeAreaView style={styles.container}>
-                <SectionList
-                    sections={DATA}
-                    keyExtractor={(item, index) => item + index}
-                    renderItem={({ item }) => (
-                        <View style={styles.item}>
-                            <Text style={styles.title}>{item}</Text>
-                        </View>
-                    )}
-                    renderSectionHeader={({ section: { title } }) => (
-                        <Text style={styles.header}>{title}</Text>
-                    )}
-                />
-            </SafeAreaView>
-
-const RegimenPage = () => {
-
-    const regimenList = [
-        {index: 0, name: 'Stretches', value: 5},
-        {index: 1, name: 'Planks', value: 10},
-        {index: 2, name: 'Rowing Machine', value: 20},
-        {index: 3, name: 'Treadmill', value: 10},
-    ];
-
-    const [selected, setSelected] = React.useState(Array(regimenList.length + 1).fill(false))
-    const [sum, setSum] = React.useState(0)
-
-    const updateSelected = (index) => {
-        let selectedCopy = [...selected];
-        selectedCopy[index] = !selectedCopy[index];
-        setSelected(selectedCopy);
-    };
-
-    useEffect(() => {
-        // Activity point contribution
-        let activitySum = regimenList.reduce(function (acc, obj) { 
-            if (selected[obj.index]) {
-                return acc + obj.value;
-            }
-            else {
-                return acc;
-            }
-        }, 0);
-
-        // Picture point contribution 
-        if (selected[regimenList.length]) {
-            activitySum += 10;
-        }
-        setSum(activitySum);
-    }, [selected])
-    
-    const Checkbox = (props) => {
-    
-        if (selected[props.index]) {
-            return (
-                <TouchableOpacity onPress={() => {updateSelected(props.index);}}>
-                    <CheckedBox width={40} height={40} />
-                </TouchableOpacity>
-            )
-        }
-        else {
-            return (
-                <TouchableOpacity onPress={() => {updateSelected(props.index);}}>
-                    <UncheckedBox width={40} height={40} />
-                </TouchableOpacity>
-            )
-        }
-    }
-
-    return (
-        <View style={Styles.pageStyles.container}>
-        <View style={Styles.pageStyles.title}>
-            <Text style={Styles.textStyles.subHeader}>Your Regimen</Text>
-        </View>
-        <LinearGradient colors={['#FFD77D', '#FFF2D9']} style={Styles.regimenStyles.container} 
-            start={{ x: 0.7, y: 0 }} end={{x: 0.65, y: 0.3}}>
-            <View style={Styles.regimenStyles.workoutTitle}>
-                <Text style={Styles.textStyles.subHeader}>Lifting</Text>
-                <Text style={Styles.textStyles.regular}>1 hr</Text>
-            </View>
-            <View style={Styles.regimenStyles.checklist}>
-                {regimenList.map((activity) => {
-                    return (
-                        <View key={activity.index} style={Styles.regimenStyles.item}>
-                            <Checkbox index={activity.index} />
-                            <Text style={Styles.textStyles.medium}>  {activity.name}</Text>
-                            <View style={{marginLeft: 'auto', marginRight: -30}}>
-                            <Text style={[Styles.textStyles.regular, {color: '#D6AE60'}]}>{activity.value} pts</Text>
-                            </View>
-                            
-                        </View>
-                    )
-                })}
-                <View style={Styles.regimenStyles.item}>
-                    <Checkbox index={regimenList.length} />
-                    <Text style={Styles.textStyles.medium}>  Take a pic! </Text>
-                    <CameraIcon />
-                    <View style={{marginLeft: 'auto', marginRight: -30}}>
-                        <Text style={[Styles.textStyles.regular, {color: '#D6AE60'}]}>10 pts</Text>
-                    </View>
-                    
-                </View>
-            </View>
-            <View style={{marginTop: 'auto'}}>
-                <View style={Styles.regimenStyles.sumbar}>
-                    <View>
-                        <Text style={Styles.textStyles.medium}> Total: {sum}</Text>
-                    </View>
-                    <TouchableOpacity>
-                        <LinearGradient colors={['#FFD77D', '#FFF2D9']} style={[Styles.pageStyles.acceptButton, {width: 150}]} >
-                            <Text style={Styles.textStyles.medium}>Finished?</Text>
-                        </LinearGradient>
-                    </TouchableOpacity>
-                </View>
-            </View>
-        </LinearGradient>
-    </View>
-    )
-}*/
 
 export default RegimenPage;
