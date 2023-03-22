@@ -98,12 +98,12 @@ const RecommenderPage = (props) => {
 	]
 
 	return (
-		<View style={Styles.pageStyles.container}>
+		<View style={[Styles.pageStyles.container]}>
 			<View style={Styles.pageStyles.title}>
 				<ActivityPlus width={50} height={50} />
 				<Text style={Styles.textStyles.subHeader}> Generate new workout </Text>
 			</View>
-			<ScrollView automaticallyAdjustContentInsets={false}>
+			<ScrollView contentContainerStyle={Styles.pageStyles.scrollContainer} automaticallyAdjustContentInsets={false}>
 			<View style={Styles.recommenderStyles.formSection}>
 				<SelectList
 					boxStyles={Styles.recommenderStyles.dropdownBox}
@@ -157,7 +157,7 @@ const RecommenderPage = (props) => {
 						dropdownStyles={Styles.recommenderStyles.dropdown}
 						dropdownItemStyles={Styles.recommenderStyles.dropdownItems}
 						label={"Available Equipment"}
-						labelStyles={Styles.textStyles.medium}
+						labelStyles={[Styles.textStyles.medium]}
 						inputStyles={[Styles.textStyles.medium, Styles.recommenderStyles.dropdownBoxText]}
 						dropdownTextStyles={[Styles.textStyles.medium]}
 						data={equipmentList}

@@ -27,7 +27,6 @@ const WorkoutPage = () => {
                 
             </LinearGradient>
             
-                
             
             
             <View style={Styles.pageStyles.contentBox}>

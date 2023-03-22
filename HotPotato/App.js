@@ -77,15 +77,6 @@ const TopBar = (props) => {
   );
 };
 
-const customTextProps = {
-  style: {
-    fontFamily: "Nunito-Reg",
-    color: "#443105",
-  },
-};
-
-setCustomText(customTextProps);
-
 class App extends Component {
   constructor(props) {
     super(props);

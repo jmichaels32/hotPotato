@@ -14,8 +14,16 @@ import {
     deleteDoc,
   } from "firebase/firestore";
 
+const POTATOES = "potatoes";
+const USER = "user0";
 const FRIENDS_COLLECTION = "friends";
-const PROFILE_COLLECTION = "profile"
+const PROFILE_COLLECTION = "profile";
+
+export async function getPotatoes() {
+  return await getDoc(doc(db, POTATOES, USER));
+}
+
+export async function setPotatoes() {
 
 export async function createProfile(profile) {
     const id = uuid.v4();
