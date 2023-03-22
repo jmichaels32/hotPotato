@@ -19,9 +19,10 @@ const RegimenPage = (props) => {
     for (let i = 0; i < REGIMENT.length; ++i){
         num_exercises += REGIMENT[i].data.length;
     }
-    let num_checkboxes = 3 * num_exercises + 1 // 3 rounds + 1 for camera points
+    let num_checkboxes = 3 * num_exercises
     const [selected, setSelected] = React.useState(Array(num_checkboxes).fill(false))
     const [sum, setSum] = React.useState(0)
+    const [percentage, setPercentage] = React.useState(0)
 
     const updateSelected = (index) => {
         let selectedCopy = [...selected];
@@ -32,18 +33,15 @@ const RegimenPage = (props) => {
     useEffect(() => {
         // Activity point contribution
         let activitySum = 0;
+        let count = 0;
         for (let i = 0; i < num_checkboxes; i++){
             if (selected[i] === true) {
                 activitySum += 5;
+                count += 1;
             }
         }
-        // Picture point contribution
-        /*
-        if (selected[selected.length - 1]) {
-            activitySum += 10;
-        }
-        */
         setSum(activitySum);
+        setPercentage(count / num_checkboxes);
     }, [selected])
 
     const Checkbox = (props) => {
@@ -117,7 +115,7 @@ const RegimenPage = (props) => {
                 </View>
                 <TouchableOpacity>
                     <LinearGradient colors={['#FFD77D', '#FFF2D9']} style={[Styles.pageStyles.acceptButton, { width: 150 }]} >
-                        <Text style={Styles.textStyles.medium}> Done? (Total: {sum})</Text>
+                        <Text style={Styles.textStyles.small}> Done? (Completed {(percentage*100).toFixed(0)}% & earned {sum} points)</Text>
                     </LinearGradient>
                 </TouchableOpacity>
             </View>
