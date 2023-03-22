@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
 		marginBottom: 4,
 	},
 	text: {
-		fontFamily: "Nunito",
+		fontFamily: "Nunito-Reg",
 		marginTop: 10,
 	},
 

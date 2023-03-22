@@ -111,6 +111,7 @@ class App extends Component {
     });
     this.setState({ fontsLoaded: true });
   }
+  
 
   componentDidMount() {
     this._loadFontsAsync();
