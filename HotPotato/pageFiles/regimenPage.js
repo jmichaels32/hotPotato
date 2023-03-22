@@ -14,6 +14,14 @@ const RegimenPage = (props) => {
     const REGIMENT = props.generateWorkoutFromRequest;
     let i = 0;
 
+    const styles = StyleSheet.create({
+        item: {
+            backgroundColor: '#D6AE60',
+            borderRadius: 10,
+            padding: 5,
+            marginVertical: 4,
+        },
+    });
     // Count number of exercises for checkboxes
     let num_exercises = 0;
     for (let i = 0; i < REGIMENT.length; ++i){
@@ -24,11 +32,11 @@ const RegimenPage = (props) => {
     const [sum, setSum] = React.useState(0)
     const [percentage, setPercentage] = React.useState(0)
 
-    const updateSelected = (index) => {
-        let selectedCopy = [...selected];
-        selectedCopy[index] = !selectedCopy[index];
-        setSelected(selectedCopy);
-    };
+    // const updateSelected = (index) => {
+    //     let selectedCopy = [...selected];
+    //     selectedCopy[index] = !selectedCopy[index];
+    //     setSelected(selectedCopy);
+    // };
 
     useEffect(() => {
         // Activity point contribution
@@ -44,8 +52,25 @@ const RegimenPage = (props) => {
         setPercentage(count / num_checkboxes);
     }, [selected])
 
+    //     if (selected[props.index]) {
+    //         return (
+    //             <TouchableOpacity onPress={() => { updateSelected(props.index); }}>
+    //                 <CheckedBox width={40} height={40} />
+    //             </TouchableOpacity>
+    //         )
+    //     }
+    //     else {
+    //         return (
+    //             <TouchableOpacity onPress={() => { updateSelected(props.index); }}>
+    //                 <UncheckedBox width={40} height={40} />
+    //             </TouchableOpacity>
+    //         )
+    //     }
+    // }
+
+    // Temporary fix for cosmetic checkbox functionality
     const Checkbox = (props) => {
-        if (selected[props.index]) {
+    if (selected[props.index]) {
             return (
                 <TouchableOpacity onPress={() => { updateSelected(props.index); }}>
                     <CheckedBox width={30} height={30} />
@@ -54,6 +79,7 @@ const RegimenPage = (props) => {
         }
         else {
             return (
+
                 <TouchableOpacity onPress={() => { updateSelected(props.index); }}>
                     <UncheckedBox width={30} height={30} />
                 </TouchableOpacity>
