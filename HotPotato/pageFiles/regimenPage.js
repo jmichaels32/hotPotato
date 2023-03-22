@@ -107,15 +107,11 @@ const RegimenPage = (props) => {
             </SafeAreaView>
             <View style={[Styles.regimenStyles.sumbar, { paddingTop: 10 }]}>
                 <View style={{alignContent: 'center'}}>
-                    <Text style={Styles.textStyles.medium}>  Take a pic! </Text>
-                    <View style={{alignSelf: 'center', flexDirection: 'row'}}>
-                    <CameraIcon/>
-                    <Text style={[Styles.textStyles.regular, { color: '#D6AE60' }]}> 10 pts</Text>
-                    </View>
+                <Text style={Styles.textStyles.medium}> Completed {(percentage*100).toFixed(0)}% ({sum} points) </Text>
                 </View>
                 <TouchableOpacity>
-                    <LinearGradient colors={['#FFD77D', '#FFF2D9']} style={[Styles.pageStyles.acceptButton, { width: 150 }]} >
-                        <Text style={Styles.textStyles.small}> Done? (Completed {(percentage*100).toFixed(0)}% & earned {sum} points)</Text>
+                    <LinearGradient colors={['#FFD77D', '#FFF2D9']} style={[Styles.pageStyles.acceptButton, { width: 80 }]} >
+                        <Text style={Styles.textStyles.medium}> Done?</Text>
                     </LinearGradient>
                 </TouchableOpacity>
             </View>
