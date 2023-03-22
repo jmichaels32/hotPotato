@@ -27,9 +27,10 @@ const RegimenPage = (props) => {
     for (let i = 0; i < REGIMENT.length; ++i){
         num_exercises += REGIMENT[i].data.length;
     }
-    let num_checkboxes = 3 * num_exercises + 1 // 3 rounds + 1 for camera points
+    let num_checkboxes = 3 * num_exercises
     const [selected, setSelected] = React.useState(Array(num_checkboxes).fill(false))
     const [sum, setSum] = React.useState(0)
+    const [percentage, setPercentage] = React.useState(0)
 
     // const updateSelected = (index) => {
     //     let selectedCopy = [...selected];
@@ -40,18 +41,15 @@ const RegimenPage = (props) => {
     useEffect(() => {
         // Activity point contribution
         let activitySum = 0;
+        let count = 0;
         for (let i = 0; i < num_checkboxes; i++){
             if (selected[i] === true) {
                 activitySum += 5;
+                count += 1;
             }
         }
-        // Picture point contribution
-        /*
-        if (selected[selected.length - 1]) {
-            activitySum += 10;
-        }
-        */
         setSum(activitySum);
+        setPercentage(count / num_checkboxes);
     }, [selected])
 
     //     if (selected[props.index]) {
@@ -135,15 +133,11 @@ const RegimenPage = (props) => {
             </SafeAreaView>
             <View style={[Styles.regimenStyles.sumbar, { paddingTop: 10 }]}>
                 <View style={{alignContent: 'center'}}>
-                    <Text style={Styles.textStyles.medium}>  Take a pic! </Text>
-                    <View style={{alignSelf: 'center', flexDirection: 'row'}}>
-                    <CameraIcon/>
-                    <Text style={[Styles.textStyles.regular, { color: '#D6AE60' }]}> 10 pts</Text>
-                    </View>
+                <Text style={Styles.textStyles.medium}> Completed {(percentage*100).toFixed(0)}% ({sum} points) </Text>
                 </View>
                 <TouchableOpacity>
-                    <LinearGradient colors={['#FFD77D', '#FFF2D9']} style={[Styles.pageStyles.acceptButton, { width: 150 }]} >
-                        <Text style={Styles.textStyles.medium}> Done? (Total: {sum})</Text>
+                    <LinearGradient colors={['#FFD77D', '#FFF2D9']} style={[Styles.pageStyles.acceptButton, { width: 80 }]} >
+                        <Text style={Styles.textStyles.medium}> Done?</Text>
                     </LinearGradient>
                 </TouchableOpacity>
             </View>
