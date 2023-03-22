@@ -3,40 +3,76 @@ import { Component } from "react";
 import { StatusBar } from "expo-status-bar";
 import { setCustomText } from "react-native-global-props";
 import { TouchableOpacity, Image, Text, View } from "react-native";
-
-import WorkoutIcon from "./images/icons/workoutIcon.svg";
-import FortressIcon from "./images/icons/fortressIcon.svg";
-import BattleIcon from "./images/icons/battleIcon.svg";
-import ProfileIcon from "./images/icons/profileIcon.svg";
-import WorkoutIconSelected from "./images/selectedIcons/workoutIconSelected.svg";
-import FortressIconSelected from "./images/selectedIcons/fortressIconSelected.svg";
-import BattleIconSelected from "./images/selectedIcons/battleIconSelected.svg";
-import ProfileIconSelected from "./images/selectedIcons/profileIconSelected.svg";
-import ActivityPlus from "./images/topbar/activityPlus.svg";
-import LogoLight from "./images/topbar/logoLight.svg";
-import LogoDark from "./images/topbar/logoDark.svg";
-import BackButton from "./images/topbar/backButton.svg";
 import { NavigationContainer } from "@react-navigation/native";
 
 // Local file import
 import Pages from "./pages.js";
-import * as Const from "./constants.js";
 import * as Styles from "./styles.js";
+import * as Const from "./constants.js";
+import {
+  WorkoutIcon,
+  FortressIcon,
+  BattleIcon,
+  ProfileIcon,
+  WorkoutIconSelected,
+  FortressIconSelected,
+  BattleIconSelected,
+  ProfileIconSelected,
+  ActivityPlus,
+  LogoLight,
+  LogoDark,
+  BackButton,
+  AmmoIcon,
+} from "./constants.js";
 
 const TopBar = (props) => {
+  const buttonStyle =
+    props.state.previousPage.length != 0
+      ? Styles.displayStyles.show
+      : Styles.displayStyles.hide;
+
+  const goBack = () => {
+    const pageChange = props.state.previousPage.pop();
+
+    if (props.state.previousPage.length == 0) {
+      props.setState({ currentPage: pageChange, previousPage: [] });
+    } else {
+      props.setState({
+        currentPage: pageChange,
+        previousPage: props.state.previousPage,
+      });
+    }
+  };
+
   return (
     <View style={Styles.appStyles.topbar}>
-      <TouchableOpacity>
-        <BackButton width={40} height={40} />
+      <TouchableOpacity style={buttonStyle} onPress={goBack}>
+        <BackButton style={buttonStyle} width={40} height={40} />
       </TouchableOpacity>
-      <LogoDark height={40} />
-      <TouchableOpacity onPress={() => props.onPress(Const.RECOMMENDERPAGE)}>
-        {props.currentPage == Const.WORKOUTPAGE ? (
-          <ActivityPlus width={50} height={50} />
-        ) : (
-          <View style="width: 50, height: 50" />
-        )}
-      </TouchableOpacity>
+      <LogoLight height={40} />
+      {props.state.currentPage == Const.WORKOUTPAGE ? (
+        <TouchableOpacity
+          onPress={() =>
+            props.setPage(Const.WORKOUTPAGE, Const.RECOMMENDERPAGE)
+          }
+        >
+          <ActivityPlus
+            width={50}
+            height={50}
+            style={Styles.displayStyles.show}
+          />
+        </TouchableOpacity>
+      ) : props.state.currentPage == Const.BATTLEPAGE ? (
+        <TouchableOpacity>
+          <AmmoIcon width={60} height={60} style={Styles.displayStyles.show} />
+        </TouchableOpacity>
+      ) : (
+        <ActivityPlus
+          width={50}
+          height={50}
+          style={Styles.displayStyles.hide}
+        />
+      )}
     </View>
   );
 };
@@ -44,6 +80,7 @@ const TopBar = (props) => {
 const customTextProps = {
   style: {
     fontFamily: "Nunito-Reg",
+    color: "#443105",
   },
 };
 
@@ -53,15 +90,25 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.setPage = this.setPage.bind(this);
+    this.setState = this.setState.bind(this);
   }
 
   state = {
-    currentPage: Const.BATTLEPAGE,
+    currentPage: Const.WORKOUTPAGE,
+    previousPage: [],
     fontsLoaded: false,
   };
 
-  setPage(page) {
-    this.setState({ currentPage: page });
+  setPage(prevPage, page) {
+    // If we're dealing with a home/ origin page
+    if (prevPage == null) {
+      this.setState({ currentPage: page, previousPage: [] });
+    } else {
+      this.setState({
+        currentPage: page,
+        previousPage: [...this.state.previousPage, prevPage],
+      });
+    }
   }
 
   async _loadFontsAsync() {
@@ -85,31 +132,46 @@ class App extends Component {
     return (
       <NavigationContainer>
         <View style={Styles.appStyles.container}>
-          <TopBar currentPage={this.state.currentPage} onPress={this.setPage} />
-          <Pages currentPage={this.state.currentPage} />
+          <TopBar
+            state={this.state}
+            setPage={this.setPage}
+            setState={this.setState}
+          />
+          <Pages
+            currentPage={this.state.currentPage}
+            changePage={this.setPage}
+          />
           <View style={Styles.appStyles.navbar}>
-            <TouchableOpacity onPress={() => this.setPage(Const.WORKOUTPAGE)}>
+            <TouchableOpacity
+              onPress={() => this.setPage(null, Const.WORKOUTPAGE)}
+            >
               {this.state.currentPage == Const.WORKOUTPAGE ? (
                 <WorkoutIconSelected />
               ) : (
                 <WorkoutIcon />
               )}
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.setPage(Const.FORTRESSPAGE)}>
+            <TouchableOpacity
+              onPress={() => this.setPage(null, Const.FORTRESSPAGE)}
+            >
               {this.state.currentPage == Const.FORTRESSPAGE ? (
                 <FortressIconSelected />
               ) : (
                 <FortressIcon />
               )}
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.setPage(Const.BATTLEPAGE)}>
+            <TouchableOpacity
+              onPress={() => this.setPage(null, Const.BATTLEPAGE)}
+            >
               {this.state.currentPage == Const.BATTLEPAGE ? (
                 <BattleIconSelected />
               ) : (
                 <BattleIcon />
               )}
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.setPage(Const.PROFILEPAGE)}>
+            <TouchableOpacity
+              onPress={() => this.setPage(null, Const.PROFILEPAGE)}
+            >
               {this.state.currentPage == Const.PROFILEPAGE ? (
                 <ProfileIconSelected />
               ) : (

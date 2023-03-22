@@ -9,6 +9,7 @@ Below are links to various deliverables which we created throughout the course o
 - [Rapid Prototyping Synopsis](https://github.com/StanfordCS194/win2023-team25/wiki/Rapid-Prototyping-Synopsis)
  - [Figma Prototype](https://github.com/StanfordCS194/win2023-team25/wiki/Figma-Prototype)
 - [Test Plan / User Flow](https://github.com/StanfordCS194/win2023-team25/wiki/Test-Plan)
+- [Reflecting on Your Team](https://github.com/StanfordCS194/win2023-team25/wiki/Reflecting-on-Your-Team)
 
 Team Members:
 * Michael Hayashi
