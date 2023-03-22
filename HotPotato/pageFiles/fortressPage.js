@@ -1,10 +1,25 @@
 import { Text, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { getPotatoes } from '../firebaseCalls.js';
 
 // Local file import
 import * as Styles from '../styles.js';
 import { Fortress, Landscape, SoldierTower, WizardTower, KnightTower } from '../constants.js';
 
 const FortressPage = () => {
+
+	const [soldiers, setSoldiers] = useState([])
+
+	useEffect(() => {
+		const potato = async () => {
+			let potatoes = await getPotatoes();
+			let soldierCount = potatoes.data().soldiers;
+			setSoldiers(soldierCount);
+		}
+		potato();
+	}, []);
+
+
 	return (
 		<View style={{height: '86.5%'}}>
 			<Landscape height={'100%'} />
@@ -21,6 +36,7 @@ const FortressPage = () => {
 			<View style={{position: 'absolute', top: 190, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
 				<Fortress />
 			</View>
+			<Text>{soldiers}</Text>
 		</View>
 	)
 };
