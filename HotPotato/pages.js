@@ -10,7 +10,7 @@ import BattlePage from './pageFiles/battlePage.js';
 import ProfilePage from './pageFiles/profilePage.js';
 import WorkoutPage from './pageFiles/workoutPage.js';
 import RegimenPage from './pageFiles/regimenPage.js';
-import WorkoutPreferencesPage from './pageFiles/workoutpreferencesPage.js';
+import WorkoutPreferencesPage from './pageFiles/workoutpreferencespage.js';
 import MyGoalsPage from './pageFiles/mygoalsPage.js'
 
 const Pages = (props) => {
