@@ -117,6 +117,7 @@ const RecommenderPage = (props) => {
 		{ key: 'Core', value: 'Core' },
 		{ key: 'Plyo', value: 'Plyometric' },
 		{ key: 'Hamstrings', value: 'Hamstrings' },
+		{ key: 'Quads', value: 'Quads' },
 		{ key: 'Glutes', value: 'Glutes' },
 		{ key: 'Arms', value: 'Arms' },
 		{ key: 'Back', value: 'Back' },
