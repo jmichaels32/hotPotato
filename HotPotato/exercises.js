@@ -158,7 +158,7 @@ function WorkoutCircuit(title = "", exercises = []){
 // Returns array of circuits.
 // NOTE: Since using Maps as children is not supported in front end for ReactElements, Return value is
 // an array of keyed ReactElements instead.
-function generateWorkoutFromRequest(equipment_data, workout_duration, muscle_groups){
+function generateWorkoutFromRequest(equipment_data, workout_duration, muscle_groups, addChallenge = false){
     
     // Generate number of circuits based on provided workout_duration
     let num_of_circuits =  1;
@@ -256,6 +256,16 @@ function generateWorkoutFromRequest(equipment_data, workout_duration, muscle_gro
         let title = "Circuit #" + (i+1) + ": " + (main_exercise.muscle1);
         generated_workout.push(new WorkoutCircuit(title, circuit_exercises));
     }
+
+    // Add an extra challenge circuit to the workout if the user received/accepted a challenge
+    if (addChallenge === true) {
+        let challenge_exercises = [];
+        for (let i = 0; i < 3; i++) {
+            challenge_exercises.push(getRandomExercise(ACCESSIBLE_EXERCISES).exerciseName);
+        }
+        generated_workout.push(new WorkoutCircuit("Extra Challenge Circuit", challenge_exercises));
+    }
+
     return generated_workout;
 };
 

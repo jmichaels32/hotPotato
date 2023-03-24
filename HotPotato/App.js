@@ -1,7 +1,6 @@
 import * as Font from "expo-font";
 import { Component } from "react";
 import { StatusBar } from "expo-status-bar";
-import { setCustomText } from "react-native-global-props";
 import { TouchableOpacity, Image, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 
@@ -32,6 +31,10 @@ const TopBar = (props) => {
       : Styles.displayStyles.hide;
 
   const goBack = () => {
+    if (props.state.previousPage.length == 0) {
+      return 
+    }
+
     const pageChange = props.state.previousPage.pop();
 
     if (props.state.previousPage.length == 0) {
