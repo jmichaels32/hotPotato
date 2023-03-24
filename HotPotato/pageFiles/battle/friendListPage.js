@@ -1,8 +1,9 @@
-import { Text, View, StyleSheet, Image, Button, Pressable } from "react-native";
+import { Text, View, StyleSheet, Image, Button, Pressable, TouchableOpacity } from "react-native";
 
 // Local file import
 import * as Styles from "../../styles.js";
 import * as Const from "../../constants.js";
+import ExtraBackButton from "./extraBackButton.js";
 
 const AttackIcon = () => {
   return (
@@ -32,7 +33,7 @@ const Friend = ({ name, path, navigation }) => {
 const FriendList = ({ navigation }) => {
   return (
     <View style={styles.background}>
-      <Button title="Back" onPress={() => navigation.pop()} />
+      <ExtraBackButton navigation = {navigation}/>
       <View style={Styles.pageStyles.title}>
         <Text style={Styles.textStyles.header}> Friend's List </Text>
       </View>
@@ -45,6 +46,12 @@ const FriendList = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  buttonStyle: {
+    color: "D6AE60",
+  },
+  button: {
+    color: "black",
+  },
   background: {
     backgroundColor: "#FDDC9B",
     width: "100%",

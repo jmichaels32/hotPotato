@@ -37,13 +37,14 @@ import AmmoIcon from './images/topbar/ammoIcon.svg'
 import LogoLight from './images/topbar/logoLight.svg'
 import LogoDark from './images/topbar/logoDark.svg'
 import BackButton from './images/topbar/backButton.svg'
+import BackButton2 from './images/topbar/backButton2.svg'
 import AttackAmmoIcon from './images/icons/attackAmmoIcon.svg'
 import UncheckedBox from './images/icons/uncheckedBox.svg'
 import CheckedBox from './images/icons/checkedBox.svg'
 import CameraIcon from './images/icons/cameraIcon.svg'
 
 export { WorkoutIcon, FortressIcon, BattleIcon, ProfileIcon, WorkoutIconSelected, FortressIconSelected,
-				 BattleIconSelected, ProfileIconSelected, ActivityPlus, LogoLight, LogoDark, BackButton, 
+				 BattleIconSelected, ProfileIconSelected, ActivityPlus, LogoLight, LogoDark, BackButton, BackButton2,
 				 AmmoIcon, AttackAmmoIcon, UncheckedBox, CheckedBox, CameraIcon }
 
 // ----------------------------------
