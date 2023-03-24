@@ -1,12 +1,11 @@
-import * as mathjs from 'mathjs'; // Used in randomization
-
 // Database for exercises; JSON formatted
 // Keys: "exerciseName", "equipment", "parent", "classification", "muscle1", and "muscle2".
 const EXERCISE_DATABASE = require('./exercises.json');
 
-// ----------------------------------------------
-// Boolean helper methods for exercise object keys 
-// ----------------------------------------------
+// -----------------------------------------------------------------------------------
+// Boolean helper methods for exercise object keys
+// - Note: Some functions not in use; added to assist with potential expansion of app
+// ------------------------------------------------------------------------------------
 
 // Returns whether an exercise is accessible with provided equipment accessible
 function isAccessible(input_exercise, available_equipment) {
@@ -38,6 +37,7 @@ function isDerivative(input_exercise, exercises) {
 //   - Returns database of exercises filtered according to input parameters.
 //   - Defaults to using entire database if a pre-filtered selection of options is not provided.
 // ---------------------------------------------------------------------------------------------
+
 // Returns the Exercise object with provided name (first found match is returned, assumed no duplicity)
 function getExerciseFromName(exercise_name) {
     return EXERCISE_DATABASE.find(exercise => {
@@ -108,7 +108,7 @@ function Exercise(name = "", equipment_needed = "", parent_derivation = "", clas
     this.muscle2 = secondary_muscle_targeted;
 };
 
-//TODO: ENsure WorkoutRegimen & Workout Circuit are fully deprecated and replaces with list of exercise names
+//TODO: Ensure WorkoutRegimen & Workout Circuit are fully deprecated and replaces with list of exercise names
 // Constructor for workout regiment - a collection of sets
 function WorkoutRegiment(circuits=[]) {
     this.circuits = circuits; 
