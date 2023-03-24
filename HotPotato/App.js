@@ -1,8 +1,16 @@
 import * as Font from "expo-font";
 import { Component } from "react";
 import { StatusBar } from "expo-status-bar";
-import { TouchableOpacity, Image, Text, View } from "react-native";
+import {
+  TouchableOpacity,
+  Image,
+  Text,
+  View,
+  ActivityIndicator,
+} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
+import { ImagesContext, Images } from "./ImageContext";
+import { Asset } from "expo-asset";
 
 // Local file import
 import Pages from "./pages.js";
@@ -32,7 +40,7 @@ const TopBar = (props) => {
 
   const goBack = () => {
     if (props.state.previousPage.length == 0) {
-      return 
+      return;
     }
 
     const pageChange = props.state.previousPage.pop();
@@ -114,10 +122,15 @@ class App extends Component {
     });
     this.setState({ fontsLoaded: true });
   }
-  
 
   componentDidMount() {
     this._loadFontsAsync();
+    const loadImages = async () => {
+      // asset from Expo expects an array - check assets/index.js to see an example
+      await Asset.loadAsync(Images);
+    };
+
+    loadImages();
   }
 
   render() {
@@ -125,58 +138,60 @@ class App extends Component {
       return null;
     }
     return (
-      <NavigationContainer>
-        <View style={Styles.appStyles.container}>
-          <TopBar
-            state={this.state}
-            setPage={this.setPage}
-            setState={this.setState}
-          />
-          <Pages
-            currentPage={this.state.currentPage}
-            changePage={this.setPage}
-          />
-          <View style={Styles.appStyles.navbar}>
-            <TouchableOpacity
-              onPress={() => this.setPage(null, Const.WORKOUTPAGE)}
-            >
-              {this.state.currentPage == Const.WORKOUTPAGE ? (
-                <WorkoutIconSelected />
-              ) : (
-                <WorkoutIcon />
-              )}
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => this.setPage(null, Const.FORTRESSPAGE)}
-            >
-              {this.state.currentPage == Const.FORTRESSPAGE ? (
-                <FortressIconSelected />
-              ) : (
-                <FortressIcon />
-              )}
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => this.setPage(null, Const.BATTLEPAGE)}
-            >
-              {this.state.currentPage == Const.BATTLEPAGE ? (
-                <BattleIconSelected />
-              ) : (
-                <BattleIcon />
-              )}
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => this.setPage(null, Const.PROFILEPAGE)}
-            >
-              {this.state.currentPage == Const.PROFILEPAGE ? (
-                <ProfileIconSelected />
-              ) : (
-                <ProfileIcon />
-              )}
-            </TouchableOpacity>
+      <ImagesContext.Provider value={Images}>
+        <NavigationContainer>
+          <View style={Styles.appStyles.container}>
+            <TopBar
+              state={this.state}
+              setPage={this.setPage}
+              setState={this.setState}
+            />
+            <Pages
+              currentPage={this.state.currentPage}
+              changePage={this.setPage}
+            />
+            <View style={Styles.appStyles.navbar}>
+              <TouchableOpacity
+                onPress={() => this.setPage(null, Const.WORKOUTPAGE)}
+              >
+                {this.state.currentPage == Const.WORKOUTPAGE ? (
+                  <WorkoutIconSelected />
+                ) : (
+                  <WorkoutIcon />
+                )}
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.setPage(null, Const.FORTRESSPAGE)}
+              >
+                {this.state.currentPage == Const.FORTRESSPAGE ? (
+                  <FortressIconSelected />
+                ) : (
+                  <FortressIcon />
+                )}
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.setPage(null, Const.BATTLEPAGE)}
+              >
+                {this.state.currentPage == Const.BATTLEPAGE ? (
+                  <BattleIconSelected />
+                ) : (
+                  <BattleIcon />
+                )}
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.setPage(null, Const.PROFILEPAGE)}
+              >
+                {this.state.currentPage == Const.PROFILEPAGE ? (
+                  <ProfileIconSelected />
+                ) : (
+                  <ProfileIcon />
+                )}
+              </TouchableOpacity>
+            </View>
+            <StatusBar style="auto" />
           </View>
-          <StatusBar style="auto" />
-        </View>
-      </NavigationContainer>
+        </NavigationContainer>
+      </ImagesContext.Provider>
     );
   }
 }

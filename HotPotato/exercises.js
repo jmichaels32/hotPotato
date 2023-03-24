@@ -1,12 +1,11 @@
-import * as mathjs from 'mathjs'; // Used in randomization
-
 // Database for exercises; JSON formatted
 // Keys: "exerciseName", "equipment", "parent", "classification", "muscle1", and "muscle2".
 const EXERCISE_DATABASE = require('./exercises.json');
 
-// ----------------------------------------------
-// Boolean helper methods for exercise object keys 
-// ----------------------------------------------
+// -----------------------------------------------------------------------------------
+// Boolean helper methods for exercise object keys
+// - Note: Some functions not in use; added to assist with potential expansion of app
+// ------------------------------------------------------------------------------------
 
 // Returns whether an exercise is accessible with provided equipment accessible
 function isAccessible(input_exercise, available_equipment) {
@@ -38,6 +37,7 @@ function isDerivative(input_exercise, exercises) {
 //   - Returns database of exercises filtered according to input parameters.
 //   - Defaults to using entire database if a pre-filtered selection of options is not provided.
 // ---------------------------------------------------------------------------------------------
+
 // Returns the Exercise object with provided name (first found match is returned, assumed no duplicity)
 function getExerciseFromName(exercise_name) {
     return EXERCISE_DATABASE.find(exercise => {
@@ -108,7 +108,7 @@ function Exercise(name = "", equipment_needed = "", parent_derivation = "", clas
     this.muscle2 = secondary_muscle_targeted;
 };
 
-//TODO: ENsure WorkoutRegimen & Workout Circuit are fully deprecated and replaces with list of exercise names
+//TODO: Ensure WorkoutRegimen & Workout Circuit are fully deprecated and replaces with list of exercise names
 // Constructor for workout regiment - a collection of sets
 function WorkoutRegiment(circuits=[]) {
     this.circuits = circuits; 
@@ -154,7 +154,6 @@ function WorkoutCircuit(title = "", exercises = []){
 // equipment_data: list of all available equipment
 // workout_duration: short, medium, or long (ie 1, 2 or 3 mini-sets)
 // muscle_groups: list of muscle groups to target
-// TODO: Ensure unspecified muscle group is properly handled
 // Returns array of circuits.
 // NOTE: Since using Maps as children is not supported in front end for ReactElements, Return value is
 // an array of keyed ReactElements instead.
@@ -184,13 +183,19 @@ function generateWorkoutFromRequest(equipment_data, workout_duration, muscle_gro
         muscle_groups.push("Upper Body","Lower Body", "Core");
     }
     if (muscle_groups.includes("Lower Body") ) {
-        muscle_groups.push("Glutes","Hamstrings","Calves", "Hips", "Plyo");
+        muscle_groups.push("Glutes","Hamstrings","Calves", "Hips", "Plyo", "Quads");
     }
     if (muscle_groups.includes("Upper Body") ) {
-        muscle_groups.push("Arms","Back","Chest", "Back", "Core");
+        muscle_groups.push("Arms","Back","Chest", "Back", "Core", "Scaps");
+    }
+    if (muscle_groups.includes("Chest") ) {
+        muscle_groups.push("Back");
+    }
+    if (muscle_groups.includes("Back") ) {
+        muscle_groups.push("Chest");
     }
     if (muscle_groups.includes("Arms") ) {
-        muscle_groups.push("Triceps","Biceps","Shoulders");
+        muscle_groups.push("Triceps","Shoulder");
     }
     if (muscle_groups.includes("Core") ) {
         muscle_groups.push("Obliques", "Transversus Abdominis");
@@ -214,7 +219,6 @@ function generateWorkoutFromRequest(equipment_data, workout_duration, muscle_gro
     let FILLER_EXERCISES = filterByClassification(filler_classifications, TARGET_MUSCLE_EXERCISES);
 
     // Generate a workout consisting of a series of circuits
-    // TODO: Ensure no exercise is repeated elsewhere in the workout.
     let generated_workout = [];
     for (let i = 0; i < num_of_circuits; i++) {
         // For each circuit, get a main exercise

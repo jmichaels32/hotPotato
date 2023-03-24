@@ -59,9 +59,10 @@ const FortressPage = (props) => {
 			<View style={[Styles.constantStyles.svgCenter, { top: 480, left: 280, right: 0, bottom: 0}]}>
 				<KnightPotato />
 			</View>
-			<View style={[Styles.constantStyles.svgCenter, { top: 230, left: 0, right: 0, bottom: 0}]}>
+			<TouchableOpacity style={[Styles.constantStyles.svgCenter, { top: 230, left: 0, right: 0, bottom: 0}]}
+			onPress={() => {props.changePage(Const.FORTRESSPAGE, Const.KINGINTERIOR);}}>
 				<DefaultBanner />
-			</View>
+			</TouchableOpacity>
 			
 			{/* <View style={[Styles.constantStyles.svgCenter, { top: 500, left: 0, right: 0, bottom: 0}]}>
 				<TouchableOpacity onPress={() => { update(3); }}>
@@ -88,12 +89,6 @@ const FortressPage = (props) => {
 					<Text style={Styles.textStyles.medium}>Knights</Text>
 				</LinearGradient>
 			</TouchableOpacity>
-			{/* <TouchableOpacity style={[Styles.constantStyles.svgCenter, { top: 10, left: 0, right: 0, bottom: 0}]}
-			onPress={() => {props.changePage(Const.FORTRESSPAGE, Const.KINGINTERIOR);}}>
-				<LinearGradient colors={['#FFD77D', '#FFF2D9']} style={[Styles.pageStyles.button, {width: 100, height: 50}]} >
-					<Text style={Styles.textStyles.medium}>The King</Text>
-				</LinearGradient>
-			</TouchableOpacity> */}
 			<TouchableOpacity style={[Styles.constantStyles.svgCenter, { top: 0, left: 0, right: 290, bottom: 520}]}
 			onPress={() => {props.changePage(Const.FORTRESSPAGE, Const.CUSTOMIZEPAGE);}}>
                 <PaletteButton style={Styles.pageStyles.button} />

@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import * as Const from "../../constants.js";
 import {attackChallenge, attackStreak} from "../../firebaseCalls.js";
+import ExtraBackButton from "./extraBackButton.js";
 
 
 const stylesModal = StyleSheet.create({
@@ -76,7 +77,7 @@ const AttackButton = ({ attack, modalVisible, setModalVisible }) => {
               style={[stylesModal.button, stylesModal.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <Text style={stylesModal.textStyle}>Hide Modal</Text>
+              <Text style={stylesModal.textStyle}>Done!</Text>
             </Pressable>
           </View>
         </View>
@@ -160,7 +161,7 @@ const ChallengeToStreak = ({streak, setStreak}) => {
         value={streak}
         onChangeText={setStreak}
         multiline={true}
-        // keyboardType={"numeric"}
+        keyboardType={"numeric"}
       />
     </View>
   );
@@ -196,7 +197,7 @@ const ChallengeFriend = ({ navigation, route }) => {
 
   return (
     <View style={styles.background}>
-      <Button title="Back" onPress={() => navigation.pop()} />
+      <ExtraBackButton navigation = {navigation}/>
       {/* <View style={styles.friendBar}>
         <Text style={styles.friendName}>Select a challenge for {name}</Text>
       </View> */}

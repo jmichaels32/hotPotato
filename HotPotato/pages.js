@@ -18,6 +18,8 @@ import BattlePage from './pageFiles/battlePage.js';
 import ProfilePage from './pageFiles/profilePage.js';
 import WorkoutPage from './pageFiles/workoutPage.js';
 import RegimenPage from './pageFiles/regimenPage.js';
+import AwardPage from './pageFiles/awardPage.js';
+import MyGoalsPage from './pageFiles/mygoalsPage.js'
 
 const Pages = (props) => {
     const [generateWorkoutFromRequestOutput, generateWorkoutFromRequestChange] = useState([])
@@ -42,6 +44,10 @@ const Pages = (props) => {
                                                             />}
             {props.currentPage == Const.REGIMENPAGE && <RegimenPage 
                                                                 generateWorkoutFromRequest={generateWorkoutFromRequestOutput}
+                                                                changePage={props.changePage}
+                                                            />}
+            {props.currentPage == Const.AWARDPAGE && <AwardPage 
+                                                                changePage={props.changePage}
                                                             />}
         </View>
     );

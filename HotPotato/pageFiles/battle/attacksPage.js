@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import { mapPhoto } from "../../utils/photoMapper";
 
 import { addAttacksListener } from "../../firebaseCalls";
+import ExtraBackButton from "./extraBackButton";
 
 const AttackEntry = ({ index, name, challenge }) => {
   return (
@@ -29,7 +30,8 @@ const attackStyle = StyleSheet.create({
   row: {
     flexDirection: "row",
     width: "100%",
-    height: "20%",
+    height: "30%",
+    marginBottom: "2%"
   },
   text: {
     fontFamily: "Nunito-Bold",
@@ -57,7 +59,7 @@ const AttacksPage = ({ navigation }) => {
 
   return (
     <View style={styles.background}>
-      <Button title="Back" onPress={() => navigation.pop()} />
+      <ExtraBackButton navigation={navigation}/>
       <ScrollView style={styles.recentActivity}>
         <Text style={styles.recentActivityText}>Recent Attacks</Text>
         {attacks.map((data, index) => (

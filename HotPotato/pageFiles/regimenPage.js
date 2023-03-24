@@ -123,7 +123,7 @@ const RegimenPage = (props) => {
                 <View style={{alignContent: 'center'}}>
                 <Text style={Styles.textStyles.medium}> Completed {(percentage*100).toFixed(0)}% ({sum} points) </Text>
                 </View>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => {props.changePage(Const.REGIMENPAGE, Const.AWARDPAGE)}}>
                     <LinearGradient colors={['#FFD77D', '#FFF2D9']} style={[Styles.pageStyles.acceptButton, { width: 80 }]} >
                         <Text style={Styles.textStyles.medium}> Done?</Text>
                     </LinearGradient>

@@ -10,31 +10,15 @@ const WorkoutPage = () => {
             
             <LinearGradient colors={['#FFD77D', '#FFF2D9']} style={Styles.pageStyles.contentBox} 
             start={{ x: 0.7, y: 0 }} end={{x: 0.65, y: 0.3}}>
-                <Text style={Styles.textStyles.subHeader}>Workouts in Progress </Text>
+                <Text style={Styles.textStyles.subHeader}> Welcome! </Text>
                 <View style={{flexDirection: 'column', alignItems: 'center'}}>
-                    {/* Not implemented yet, need way to switch pages from other components */}
-                    <TouchableOpacity>
-                        <LinearGradient colors={['#FFD77D', '#FFF2D9']} style={[Styles.pageStyles.button]} >
-                            <Text style={Styles.textStyles.medium}>Lifting</Text>
-                        </LinearGradient>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <LinearGradient colors={['#FFD77D', '#FFF2D9']} style={[Styles.pageStyles.button]} >
-                            <Text style={Styles.textStyles.medium}>Rowing</Text>
-                        </LinearGradient>
-                    </TouchableOpacity>
+                    <Text style={Styles.textStyles.medium}>
+                        {"\n"} We're here to help you along your "spud"-tacular journey from coach potato to the ultimate hot potato. {"\n"} {"\n"}
+                        Are you ready? I "y-am"! {"\n"} {"\n"} So what are you waiting for... It's time to "starch" your workout! {"\n"}
+                    </Text>
+
                 </View>
-                
             </LinearGradient>
-            
-            
-            
-            <View style={Styles.pageStyles.contentBox}>
-                <Text style={Styles.textStyles.medium}>Medium text</Text>
-            </View>
-            <View style={Styles.pageStyles.contentBox}>
-                <Text>Default Text</Text>
-            </View>
         </View>
     )
 }

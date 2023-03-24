@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity, View } from 'react-native';
 import { getPotatoes, updatePotatoes, awardRandomPotatoes } from '../../firebaseCalls.js';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Local file import
 import * as Const from '../../constants.js'
@@ -12,11 +12,14 @@ const KnightInterior = (props) => {
 
     const [potatoes, setPotatoes] = useState({})
 
-	const setup = async () => {
-		let potatoes = await getPotatoes();
-		setPotatoes(potatoes.data());
-	}
-	setup();
+    useEffect(() => {
+        const setup = async () => {
+            let potatoes = await getPotatoes();
+            setPotatoes(potatoes.data());
+        }
+        setup();
+    },[]);
+	
 
 	return (
 		<View style={{height: '86.5%'}}>

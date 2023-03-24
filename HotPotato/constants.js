@@ -12,16 +12,17 @@ export const PROFILEPAGE = 3;
 // Recommender pages
 export const RECOMMENDERPAGE = 4;
 export const REGIMENPAGE = 5;
+export const AWARDPAGE = 6;
 
 // Fortress Pages
-export const SOLDIEREXTERIOR = 6;
-export const WIZARDEXTERIOR = 7;
-export const KNIGHTEXTERIOR = 8;
-export const SOLDIERINTERIOR = 9;
-export const WIZARDINTERIOR = 10;
-export const KNIGHTINTERIOR = 11;
-export const KINGINTERIOR = 12;
-export const CUSTOMIZEPAGE = 13
+export const SOLDIEREXTERIOR = 7;
+export const WIZARDEXTERIOR = 8;
+export const KNIGHTEXTERIOR = 9;
+export const SOLDIERINTERIOR = 10;
+export const WIZARDINTERIOR = 11;
+export const KNIGHTINTERIOR = 12;
+export const KINGINTERIOR = 13;
+export const CUSTOMIZEPAGE = 14;
 
 // ----------------------------------
 // Import SVGs
@@ -51,6 +52,7 @@ import GuardPotato from './images/fortress/guardPotato.svg'
 import Scroll from './images/fortress/scroll.svg'
 import PaletteButton from './images/fortress/paletteButton.svg'
 import PotatoContainer from './images/fortress/potatoContainer.svg'
+import AwardBack from './images/fortress/awardBack.svg'
 
 // Soldier SVGs
 import DefSoldierTower2 from './images/fortress/soldier/defSoldierTower.svg'
@@ -112,13 +114,14 @@ import AmmoIcon from './images/topbar/ammoIcon.svg'
 import LogoLight from './images/topbar/logoLight.svg'
 import LogoDark from './images/topbar/logoDark.svg'
 import BackButton from './images/topbar/backButton.svg'
+import BackButton2 from './images/topbar/backButton2.svg'
 import AttackAmmoIcon from './images/icons/attackAmmoIcon.svg'
 import UncheckedBox from './images/icons/uncheckedBox.svg'
 import CheckedBox from './images/icons/checkedBox.svg'
 import CameraIcon from './images/icons/cameraIcon.svg'
 
 export { WorkoutIcon, FortressIcon, BattleIcon, ProfileIcon, WorkoutIconSelected, FortressIconSelected,
-				 BattleIconSelected, ProfileIconSelected, ActivityPlus, LogoLight, LogoDark, BackButton, 
+				 BattleIconSelected, ProfileIconSelected, ActivityPlus, LogoLight, LogoDark, BackButton, BackButton2,
 				 AmmoIcon, AttackAmmoIcon, UncheckedBox, CheckedBox, CameraIcon, DefaultFortress, DefaultLandscape,
 				 DefSoldierTower, DefSoldierTower2, DefWizardTower, DefKnightTower, SoldierPotato, WizardPotato, KnightPotato,
 				 KingPotato, BrickCircle, DefaultBanner, GuardPotato, Scroll, PaletteButton, PotatoContainer,
@@ -127,7 +130,7 @@ export { WorkoutIcon, FortressIcon, BattleIcon, ProfileIcon, WorkoutIconSelected
 				 DefWizardCarpet, ExtKnight1, ExtKnight2, IntGuard1, IntGuard2, IntKing, IntKnight1, IntKnight10,
 				 IntKnight2, IntKnight3, IntKnight4, IntKnight5, IntKnight6, IntKnight7, IntKnight8, IntKnight9,
 			 	 DefKnightCarpet, Bar, KnightDoor, BarInterior, ThroneInterior, BowStatue, MuscleStatue, SwordStatue,
-				 WandStatue, QueenPic, FriesPic}
+				 WandStatue, QueenPic, FriesPic, AwardBack}
 
 // ----------------------------------
 // Image Imports
