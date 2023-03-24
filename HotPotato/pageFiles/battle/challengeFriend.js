@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import * as Const from "../../constants.js";
 import {attackChallenge, attackStreak} from "../../firebaseCalls.js";
+import ExtraBackButton from "./extraBackButton.js";
 
 
 const stylesModal = StyleSheet.create({
@@ -196,7 +197,7 @@ const ChallengeFriend = ({ navigation, route }) => {
 
   return (
     <View style={styles.background}>
-      <Button title="Back" onPress={() => navigation.pop()} />
+      <ExtraBackButton navigation = {navigation}/>
       {/* <View style={styles.friendBar}>
         <Text style={styles.friendName}>Select a challenge for {name}</Text>
       </View> */}
