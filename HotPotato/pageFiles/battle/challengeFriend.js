@@ -77,7 +77,7 @@ const AttackButton = ({ attack, modalVisible, setModalVisible }) => {
               style={[stylesModal.button, stylesModal.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <Text style={stylesModal.textStyle}>Hide Modal</Text>
+              <Text style={stylesModal.textStyle}>Done!</Text>
             </Pressable>
           </View>
         </View>
@@ -161,7 +161,7 @@ const ChallengeToStreak = ({streak, setStreak}) => {
         value={streak}
         onChangeText={setStreak}
         multiline={true}
-        // keyboardType={"numeric"}
+        keyboardType={"numeric"}
       />
     </View>
   );
