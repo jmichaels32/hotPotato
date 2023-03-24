@@ -1,7 +1,8 @@
 // File adapted from profilePage.js written by Jack
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { useEffect, useState } from 'react';
-import { getUnlocks, getEquipped, updateEquipped } from '../../firebaseCalls.js';
+import { getUnlocks, getEquipped, updateEquipped, addEquipsListener } from '../../firebaseCalls.js';
+import { LinearGradient } from 'expo-linear-gradient';
 
 // Local file import
 import * as Styles from '../../styles.js';
@@ -14,16 +15,26 @@ const ProfileText = (props) => {
 		<View style={styles.textRegion}>
 			<Text style={styles.mainText}> {props.name} </Text>
 			<Line height={3} width={100} left={4}/>
-			<Text style={styles.costText}> Cost: {props.cost} 
-                <View style={{position: "absoloute", bottom: 40}}>
+            <View style={{flexDirection: 'row', alignSelf: 'center'}}>
+                <Text style={styles.costText}> Cost: {props.cost}</Text>
+                <View>
                     {
                     props.currency == "soldiers" ? <View><ExtSoldier1 width={60} height={60} /></View> :
                     props.currency == "wizards" ? <ExtWizard1 width={60} height={60} /> :
                     props.currency == "knights" ? <IntKnight4 width={60} height={60} />  :
                     null
                     } 
-                </View> 
-            </Text>
+                </View>
+                <TouchableOpacity onPress={() => { }}>
+                    <LinearGradient colors={['#FFD77D', '#FFF2D9']} style={[Styles.pageStyles.button, {width: 70}]} >
+                        <Text style={Styles.textStyles.medium}>Buy</Text>
+                    </LinearGradient>
+                </TouchableOpacity>
+            </View>
+			 
+            
+                 
+            
 		</View>
 	)
 }
@@ -43,11 +54,33 @@ const CustomizePage = () => {
         }
         setup();
     }, []);
+
+    // useEffect(() => {
+    //     const unsubscribe = addEquipsListener(setEquipped);
+    //     return function cleanup() {
+    //       unsubscribe();
+    //     };
+    //   }, []);
 	
 
+    // const equip = async (field) => {
+    //     let state = !equipped[field];
+    //     updateEquipped(field, state);
+    //     console.log(state);
+    //     equipped[field] = !equipped[field];
+    //     setEquipped(equipped[field]);
+    // }
+
     const equip = async (field) => {
-        let state = !equipped[field];
-        updateEquipped(field, state);
+        // let state = !equipped[field];
+        // console.log(state);
+        let temp = equipped;
+        temp[field] = !temp[field];
+        updateEquipped(field, temp[field]);
+        setEquipped(temp);
+        // equipped[field] = !equipped[field];
+        // console.log(equipped[field]);
+        // setEquipped(equipped[field]);
     }
 
 	return (
@@ -55,15 +88,21 @@ const CustomizePage = () => {
 			<View style={styles.infoContainer}>
 				<ProfileContentBox style={[styles.profileBox, {height: 200}]} >
 					<FriesPic width={100} height={150} />
-					<ProfileText name={"Fry Still-Life"} cost={5} currency={"knights"} />
-                    { equipped.friesPic ? 
-                    <TouchableOpacity onPress={() => { equip("friesPic"); }}>
-                        <CheckedBox />
-                    </TouchableOpacity> : 
-                    <TouchableOpacity onPress={() => { equip("friesPic"); }}>
-                        <UncheckedBox />
-                    </TouchableOpacity>
-                    }
+					<View style={{flex: "column"}}>
+                        <ProfileText name={"Fry Still-Life"} cost={5} currency={"knights"} />
+                        <View style={{ marginLeft: 20}}>
+                            <Text style={styles.costText}>Equip: { 
+                                equipped.friesPic ? 
+                                <TouchableOpacity onPress={() => { equip("friesPic"); }}>
+                                    <CheckedBox />
+                                </TouchableOpacity> : 
+                                <TouchableOpacity onPress={() => { equip("friesPic"); }}>
+                                    <UncheckedBox />
+                                </TouchableOpacity>
+                                }</Text>
+                            
+                        </View>
+                    </View>
 				</ProfileContentBox>
 			</View>
             <View style={styles.infoContainer}>

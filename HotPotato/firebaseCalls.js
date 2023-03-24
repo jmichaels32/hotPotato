@@ -39,7 +39,24 @@ export async function updatePotatoes(potatoes) {
 
 export async function updateEquipped(field, state) {
   await setDoc(doc(db, USER, EQUIPPED), {[`${field}`]: state})
-  console.log("updated")
+}
+
+// export function addEquipsListener(setEquips) {
+//   const q = query(
+//       collection(db, USER)
+//   );
+//   const unsubscribe = onSnapshot(q, () => {
+//       // const equips = [];
+//       // querySnapshot.forEach((doc) => {
+//       //     equips.push(doc.data());
+//       //   });
+//       setEquips(EQUIPPED.data());
+//   });
+//   return unsubscribe;
+// }
+
+export async function payPotatoes(potato, cost) {
+  let potatoes = await getDoc(doc(db, USER, POTATOES));
 }
 
 export async function awardRandomPotatoes(num) {
@@ -66,12 +83,43 @@ export async function awardRandomPotatoes(num) {
                                         knights: additions[2]});
 }
 
-export async function createProfile(profile) {
-    const id = uuid.v4();
-    await setDoc(doc(db, PROFILE_COLLECTION, id), {id: id, ...profile});
+const OUTBOUND_COLLECTION = "outboundAttacks";
+const INBOUND_COLLECTION = "inboundAttacks";
+
+export async function attackChallenge(player, challenge) {
+    const date = new Date().getTime();
+    await setDoc(doc(db, OUTBOUND_COLLECTION, String(date)), {date: date, player: player, challenge: challenge});
 }
 
-export async function createFriend(friend) {
-    const id = uuid.v4();
-    await setDoc(doc(db, FRIENDS_COLLECTION, id), {id: id, ...friend});
+export async function attackStreak(player, streak) {
+    const date = new Date().getTime();
+    await setDoc(doc(db, OUTBOUND_COLLECTION, String(date)), {date: date, player: player, challenge: `${streak} day challenge`});
+}
+
+export function addAttacksListener(setAttacks) {
+    const q = query(
+        collection(db, OUTBOUND_COLLECTION)
+    );
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        const attacks = [];
+        querySnapshot.forEach((doc) => {
+            attacks.push(doc.data());
+          });
+          setAttacks(attacks);
+    });
+    return unsubscribe;
+}
+
+export function addAttackersListener(setAttacks) {
+    const q = query(
+        collection(db, INBOUND_COLLECTION)
+    );
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        const attacks = [];
+        querySnapshot.forEach((doc) => {
+            attacks.push(doc.data());
+          });
+          setAttacks(attacks);
+    });
+    return unsubscribe;
 }
