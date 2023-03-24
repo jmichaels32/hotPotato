@@ -8,7 +8,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import * as Styles from '../../styles.js';
 import * as Const from '../../constants.js';
 import { Line, ProfileContentBox, QueenPic, FriesPic, IntKnight4, ExtSoldier1, 
-        ExtWizard1, UncheckedBox, CheckedBox} from '../../constants.js';
+        ExtWizard1, UncheckedBox, CheckedBox, MuscleStatue} from '../../constants.js';
 
 const ProfileText = (props) => {
 	return (
@@ -72,15 +72,9 @@ const CustomizePage = () => {
     // }
 
     const equip = async (field) => {
-        // let state = !equipped[field];
-        // console.log(state);
-        let temp = equipped;
-        temp[field] = !temp[field];
-        updateEquipped(field, temp[field]);
-        setEquipped(temp);
-        // equipped[field] = !equipped[field];
-        // console.log(equipped[field]);
-        // setEquipped(equipped[field]);
+        equipped[field] = !equipped[field];
+        setEquipped({...equipped});
+        updateEquipped(equipped);
     }
 
 	return (
@@ -107,8 +101,22 @@ const CustomizePage = () => {
 			</View>
             <View style={styles.infoContainer}>
 				<ProfileContentBox style={[styles.profileBox, {height: 200}]} >
-					<QueenPic width={100} height={150} />
-					<ProfileText name={"Queen's Portrait"} cost={5} currency={"wizards"} />
+					<MuscleStatue width={100} height={150} />
+					<View style={{flex: "column"}}>
+                        <ProfileText name={"Muscle Statue"} cost={10} currency={"soldiers"} />
+                        <View style={{ marginLeft: 20}}>
+                            <Text style={styles.costText}>Equip: { 
+                                equipped.muscleStatue ? 
+                                <TouchableOpacity onPress={() => { equip("muscleStatue"); }}>
+                                    <CheckedBox />
+                                </TouchableOpacity> : 
+                                <TouchableOpacity onPress={() => { equip("muscleStatue"); }}>
+                                    <UncheckedBox />
+                                </TouchableOpacity>
+                                }</Text>
+                            
+                        </View>
+                    </View>
 				</ProfileContentBox>
 			</View>
 		</View>

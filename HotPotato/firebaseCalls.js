@@ -37,23 +37,9 @@ export async function updatePotatoes(potatoes) {
    await setDoc(doc(db, USER, POTATOES), {...potatoes})
 }
 
-export async function updateEquipped(field, state) {
-  await setDoc(doc(db, USER, EQUIPPED), {[`${field}`]: state})
+export async function updateEquipped(equipped) {
+  await setDoc(doc(db, USER, EQUIPPED), {...equipped})
 }
-
-// export function addEquipsListener(setEquips) {
-//   const q = query(
-//       collection(db, USER)
-//   );
-//   const unsubscribe = onSnapshot(q, () => {
-//       // const equips = [];
-//       // querySnapshot.forEach((doc) => {
-//       //     equips.push(doc.data());
-//       //   });
-//       setEquips(EQUIPPED.data());
-//   });
-//   return unsubscribe;
-// }
 
 export async function payPotatoes(potato, cost) {
   let potatoes = await getDoc(doc(db, USER, POTATOES));
