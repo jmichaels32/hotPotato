@@ -10,7 +10,6 @@ import * as Const from '../constants.js';
 import * as Styles from '../styles.js';
 import * as Exercise from '../exercises.js';
 import ActivityPlus from '.././images/topbar/activityPlus.svg';
-import App from '../App.js';
 
 const WorkoutButton = (props) => {
 	if (props.selected) {

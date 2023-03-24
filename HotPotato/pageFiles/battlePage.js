@@ -5,6 +5,8 @@ import * as Styles from "../styles.js";
 import FriendsList from "./battle/friendListPage.js";
 import BattleHomePage from "./battle/battleHomePage.js";
 import ChallengeFriend from "./battle/challengeFriend.js";
+import AttacksPage from "./battle/attacksPage.js";
+import AttackersPage from "./battle/attackersPage.js";
 
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -13,23 +15,33 @@ const BattlePage = () => {
   return (
     <View style={Styles.pageStyles.container}>
       <View style={styles.background}>
-          <Stack.Navigator>
-            <Stack.Screen
-              name="BattleHomePage"
-              component={BattleHomePage}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="FriendsList"
-              component={FriendsList}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="ChallengeFriend"
-              component={ChallengeFriend}
-              options={{ headerShown: false }}
-            />
-          </Stack.Navigator>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="BattleHomePage"
+            component={BattleHomePage}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="FriendsList"
+            component={FriendsList}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="ChallengeFriend"
+            component={ChallengeFriend}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="AttacksPage"
+            component={AttacksPage}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="AttackersPage"
+            component={AttackersPage}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
       </View>
     </View>
   );
