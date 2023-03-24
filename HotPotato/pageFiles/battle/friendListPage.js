@@ -37,9 +37,9 @@ const FriendList = ({ navigation }) => {
         <Text style={Styles.textStyles.header}> Friend's List </Text>
       </View>
       {/* <Friend name={"Jack M."} path={Const.jackImagePath} navigation={navigation}></Friend> */}
-      <Friend name={"Daphne "} path={Const.daphneImagePath} navigation={navigation}></Friend>
-      <Friend name={"Asha "} path={Const.ashaImagePath} navigation={navigation}></Friend>
-      <Friend name={"Michael "} path={Const.michaelImagePath} navigation={navigation}></Friend>
+      <Friend name={"Daphne"} path={Const.daphneImagePath} navigation={navigation}></Friend>
+      <Friend name={"Asha"} path={Const.ashaImagePath} navigation={navigation}></Friend>
+      <Friend name={"Michael"} path={Const.michaelImagePath} navigation={navigation}></Friend>
     </View>
   );
 };

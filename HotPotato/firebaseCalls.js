@@ -15,6 +15,7 @@ import {
   } from "firebase/firestore";
 
 const OUTBOUND_COLLECTION = "outboundAttacks";
+const INBOUND_COLLECTION = "inboundAttacks";
 
 export async function attackChallenge(player, challenge) {
     const date = new Date().getTime();
@@ -30,6 +31,20 @@ export async function attackStreak(player, streak) {
 export function addAttacksListener(setAttacks) {
     const q = query(
         collection(db, OUTBOUND_COLLECTION)
+    );
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        const attacks = [];
+        querySnapshot.forEach((doc) => {
+            attacks.push(doc.data());
+          });
+          setAttacks(attacks);
+    });
+    return unsubscribe;
+}
+
+export function addAttackersListener(setAttacks) {
+    const q = query(
+        collection(db, INBOUND_COLLECTION)
     );
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
         const attacks = [];

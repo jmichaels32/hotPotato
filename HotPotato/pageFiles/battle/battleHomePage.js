@@ -1,6 +1,5 @@
 import { Text, View, StyleSheet, Pressable, Image } from "react-native";
 import { useEffect, useState } from "react";
-import {addAttacksListener} from "../../firebaseCalls";
 
 // Local file import
 import * as Styles from "../../styles.js";
@@ -58,15 +57,6 @@ const stylesActivity = StyleSheet.create({
 
 const BattleHomePage = ({ navigation }) => {
 
-  const [attacks, setAttacks] = useState([]);
-
-  useEffect(() => {
-    const unsubscribe = addAttacksListener(setAttacks);
-    return function cleanup() {
-      unsubscribe();
-    };
-  }, []);
-
   return (
     <View style={styles.background}>
       <View>
@@ -103,15 +93,15 @@ const BattleHomePage = ({ navigation }) => {
         </Pressable>
         <Pressable
           style={styles.friendsList}
-          onPress={() => console.log("Clicked")}
+          onPress={() => navigation.navigate("AttacksPage")}
         >
-          <Text style={styles.friendsListText}>{`Discover\nNear You`}</Text>
+          <Text style={styles.friendsListText}>{`View\nAttacks`}</Text>
         </Pressable>
         <Pressable
           style={styles.friendsList}
-          onPress={() => console.log("Clicked")}
+          onPress={() => navigation.navigate("AttackersPage")}
         >
-          <Text style={styles.friendsListText}>{`Leader\nBoard`}</Text>
+          <Text style={styles.friendsListText}>{`View\nAttackers`}</Text>
         </Pressable>
       </View>
       <View style={styles.recentActivity}>
