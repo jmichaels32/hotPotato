@@ -12,20 +12,21 @@ export const PROFILEPAGE = 3;
 // Recommender pages
 export const RECOMMENDERPAGE = 4;
 export const REGIMENPAGE = 5;
+export const AWARDPAGE = 6;
 
 // Fortress Pages
-export const SOLDIEREXTERIOR = 6;
-export const WIZARDEXTERIOR = 7;
-export const KNIGHTEXTERIOR = 8;
-export const SOLDIERINTERIOR = 9;
-export const WIZARDINTERIOR = 10;
-export const KNIGHTINTERIOR = 11;
-export const KINGINTERIOR = 12;
-export const CUSTOMIZEPAGE = 13
+export const SOLDIEREXTERIOR = 7;
+export const WIZARDEXTERIOR = 8;
+export const KNIGHTEXTERIOR = 9;
+export const SOLDIERINTERIOR = 10;
+export const WIZARDINTERIOR = 11;
+export const KNIGHTINTERIOR = 12;
+export const KINGINTERIOR = 13;
+export const CUSTOMIZEPAGE = 14;
 
 // Profile Pages
-export const WORKOUTPREFERENCESPAGE = 14;
-export const MYGOALSPAGE = 15;
+export const WORKOUTPREFERENCESPAGE = 15;
+export const MYGOALSPAGE = 16;
 
 // ----------------------------------
 // Import SVGs
@@ -55,6 +56,7 @@ import GuardPotato from './images/fortress/guardPotato.svg'
 import Scroll from './images/fortress/scroll.svg'
 import PaletteButton from './images/fortress/paletteButton.svg'
 import PotatoContainer from './images/fortress/potatoContainer.svg'
+import AwardBack from './images/fortress/awardBack.svg'
 
 // Soldier SVGs
 import DefSoldierTower2 from './images/fortress/soldier/defSoldierTower.svg'
@@ -132,7 +134,7 @@ export { WorkoutIcon, FortressIcon, BattleIcon, ProfileIcon, WorkoutIconSelected
 				 DefWizardCarpet, ExtKnight1, ExtKnight2, IntGuard1, IntGuard2, IntKing, IntKnight1, IntKnight10,
 				 IntKnight2, IntKnight3, IntKnight4, IntKnight5, IntKnight6, IntKnight7, IntKnight8, IntKnight9,
 			 	 DefKnightCarpet, Bar, KnightDoor, BarInterior, ThroneInterior, BowStatue, MuscleStatue, SwordStatue,
-				 WandStatue, QueenPic, FriesPic}
+				 WandStatue, QueenPic, FriesPic, AwardBack}
 
 // ----------------------------------
 // Image Imports
