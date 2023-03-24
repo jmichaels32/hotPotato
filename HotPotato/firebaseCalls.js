@@ -37,9 +37,12 @@ export async function updatePotatoes(potatoes) {
    await setDoc(doc(db, USER, POTATOES), {...potatoes})
 }
 
-export async function updateEquipped(field, state) {
-  await setDoc(doc(db, USER, EQUIPPED), {[`${field}`]: state})
-  console.log("updated")
+export async function updateEquipped(equipped) {
+  await setDoc(doc(db, USER, EQUIPPED), {...equipped})
+}
+
+export async function payPotatoes(potato, cost) {
+  let potatoes = await getDoc(doc(db, USER, POTATOES));
 }
 
 export async function awardRandomPotatoes(num) {
@@ -65,8 +68,6 @@ export async function awardRandomPotatoes(num) {
                                         wizards: additions[1], 
                                         knights: additions[2]});
 }
-
-export async function setPotatoes() {}
 const OUTBOUND_COLLECTION = "outboundAttacks";
 const INBOUND_COLLECTION = "inboundAttacks";
 
