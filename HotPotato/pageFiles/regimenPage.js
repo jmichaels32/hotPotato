@@ -12,6 +12,10 @@ import { count, indexTransformDependencies } from 'mathjs';
 
 const RegimenPage = (props) => {
     const REGIMENT = props.generateWorkoutFromRequest;
+
+    // TODO: Boolean storing if they added the extra circuit, make sure all checkboxes are marked for completion of the challenge
+    //REGIMENT[REGIMENT.length-1].title === 'Extra Challenge Circuit'
+
     let i = 0;
 
     const styles = StyleSheet.create({

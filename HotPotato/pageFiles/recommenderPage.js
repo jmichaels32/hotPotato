@@ -256,7 +256,7 @@ const RecommenderPage = (props) => {
 					</View>
 				} 
 			</ScrollView>
-			<Popup style={displayPopup ? {display: 'block'} : {display: 'none'}} changePage={props.changePage} workoutFromRequest={props.changeGenerateWorkoutFromRequest} equipment={equipment} duration={duration} targetmuscles={targetmuscles}/>
+			<Popup style={displayPopup ? {display: 'inline'} : {display: 'none'}} changePage={props.changePage} workoutFromRequest={props.changeGenerateWorkoutFromRequest} equipment={equipment} duration={duration} targetmuscles={targetmuscles}/>
 		</View>
 	)
 };
