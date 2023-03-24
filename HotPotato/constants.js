@@ -13,9 +13,19 @@ export const PROFILEPAGE = 3;
 export const RECOMMENDERPAGE = 4;
 export const REGIMENPAGE = 5;
 
+// Fortress Pages
+export const SOLDIEREXTERIOR = 6;
+export const WIZARDEXTERIOR = 7;
+export const KNIGHTEXTERIOR = 8;
+export const SOLDIERINTERIOR = 9;
+export const WIZARDINTERIOR = 10;
+export const KNIGHTINTERIOR = 11;
+export const KINGINTERIOR = 12;
+export const CUSTOMIZEPAGE = 13
+
 // Profile Pages
-export const WORKOUTPREFERENCESPAGE = 6;
-export const MYGOALSPAGE = 7;
+export const WORKOUTPREFERENCESPAGE = 14;
+export const MYGOALSPAGE = 15;
 
 // ----------------------------------
 // Import SVGs
@@ -32,11 +42,73 @@ import BattleIconSelected from './images/selectedIcons/battleIconSelected.svg'
 import ProfileIconSelected from './images/selectedIcons/profileIconSelected.svg'
 
 // Fortress SVGs
-import Fortress from './images/fortress/fortress.svg'
-import Landscape from './images/fortress/landscape.svg'
-import SoldierTower from './images/fortress/soldierTower.svg'
-import WizardTower from './images/fortress/wizardTower.svg'
-import KnightTower from './images/fortress/knightTower.svg'
+import DefaultFortress from './images/fortress/defaultFortress.svg'
+import DefaultLandscape from './images/fortress/defaultLandscape.svg'
+import DefSoldierTower from './images/fortress/defSoldierTower.svg'
+import SoldierPotato from './images/fortress/soldierPotato.svg'
+import WizardPotato from './images/fortress/wizardPotato.svg'
+import KnightPotato from './images/fortress/knightPotato.svg'
+import KingPotato from './images/fortress/kingPotato.svg'
+import BrickCircle from './images/fortress/brickCircle.svg'
+import DefaultBanner from './images/fortress/defaultBanner.svg'
+import GuardPotato from './images/fortress/guardPotato.svg'
+import Scroll from './images/fortress/scroll.svg'
+import PaletteButton from './images/fortress/paletteButton.svg'
+import PotatoContainer from './images/fortress/potatoContainer.svg'
+
+// Soldier SVGs
+import DefSoldierTower2 from './images/fortress/soldier/defSoldierTower.svg'
+import ExtSoldier1 from './images/fortress/soldier/extSoldier1.svg'
+import SoldierDoor from './images/fortress/soldier/soldierDoor.svg'
+import Target1 from './images/fortress/soldier/target1.svg'
+import Target2 from './images/fortress/soldier/target2.svg'
+import IntSoldier1 from './images/fortress/soldier/intSoldier1.svg'
+import IntSoldier2 from './images/fortress/soldier/intSoldier2.svg'
+import IntSoldier3 from './images/fortress/soldier/intSoldier3.svg'
+import DungeonInterior from './images/fortress/soldier/soldierInterior.svg'
+
+// Wizard SVGs
+import DefWizardTower from './images/fortress/wizard/defWizardTower.svg'
+import ExtWizard1 from './images/fortress/wizard/extWizard1.svg'
+import ExtWizard2 from './images/fortress/wizard/extWizard2.svg'
+import Spell from './images/fortress/wizard/spell.svg'
+import WizardDoor from './images/fortress/wizard/wizardDoor.svg'
+import IntWizard1 from './images/fortress/wizard/intWizard1.svg'
+import IntWizard2 from './images/fortress/wizard/intWizard2.svg'
+import IntWizard3 from './images/fortress/wizard/intWizard3.svg'
+import LibraryInterior from './images/fortress/wizard/wizardInterior.svg'
+import DefWizardCarpet from './images/fortress/wizard/defWizardCarpet.svg'
+
+// Knight SVGs
+import DefKnightTower from './images/fortress/knight/defKnightTower.svg'
+import ExtKnight1 from './images/fortress/knight/extKnight1.svg'
+import ExtKnight2 from './images/fortress/knight/extKnight2.svg'
+import IntKnight1 from './images/fortress/knight/intKnight1.svg'
+import IntKnight2 from './images/fortress/knight/intKnight2.svg'
+import IntKnight3 from './images/fortress/knight/intKnight3.svg'
+import IntKnight4 from './images/fortress/knight/intKnight4.svg'
+import IntKnight5 from './images/fortress/knight/intKnight5.svg'
+import IntKnight6 from './images/fortress/knight/intKnight6.svg'
+import IntKnight7 from './images/fortress/knight/intKnight7.svg'
+import IntKnight8 from './images/fortress/knight/intKnight8.svg'
+import IntKnight9 from './images/fortress/knight/intKnight9.svg'
+import IntKnight10 from './images/fortress/knight/intKnight10.svg'
+import DefKnightCarpet from './images/fortress/knight/defKnightCarpet.svg'
+import Bar from './images/fortress/knight/bar.svg'
+import KnightDoor from './images/fortress/knight/knightDoor.svg'
+import BarInterior from './images/fortress/knight/knightInterior.svg'
+
+// King SVGs
+import IntGuard1 from './images/fortress/king/intGuard1.svg'
+import IntGuard2 from './images/fortress/king/intGuard2.svg'
+import IntKing from './images/fortress/king/intKing.svg'
+import ThroneInterior from './images/fortress/king/kingInterior.svg'
+import BowStatue from './images/fortress/king/bowStatue.svg'
+import MuscleStatue from './images/fortress/king/muscleStatue.svg'
+import SwordStatue from './images/fortress/king/swordStatue.svg'
+import WandStatue from './images/fortress/king/wandStatue.svg'
+import QueenPic from './images/fortress/king/queenPic.svg'
+import FriesPic from './images/fortress/king/friesPic.svg'
 
 // Miscellaneous SVGs
 import ActivityPlus from './images/topbar/activityPlus.svg'
@@ -51,8 +123,15 @@ import CameraIcon from './images/icons/cameraIcon.svg'
 
 export { WorkoutIcon, FortressIcon, BattleIcon, ProfileIcon, WorkoutIconSelected, FortressIconSelected,
 				 BattleIconSelected, ProfileIconSelected, ActivityPlus, LogoLight, LogoDark, BackButton, 
-				 AmmoIcon, AttackAmmoIcon, UncheckedBox, CheckedBox, CameraIcon, Fortress, Landscape,
-				 SoldierTower, WizardTower, KnightTower }
+				 AmmoIcon, AttackAmmoIcon, UncheckedBox, CheckedBox, CameraIcon, DefaultFortress, DefaultLandscape,
+				 DefSoldierTower, DefSoldierTower2, DefWizardTower, DefKnightTower, SoldierPotato, WizardPotato, KnightPotato,
+				 KingPotato, BrickCircle, DefaultBanner, GuardPotato, Scroll, PaletteButton, PotatoContainer,
+				 ExtSoldier1, SoldierDoor, Target1, Target2, IntSoldier1, IntSoldier2, IntSoldier3, DungeonInterior,
+				 ExtWizard1, ExtWizard2, Spell, WizardDoor,IntWizard1, IntWizard2, IntWizard3, LibraryInterior, 
+				 DefWizardCarpet, ExtKnight1, ExtKnight2, IntGuard1, IntGuard2, IntKing, IntKnight1, IntKnight10,
+				 IntKnight2, IntKnight3, IntKnight4, IntKnight5, IntKnight6, IntKnight7, IntKnight8, IntKnight9,
+			 	 DefKnightCarpet, Bar, KnightDoor, BarInterior, ThroneInterior, BowStatue, MuscleStatue, SwordStatue,
+				 WandStatue, QueenPic, FriesPic}
 
 // ----------------------------------
 // Image Imports
