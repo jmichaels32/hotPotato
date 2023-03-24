@@ -20,6 +20,11 @@ export const constantStyles = StyleSheet.create({
   profilePhoto: {
     backgroundColor: "#FDDC9B",
     borderRadius: "100%",
+  },
+  svgCenter: {
+    position: 'absolute',
+    justifyContent: 'center', 
+    alignItems: 'center'
   }
 });
 

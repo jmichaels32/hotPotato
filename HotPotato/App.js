@@ -1,7 +1,6 @@
 import * as Font from "expo-font";
 import { Component } from "react";
 import { StatusBar } from "expo-status-bar";
-import { setCustomText } from "react-native-global-props";
 import { TouchableOpacity, Image, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 
