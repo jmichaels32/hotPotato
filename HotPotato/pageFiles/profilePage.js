@@ -21,11 +21,52 @@ const Version = () => {
 	)
 }
 
+const Goal = ({text}) => {
+	return (
+		<View style={{
+			backgroundColor: '#FFF2D9', 
+			marginTop: 10,
+			padding: 10,
+			borderRadius: 7,
+			borderWidth: 2,
+			borderColor: '#D6AE60',
+			width: '100%',
+		}}>
+			<Text style={[Styles.textStyles.medium, {textAlign: 'center'}]}> {text} </Text>
+		</View>
+	)
+}
+
 const GoalsPopupInternal = ({changePopup}) => {
 	return (
-		<View>
+		<View style={{alignItems: 'center'}}>
 			<Text style={Styles.textStyles.header}> Goals </Text>
-			
+			<Goal text="Be more consistent with my workouts"/>
+			<Goal text="Be able to do 10 pull ups"/>
+			<TouchableOpacity onPress={() => {}}>
+				<LinearGradient colors={['#FFD77D', '#FFF2D9']} style={Styles.pageStyles.button} >
+					<Text style={Styles.textStyles.subHeader}> Add a goal </Text>
+				</LinearGradient>
+			</TouchableOpacity>
+		</View>
+	)
+}
+
+const Friend = ({photo, name}) => {
+	return (
+		<View>
+			<View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingBottom: 20}}> 
+				<ProfilePhoto style={{width: 100, height: 100}} path={photo}/>
+				<View style={{alignItems:'flex-end'}}> 
+					<Text style={Styles.textStyles.header}> {name} </Text>
+					<TouchableOpacity onPress={() => {}}>
+						<LinearGradient colors={['#FFD77D', '#FFF2D9']} style={{borderWidth: 2, borderRadius: 5}}>
+							<Text style={{fontFamily: "Nunito-Bold"}}> View Profile </Text>
+						</LinearGradient>
+					</TouchableOpacity>
+				</View>
+			</View>
+			<Line color={'#D6AE60'} height={3} width={220} left={4}/>
 		</View>
 	)
 }
@@ -35,50 +76,11 @@ const FriendsPopupInternal = ({changePopup}) => {
 		<View style={{width: '90%', alignItems: 'center'}}>
 			<Text style={Styles.textStyles.header}> Friends </Text>
 			<ScrollView style={{width: '100%', height: 350}}>
-				<View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}> 
-					<ProfilePhoto style={{width: 100, height: 100}} path={Const.ashaImagePath}/>
-					<View style={{alignItems:'flex-end'}}> 
-						<Text style={Styles.textStyles.header}> Asha </Text>
-						<TouchableOpacity onPress={() => {}}>
- 							<LinearGradient colors={['#FFD77D', '#FFF2D9']} style={{borderWidth: 2, borderRadius: 5}}>
- 								<Text style={{fontFamily: "Nunito-Bold"}}> View Profile </Text>
- 							</LinearGradient>
- 						</TouchableOpacity>
-					</View>
-				</View>
-				<View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}> 
-					<ProfilePhoto style={{width: 100, height: 100}} path={Const.daphneImagePath}/>
-					<View style={{alignItems:'flex-end'}}> 
-						<Text style={Styles.textStyles.header}> Daphne </Text>
-						<TouchableOpacity onPress={() => {}}>
- 							<LinearGradient colors={['#FFD77D', '#FFF2D9']} style={{borderWidth: 2, borderRadius: 5}}>
- 								<Text style={{fontFamily: "Nunito-Bold"}}> View Profile </Text>
- 							</LinearGradient>
- 						</TouchableOpacity>
-					</View>
-				</View>
-				<View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}> 
-					<ProfilePhoto style={{width: 100, height: 100}} path={Const.michaelImagePath}/>
-					<View style={{alignItems:'flex-end'}}> 
-						<Text style={Styles.textStyles.header}> Michael </Text>
-						<TouchableOpacity onPress={() => {}}>
- 							<LinearGradient colors={['#FFD77D', '#FFF2D9']} style={{borderWidth: 2, borderRadius: 5}}>
- 								<Text style={{fontFamily: "Nunito-Bold"}}> View Profile </Text>
- 							</LinearGradient>
- 						</TouchableOpacity>
-					</View>
-				</View>
-				<View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}> 
-					<ProfilePhoto style={{width: 100, height: 100}} path={Const.jackImagePath}/>
-					<View style={{alignItems:'flex-end'}}> 
-						<Text style={Styles.textStyles.header}> Peter </Text>
-						<TouchableOpacity onPress={() => {}}>
- 							<LinearGradient colors={['#FFD77D', '#FFF2D9']} style={{borderWidth: 2, borderRadius: 5}}>
- 								<Text style={{fontFamily: "Nunito-Bold"}}> View Profile </Text>
- 							</LinearGradient>
- 						</TouchableOpacity>
-					</View>
-				</View>
+				<Friend photo={Const.ashaImagePath} name={"Asha"} />
+				<Friend photo={Const.daphneImagePath} name={"Daphne"} />
+				<Friend photo={Const.michaelImagePath} name={"Michael"} />
+				<Friend photo={Const.jackImagePath} name={"Peter"} />
+				<Friend photo={Const.ashaImagePath} name={"Alice"} />
 			</ScrollView>
 		</View>
 	)
