@@ -82,7 +82,6 @@ export async function awardRandomPotatoes(num) {
                                         wizards: additions[1], 
                                         knights: additions[2]});
 }
-
 const OUTBOUND_COLLECTION = "outboundAttacks";
 const INBOUND_COLLECTION = "inboundAttacks";
 
