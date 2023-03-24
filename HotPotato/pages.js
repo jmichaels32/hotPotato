@@ -10,7 +10,6 @@ import BattlePage from './pageFiles/battlePage.js';
 import ProfilePage from './pageFiles/profilePage.js';
 import WorkoutPage from './pageFiles/workoutPage.js';
 import RegimenPage from './pageFiles/regimenPage.js';
-import MyGoalsPage from './pageFiles/mygoalsPage.js'
 
 const Pages = (props) => {
     const [generateWorkoutFromRequestOutput, generateWorkoutFromRequestChange] = useState([])
@@ -20,9 +19,7 @@ const Pages = (props) => {
             {props.currentPage == Const.WORKOUTPAGE && <WorkoutPage />}
             {props.currentPage == Const.FORTRESSPAGE && <FortressPage />}
             {props.currentPage == Const.BATTLEPAGE && <BattlePage />}
-            {props.currentPage == Const.PROFILEPAGE && <ProfilePage 
-                                                            changePage={props.changePage}
-                                                        />}
+            {props.currentPage == Const.PROFILEPAGE && <ProfilePage />}
             {props.currentPage == Const.RECOMMENDERPAGE && <RecommenderPage 
                                                                 changePage={props.changePage} 
                                                                 changeGenerateWorkoutFromRequest={generateWorkoutFromRequestChange}
@@ -30,7 +27,6 @@ const Pages = (props) => {
             {props.currentPage == Const.REGIMENPAGE && <RegimenPage 
                                                                 generateWorkoutFromRequest={generateWorkoutFromRequestOutput}
                                                             />}
-            {props.currentPage == Const.MYGOALSPAGE && <MyGoalsPage />}
         </View>
     );
 };

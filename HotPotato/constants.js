@@ -13,10 +13,6 @@ export const PROFILEPAGE = 3;
 export const RECOMMENDERPAGE = 4;
 export const REGIMENPAGE = 5;
 
-// Profile Pages
-export const WORKOUTPREFERENCESPAGE = 6;
-export const MYGOALSPAGE = 7;
-
 // ----------------------------------
 // Import SVGs
 // ----------------------------------
