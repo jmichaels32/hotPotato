@@ -37,9 +37,7 @@ const Pages = (props) => {
             {props.currentPage == Const.KINGINTERIOR && <KingInterior changePage={props.changePage} />}
             {props.currentPage == Const.CUSTOMIZEPAGE && <CustomizePage changePage={props.changePage} />}
             {props.currentPage == Const.BATTLEPAGE && <BattlePage />} 
-            {props.currentPage == Const.PROFILEPAGE && <ProfilePage 
-                                                            changePage={props.changePage}
-                                                        />}
+            {props.currentPage == Const.PROFILEPAGE && <ProfilePage />}
             {props.currentPage == Const.RECOMMENDERPAGE && <RecommenderPage 
                                                                 changePage={props.changePage} 
                                                                 changeGenerateWorkoutFromRequest={generateWorkoutFromRequestChange}
@@ -51,7 +49,6 @@ const Pages = (props) => {
             {props.currentPage == Const.AWARDPAGE && <AwardPage 
                                                                 changePage={props.changePage}
                                                             />}
-            {props.currentPage == Const.MYGOALSPAGE && <MyGoalsPage />}
         </View>
     );
 };

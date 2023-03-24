@@ -238,31 +238,56 @@ export const recommenderStyles = StyleSheet.create({
     justifyContent: 'flex-end', 
     marginBottom: 10,
   },
-  // To make sure they can't select any other options
-  popupContainer: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  popup: {
-    alignItems: 'center',
-    backgroundColor: '#f0ce8b',
-    borderRadius: 10,
-    borderWidth: 4,
-    borderColor: '#443105',
-    width: '90%',
-    padding: 10,
-    paddingTop: 40,
-    paddingBottom: 40,
-    marginTop: 30,
-  }
+   // To make sure they can't select any other options
+   popupContainer: {
+     position: 'absolute',
+     width: '100%',
+     height: '100%',
+     alignItems: 'center',
+     justifyContent: 'center',
+   },
+   popup: {
+     alignItems: 'center',
+     backgroundColor: '#f0ce8b',
+     borderRadius: 10,
+     borderWidth: 4,
+     borderColor: '#D6AE60',
+     width: '90%',
+     padding: 10,
+     paddingTop: 40,
+     paddingBottom: 40,
+     marginTop: 30,
+   }
   // The text in the dropdown display box
   // dropdownBoxText: {
   //   fontSize: 15,
   // },
 });
+
+export const popup = StyleSheet.create({
+  backButton: {
+    position: 'absolute',
+    top: 10,
+    left: 10
+  },
+  logoutPopup: {
+    alignItems: 'center'
+  },
+  reportPopup: {
+    paddingTop: 25,
+    alignItems: 'center',
+  },
+  reportPopupText: {
+    paddingLeft: 5,
+    textAlignVertical: 'top',
+    backgroundColor: '#FFF2D9',
+    borderColor: '#D6AE60',
+    borderRadius: 10,
+    borderWidth: 4,
+    width: 300,
+    height: 200,
+  }
+})
 
 export const regimenStyles = StyleSheet.create({
   container: {

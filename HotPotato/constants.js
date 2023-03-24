@@ -24,10 +24,6 @@ export const KNIGHTINTERIOR = 12;
 export const KINGINTERIOR = 13;
 export const CUSTOMIZEPAGE = 14;
 
-// Profile Pages
-export const WORKOUTPREFERENCESPAGE = 15;
-export const MYGOALSPAGE = 16;
-
 // ----------------------------------
 // Import SVGs
 // ----------------------------------
