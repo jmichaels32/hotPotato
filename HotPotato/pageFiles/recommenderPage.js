@@ -114,18 +114,12 @@ const RecommenderPage = (props) => {
 		{ key: 'Full Body', value: 'General Full Body' },
 		{ key: 'Upper Body', value: 'General Upper Body' },
 		{ key: 'Lower Body', value: 'General Lower Body' },
-		{ key: 'Core', value: 'General Core' },
+		{ key: 'Core', value: 'Core' },
 		{ key: 'Plyo', value: 'Plyometric' },
 		{ key: 'Hamstrings', value: 'Hamstrings' },
 		{ key: 'Glutes', value: 'Glutes' },
-		{ key: 'Chest', value: 'Chest' },
+		{ key: 'Arms', value: 'Arms' },
 		{ key: 'Back', value: 'Back' },
-		{ key: 'Tricep', value: 'Triceps' },
-		{ key: 'Hips', value: 'Hips' },
-		{ key: 'Calves', value: 'Calves' },
-		{ key: 'Bicep', value: 'Biceps' },
-		{ key: 'Obliques', value: 'Obliques' },
-		{ key: 'Shoulders', value: 'Shoulders' },
 	]
 
 	return (
