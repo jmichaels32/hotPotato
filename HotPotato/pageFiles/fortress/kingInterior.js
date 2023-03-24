@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity, View } from 'react-native';
 import { getUnlocks, getEquipped } from '../../firebaseCalls.js';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Local file import
 import * as Const from '../../constants.js'
@@ -13,13 +13,16 @@ const KingInterior = (props) => {
     const [unlocks, setUnlocks] = useState({});
     const [equipped, setEquipped] = useState({});
 
-	const setup = async () => {
-		let unlocks = await getUnlocks();
-		setUnlocks(unlocks.data());
-        let equipped = await getEquipped();
-		setEquipped(equipped.data());
-	}
-	setup();
+    useEffect(() => {
+        const setup = async () => {
+            let unlocks = await getUnlocks();
+            setUnlocks(unlocks.data());
+            let equipped = await getEquipped();
+            setEquipped(equipped.data());
+            console.log(equipped.data())
+        }
+        setup();
+    }, []);
 
 	return (
 		<View style={{height: '86.5%'}}>
@@ -46,10 +49,10 @@ const KingInterior = (props) => {
                 { equipped.muscleStatue ? <MuscleStatue /> : null }
 			</View>
             <View style={[Styles.constantStyles.svgCenter, { top: 0, left: 0, right: 150, bottom: 280 }]}>
-                { equipped.friesPainting ? <FriesPic /> : null }
+                { equipped.friesPic ? <FriesPic /> : null }
 			</View>
             <View style={[Styles.constantStyles.svgCenter, { top: 0, left: 150, right: 0, bottom: 280 }]}>
-                { equipped.queenPainting ? <QueenPic /> : null }
+                { equipped.queenPic ? <QueenPic /> : null }
 			</View>
             <View style={[Styles.constantStyles.svgCenter, { top: 20, left: 0, right: 0, bottom: 550}]}>
 				<View style={{position: 'absolute'}}>

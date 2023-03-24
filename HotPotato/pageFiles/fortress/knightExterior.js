@@ -15,20 +15,15 @@ const KnightExterior = (props) => {
 			<View style={[Styles.constantStyles.svgCenter, { top: 0, left: 0, right: 0, bottom: 130}]}>
 				<DefKnightTower />
 			</View>
-            <View style={[Styles.constantStyles.svgCenter, { top: 340, left: 0, right: 0, bottom: 0}]}>
-				<KnightDoor />
-			</View>
             <View style={[Styles.constantStyles.svgCenter, { top: 400, left: 0, right: 200, bottom: 0}]}>
 				<ExtKnight1 />
 			</View>
             <View style={[Styles.constantStyles.svgCenter, { top: 380, left: 200, right: 0, bottom: 0}]}>
 				<ExtKnight2 />
 			</View>
-            <TouchableOpacity style={[Styles.constantStyles.svgCenter, { top: 140, left: 0, right: 0, bottom: 0}]}
+            <TouchableOpacity style={[Styles.constantStyles.svgCenter, { top: 340, left: 0, right: 0, bottom: 0}]}
 			onPress={() => {props.changePage(Const.KNIGHTEXTERIOR, Const.KNIGHTINTERIOR);}}>
-				<LinearGradient colors={['#FFD77D', '#FFF2D9']} style={[Styles.pageStyles.button, {width: 100, height: 50}]} >
-					<Text style={Styles.textStyles.medium}>Tavern</Text>
-				</LinearGradient>
+				<KnightDoor />
 			</TouchableOpacity>
             <TouchableOpacity style={[Styles.constantStyles.svgCenter, { top: 0, left: 0, right: 290, bottom: 520}]}
 			onPress={() => {props.changePage(Const.KNIGHTEXTERIOR, Const.CUSTOMIZEPAGE);}}>
