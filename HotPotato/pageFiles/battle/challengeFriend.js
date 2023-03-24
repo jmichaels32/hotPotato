@@ -1,21 +1,98 @@
-import { Text, View, StyleSheet, Image, Button, Pressable } from "react-native";
+import { useState } from "react";
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  Button,
+  Pressable,
+  TextInput,
+  Modal,
+} from "react-native";
 import * as Const from "../../constants.js";
+import {attackChallenge, attackStreak} from "../../firebaseCalls.js";
 
-const AttackButton = () => {
+
+const stylesModal = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center",
+  },
+});
+
+const AttackButton = ({ attack, modalVisible, setModalVisible }) => {
   return (
     <View style={attackButtonStyle.container}>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={stylesModal.centeredView}>
+          <View style={stylesModal.modalView}>
+            <Text style={stylesModal.modalText}>Attacked!!</Text>
+            <Pressable
+              style={[stylesModal.button, stylesModal.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}
+            >
+              <Text style={stylesModal.textStyle}>Hide Modal</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
       <Image
         style={attackButtonStyle.unionIcon}
         source={Const.unionIconPath}
       ></Image>
-      <Pressable onPress={() => console.log("attack!")}>
+      <Pressable onPress={() => attack()}>
         <View style={attackButtonStyle.row}>
           <Text style={attackButtonStyle.text}>Attack</Text>
           <Image
             style={attackButtonStyle.ammoIcon}
             source={Const.ammoIconPath}
           />
-          <Text style={attackButtonStyle.text}>-2</Text>
+          <Text style={attackButtonStyle.text}></Text>
         </View>
       </Pressable>
     </View>
@@ -60,21 +137,72 @@ const attackButtonStyle = StyleSheet.create({
   },
 });
 
-const ChallengeFriend = ({ navigation,route }) => {
+const ChallengeToWorkout = ({workout, setWorkout}) => {
+  return (
+    <View style={styles.friendBar}>
+      <Text style={styles.friendName}>Challenge to new Workout</Text>
+      <TextInput
+        style={stylesChallenge.input}
+        value={workout}
+        onChangeText={setWorkout}
+        multiline={true}
+      />
+    </View>
+  );
+};
+
+const ChallengeToStreak = ({streak, setStreak}) => {
+  return (
+    <View style={styles.friendBar}>
+      <Text style={styles.friendName}>Challenge to new streak</Text>
+      <TextInput
+        style={stylesChallenge.input}
+        value={streak}
+        onChangeText={setStreak}
+        multiline={true}
+        // keyboardType={"numeric"}
+      />
+    </View>
+  );
+};
+
+const stylesChallenge = StyleSheet.create({
+  input: {
+    width: "94%",
+    height: "60%",
+    marginLeft: "3%",
+    backgroundColor: "bisque",
+    borderRadius: 10,
+  },
+});
+
+const ChallengeFriend = ({ navigation, route }) => {
+
   const name = route.params.name;
+
+  // Attack
+  const [modalVisible, setModalVisible] = useState(false);
+  const attack = () => {
+    if(workout.length != 0)
+      attackChallenge(name, workout);
+    if (streak != 0) 
+      attackStreak(name, streak);
+    setModalVisible(true);
+  };
+
+  //Workout + streak
+  const [workout, setWorkout] = useState("");
+  const [streak, setStreak] = useState(0);
+
   return (
     <View style={styles.background}>
       <Button title="Back" onPress={() => navigation.pop()} />
-      <View style={styles.friendBar}>
+      {/* <View style={styles.friendBar}>
         <Text style={styles.friendName}>Select a challenge for {name}</Text>
-      </View>
-      <View style={styles.friendBar}>
-        <Text style={styles.friendName}>Strengthen Daily Workout</Text>
-      </View>
-      <View style={styles.friendBar}>
-        <Text style={styles.friendName}>Dare to a new workout</Text>
-      </View>
-      <AttackButton />
+      </View> */}
+      <ChallengeToWorkout workout = {workout} setWorkout={setWorkout}/>
+      <ChallengeToStreak streak={streak} setStreak={setStreak}/>
+      <AttackButton navigation={navigation} attack = {attack} modalVisible = {modalVisible} setModalVisible={setModalVisible}/>
     </View>
   );
 };
@@ -86,7 +214,7 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   friendBar: {
-    flexDirection: "row",
+    flexDirection: "column",
     // justifyContent: "space-between",
     backgroundColor: "papayawhip",
     marginLeft: "auto",

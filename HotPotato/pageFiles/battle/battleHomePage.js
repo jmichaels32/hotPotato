@@ -1,4 +1,6 @@
 import { Text, View, StyleSheet, Pressable, Image } from "react-native";
+import { useEffect, useState } from "react";
+import {addAttacksListener} from "../../firebaseCalls";
 
 // Local file import
 import * as Styles from "../../styles.js";
@@ -55,6 +57,16 @@ const stylesActivity = StyleSheet.create({
 });
 
 const BattleHomePage = ({ navigation }) => {
+
+  const [attacks, setAttacks] = useState([]);
+
+  useEffect(() => {
+    const unsubscribe = addAttacksListener(setAttacks);
+    return function cleanup() {
+      unsubscribe();
+    };
+  }, []);
+
   return (
     <View style={styles.background}>
       <View>
@@ -67,7 +79,7 @@ const BattleHomePage = ({ navigation }) => {
         />
         <Image
           style={{ ...styles.friendPic, ...styles.friendPic2 }}
-          source={Const.jackImagePath}
+          source={Const.daphneImagePath}
         />
         <Image
           style={{ ...styles.friendPic, ...styles.friendPic3 }}
@@ -91,13 +103,13 @@ const BattleHomePage = ({ navigation }) => {
         </Pressable>
         <Pressable
           style={styles.friendsList}
-          onPress={() => navigation.navigate("FriendsList")}
+          onPress={() => console.log("Clicked")}
         >
           <Text style={styles.friendsListText}>{`Discover\nNear You`}</Text>
         </Pressable>
         <Pressable
           style={styles.friendsList}
-          onPress={() => navigation.navigate("FriendsList")}
+          onPress={() => console.log("Clicked")}
         >
           <Text style={styles.friendsListText}>{`Leader\nBoard`}</Text>
         </Pressable>
@@ -105,8 +117,8 @@ const BattleHomePage = ({ navigation }) => {
       <View style={styles.recentActivity}>
         <Text style={styles.recentActivityText}>Recent Battles</Text>
         <View style={stylesActivity.column}>
-          <RecentActivityRow attacker={{name: "You", path: Const.ashaImagePath}} attackee = {{name: "Jack", path: Const.jackImagePath}}/>
-          <RecentActivityRow attacker={{name: "Jack", path: Const.jackImagePath}} attackee = {{name: "You", path: Const.ashaImagePath}}/>
+          <RecentActivityRow attacker={{name: "You", path: Const.jackImagePath}} attackee = {{name: "Asha", path: Const.ashaImagePath}}/>
+          <RecentActivityRow attacker={{name: "Asha", path: Const.ashaImagePath}} attackee = {{name: "You", path: Const.jackImagePath}}/>
         </View>
       </View>
     </View>

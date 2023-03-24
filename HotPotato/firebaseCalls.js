@@ -14,15 +14,29 @@ import {
     deleteDoc,
   } from "firebase/firestore";
 
-const FRIENDS_COLLECTION = "friends";
-const PROFILE_COLLECTION = "profile"
+const OUTBOUND_COLLECTION = "outboundAttacks";
 
-export async function createProfile(profile) {
-    const id = uuid.v4();
-    await setDoc(doc(db, PROFILE_COLLECTION, id), {id: id, ...profile});
+export async function attackChallenge(player, challenge) {
+    const date = new Date().getTime();
+
+    await setDoc(doc(db, OUTBOUND_COLLECTION, String(date)), {date: date, player: player, challenge: challenge});
 }
 
-export async function createFriend(friend) {
+export async function attackStreak(player, streak) {
     const id = uuid.v4();
-    await setDoc(doc(db, FRIENDS_COLLECTION, id), {id: id, ...friend});
+    await setDoc(doc(db, OUTBOUND_COLLECTION, id), {id: id, player: player, challenge: `${streak} day challenge`});
+}
+
+export function addAttacksListener(setAttacks) {
+    const q = query(
+        collection(db, OUTBOUND_COLLECTION)
+    );
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        const attacks = [];
+        querySnapshot.forEach((doc) => {
+            attacks.push(doc.data());
+          });
+          setAttacks(attacks);
+    });
+    return unsubscribe;
 }
