@@ -19,13 +19,12 @@ const INBOUND_COLLECTION = "inboundAttacks";
 
 export async function attackChallenge(player, challenge) {
     const date = new Date().getTime();
-
     await setDoc(doc(db, OUTBOUND_COLLECTION, String(date)), {date: date, player: player, challenge: challenge});
 }
 
 export async function attackStreak(player, streak) {
-    const id = uuid.v4();
-    await setDoc(doc(db, OUTBOUND_COLLECTION, id), {id: id, player: player, challenge: `${streak} day challenge`});
+    const date = new Date().getTime();
+    await setDoc(doc(db, OUTBOUND_COLLECTION, String(date)), {date: date, player: player, challenge: `${streak} day challenge`});
 }
 
 export function addAttacksListener(setAttacks) {

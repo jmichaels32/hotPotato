@@ -29,7 +29,7 @@ const attackStyle = StyleSheet.create({
   row: {
     flexDirection: "row",
     width: "100%",
-    height: "20%",
+    height: "30%",
   },
   text: {
     fontFamily: "Nunito-Bold",
