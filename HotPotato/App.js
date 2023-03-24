@@ -31,6 +31,10 @@ const TopBar = (props) => {
       : Styles.displayStyles.hide;
 
   const goBack = () => {
+    if (props.state.previousPage.length == 0) {
+      return 
+    }
+
     const pageChange = props.state.previousPage.pop();
 
     if (props.state.previousPage.length == 0) {
