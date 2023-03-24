@@ -232,6 +232,26 @@ export const recommenderStyles = StyleSheet.create({
     flex: 1, 
     justifyContent: 'flex-end', 
     marginBottom: 10,
+  },
+  // To make sure they can't select any other options
+  popupContainer: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  popup: {
+    alignItems: 'center',
+    backgroundColor: '#f0ce8b',
+    borderRadius: 10,
+    borderWidth: 4,
+    borderColor: '#443105',
+    width: '90%',
+    padding: 10,
+    paddingTop: 40,
+    paddingBottom: 40,
+    marginTop: 30,
   }
   // The text in the dropdown display box
   // dropdownBoxText: {
