@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, TextInput, Text, View, StyleSheet, Image } from 'react-native';
+import { TouchableOpacity, ScrollView, TextInput, Text, View, StyleSheet, Image } from 'react-native';
 
 // Local file import
 import * as Styles from '../styles.js';
@@ -21,6 +21,69 @@ const Version = () => {
 	)
 }
 
+const GoalsPopupInternal = ({changePopup}) => {
+	return (
+		<View>
+			<Text style={Styles.textStyles.header}> Goals </Text>
+			
+		</View>
+	)
+}
+
+const FriendsPopupInternal = ({changePopup}) => {
+	return (
+		<View style={{width: '90%', alignItems: 'center'}}>
+			<Text style={Styles.textStyles.header}> Friends </Text>
+			<ScrollView style={{width: '100%', height: 350}}>
+				<View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}> 
+					<ProfilePhoto style={{width: 100, height: 100}} path={Const.ashaImagePath}/>
+					<View style={{alignItems:'flex-end'}}> 
+						<Text style={Styles.textStyles.header}> Asha </Text>
+						<TouchableOpacity onPress={() => {}}>
+ 							<LinearGradient colors={['#FFD77D', '#FFF2D9']} style={{borderWidth: 2, borderRadius: 5}}>
+ 								<Text style={{fontFamily: "Nunito-Bold"}}> View Profile </Text>
+ 							</LinearGradient>
+ 						</TouchableOpacity>
+					</View>
+				</View>
+				<View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}> 
+					<ProfilePhoto style={{width: 100, height: 100}} path={Const.daphneImagePath}/>
+					<View style={{alignItems:'flex-end'}}> 
+						<Text style={Styles.textStyles.header}> Daphne </Text>
+						<TouchableOpacity onPress={() => {}}>
+ 							<LinearGradient colors={['#FFD77D', '#FFF2D9']} style={{borderWidth: 2, borderRadius: 5}}>
+ 								<Text style={{fontFamily: "Nunito-Bold"}}> View Profile </Text>
+ 							</LinearGradient>
+ 						</TouchableOpacity>
+					</View>
+				</View>
+				<View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}> 
+					<ProfilePhoto style={{width: 100, height: 100}} path={Const.michaelImagePath}/>
+					<View style={{alignItems:'flex-end'}}> 
+						<Text style={Styles.textStyles.header}> Michael </Text>
+						<TouchableOpacity onPress={() => {}}>
+ 							<LinearGradient colors={['#FFD77D', '#FFF2D9']} style={{borderWidth: 2, borderRadius: 5}}>
+ 								<Text style={{fontFamily: "Nunito-Bold"}}> View Profile </Text>
+ 							</LinearGradient>
+ 						</TouchableOpacity>
+					</View>
+				</View>
+				<View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}> 
+					<ProfilePhoto style={{width: 100, height: 100}} path={Const.jackImagePath}/>
+					<View style={{alignItems:'flex-end'}}> 
+						<Text style={Styles.textStyles.header}> Peter </Text>
+						<TouchableOpacity onPress={() => {}}>
+ 							<LinearGradient colors={['#FFD77D', '#FFF2D9']} style={{borderWidth: 2, borderRadius: 5}}>
+ 								<Text style={{fontFamily: "Nunito-Bold"}}> View Profile </Text>
+ 							</LinearGradient>
+ 						</TouchableOpacity>
+					</View>
+				</View>
+			</ScrollView>
+		</View>
+	)
+}
+
 const ReportPopupInternal = ({changePopup}) => {
 	return (
 		<View style={Styles.popup.reportPopup}>
@@ -31,7 +94,7 @@ const ReportPopupInternal = ({changePopup}) => {
 				onChangeText={() => {}}
 				value={"Enter your report here"}
 			/>
-			<TouchableOpacity onPress={() => {}}>
+			<TouchableOpacity onPress={() => {changePopup(false)}}>
 				<LinearGradient colors={['#FF4545', '#FFB100']} style={Styles.pageStyles.button} >
 					<Text style={Styles.textStyles.whiteSubHeader}> Submit </Text>
 				</LinearGradient>
@@ -69,6 +132,8 @@ const Popup = ({style, changePopup, popup}) => {
 			    </TouchableOpacity>}
  				{popup == "logout" && <LogoutPopupInternal changePopup={changePopup}/>}
  				{popup == "report" && <ReportPopupInternal changePopup={changePopup}/>}
+ 				{popup == "goals" && <GoalsPopupInternal changePopup={changePopup} />}
+ 				{popup == "friends" && <FriendsPopupInternal changePopup={changePopup} />}
  			</View>
  		</View>
  	)
@@ -110,12 +175,16 @@ const ProfilePage = () => {
 					internalStyle={styles.settingButtonInternal}
 					onPress={() => {
 						changeShowPopup(true);
+						changePopupType("friends");
 					}}/>
 				<SettingButton 
 					text={"My Goals"} 
 					style={styles.settingButton}
 					internalStyle={styles.settingButtonInternal}
-					onPress={() => {changeShowPopup(true)}}/>
+					onPress={() => {
+						changeShowPopup(true);
+						changePopupType("goals");
+					}}/>
 				<SettingButton 
 					text={"Report a Bug"} 
 					style={styles.settingButton}
